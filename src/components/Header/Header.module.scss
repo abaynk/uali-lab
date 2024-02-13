@@ -1,0 +1,12 @@
+.root {
+  height: 5.3125rem;
+  width: 100%;
+  padding-left: var(--container-gutter);
+  padding-right: var(--container-gutter);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 3.75rem;
+  gap: 3.75rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
