@@ -1,78 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background-end-rgb: #f3f3e9;
-  --theme-secondary: #0f1d07;
-  --container-gutter: clamp(2.5rem, 2.6455026455vw, 3.325rem);
-  --theme-primary: #90f188;
-  --theme-secondary: #0f1d07;
-  --container-gutter: ;
-  --container-gutter: 20px;
-  --blue-primary: #82d7ff;
-}
-@media (min-width: 768px) {
-  :root {
-    --container-gutter: clamp(2.5rem, 2.6455026455vw, 3.325rem);
-  }
-}
-html {
-  background: var(--background-end-rgb);
-  scroll-behavior: smooth;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: --background-end-rgb;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-h1 {
-  color: var(--theme-secondary);
-  line-height: 0.92;
-  font-size: clamp(3.125rem, 6.5104166667vw, 4.15625rem);
-  margin: 0;
-}
-
-@media (min-width: 992px) {
-  h1 {
-    font-size: clamp(8.125rem, 8.5978835979vw, 10.80625rem);
-    margin: 0;
-    padding-top: clamp(3.125rem, 3.3068783069vw, 4.15625rem);
-    padding-bottom: clamp(3.125rem, 3.3068783069vw, 4.15625rem);
-  }
-}
-h2 {
-  color: var(--theme-secondary);
-  display: block;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: 500;
-}
-#one {
-  background-image: url(/assets/images/autumn-in-new-york-5-1360120.jpg);
-}
-#two {
-  background-image: url(/assets/images/oxford-architecture-1233371.jpg);
-}
-#three {
-  background-image: url(/assets/images/paris-1213603.jpg);
-}
-#four {
-  background-image: url(/assets/images/spring-1377434.jpg);
-}
-.video-container {
-  width: 100%;
-}
 .FrameCounter_frame-counter__iOdfd {
   color: lime;
   font-weight: 600;
@@ -2061,71 +1986,78 @@ body.overflow-hidden {
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/6bf2ef6fbd7735ea-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Bold.otf) format("opentype");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/0a8748711de16268-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-BoldItalic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/b9da7318b7abaa15-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Medium.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/b29d22fbf0cf099c-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-MediumItalic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/b755838d3028ac33-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Regular.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/cb6468dca0919260-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Italic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/4f1ab50647fca980-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Light.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/e22c6cbf03584e52-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-LightItalic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_Fallback_254d6c;
+  font-family: neueMontreal_Fallback;
   src: local("Arial");
   ascent-override: 102.46%;
   descent-override: 23.64%;
@@ -2134,12 +2066,11 @@ body.overflow-hidden {
 }
 
 .__className_254d6c {
-  font-family: __neueMontreal_254d6c, __neueMontreal_Fallback_254d6c;
+  font-family: neueMontreal, neueMontreal_Fallback;
 }
 
 .__variable_254d6c {
-  --font-neue-montreal: "__neueMontreal_254d6c",
-    "__neueMontreal_Fallback_254d6c";
+  --font-neue-montreal: "neueMontreal", "neueMontreal_Fallback";
 }
 .page_contact-page__9h2cr {
   min-height: 100vh;

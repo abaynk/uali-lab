@@ -19,11 +19,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <main className="flex min-h-screen p-4">{children}</main>
-        <Footer />
+    <html lang="en" className="lenis lenis-smooth">
+      <body
+        className={`${inter.className} __className_254d6c __variable_254d6c`}
+      >
+        <div className="FooterRevealPageWrap_frame-wrap__PJi9O">
+          <Header />
+          <div
+            className="FooterRevealPageWrap_page-wrap__RQIzf"
+            id="page-content"
+            style={{
+              transform: "none",
+              willChange: "auto",
+              transformOrigin: "center bottom",
+            }}
+          >
+            {children}
+          </div>
+          <div className="FooterRevealPageWrap_footer-scroll-twin__tn7UN"></div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ export const Footer = (props: Props) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 9);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
