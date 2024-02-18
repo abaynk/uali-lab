@@ -4467,6 +4467,8 @@ button > .ContactFormModal_contact-button__Sgql1 svg {
 
 .FeedSlider_feed__heading__Fcfyk,
 .FeedSlider_feed__inner__ht0nl {
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding-left: var(--feed-overflow, 0);
   padding-right: var(--feed-overflow, 0);
 }
@@ -4478,8 +4480,8 @@ button > .ContactFormModal_contact-button__Sgql1 svg {
   grid-gap: clamp(1.25rem, 1.3227513228vw, 1.6625rem);
   gap: clamp(1.25rem, 1.3227513228vw, 1.6625rem);
   touch-action: manipulation;
-  cursor: -webkit-grab;
-  cursor: grab;
+  /* cursor: -webkit-grab; */
+  /* cursor: grab; */
 }
 
 .FeedSlider_feed__inner__ht0nl:active {
