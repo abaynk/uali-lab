@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 type Props = {};
 
 export const Header = (props: Props) => {
-  const pathname = usePathname();
-  const pathnames = ["/", "/about", "/work", "/expertise", "/contact"];
+  const pathname = usePathname().split("/")[1];
+  const pathnames = ["", "about", "work", "expertise", "contact"];
   return (
     <header className="Header_header__r9N9Y">
       <a className="Header_skip-link__VZ9J_" href="#page-content">
@@ -38,7 +38,7 @@ export const Header = (props: Props) => {
             <li className="Header_menu__item__cb_Hw">
               <a
                 className={`Header_menu__link__UGkEv ${
-                  pathname === "/" && "Header_menu__link--active__QKyk9"
+                  pathname === "" && "Header_menu__link--active__QKyk9"
                 }`}
                 href="/"
               >
@@ -48,7 +48,7 @@ export const Header = (props: Props) => {
             <li className="Header_menu__item__cb_Hw">
               <a
                 className={`Header_menu__link__UGkEv ${
-                  pathname === "/about" && "Header_menu__link--active__QKyk9"
+                  pathname === "about" && "Header_menu__link--active__QKyk9"
                 }`}
                 href="/about"
               >
@@ -58,7 +58,7 @@ export const Header = (props: Props) => {
             <li className="Header_menu__item__cb_Hw">
               <a
                 className={`Header_menu__link__UGkEv ${
-                  pathname === "/work" && "Header_menu__link--active__QKyk9"
+                  pathname === "work" && "Header_menu__link--active__QKyk9"
                 }`}
                 href="/work"
               >
@@ -75,7 +75,7 @@ export const Header = (props: Props) => {
             <li className="Header_menu__item__cb_Hw">
               <a
                 className={`Header_menu__link__UGkEv ${
-                  pathname === "/contact" && "Header_menu__link--active__QKyk9"
+                  pathname === "contact" && "Header_menu__link--active__QKyk9"
                 }`}
                 href="/contact"
               >

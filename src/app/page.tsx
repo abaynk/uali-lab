@@ -6,6 +6,7 @@ import { WorkGrid } from "@/components/WorkGrid";
 import { useState } from "react";
 import { WorkModal } from "@/components/WorkModal";
 import Modal from "react-modal";
+import Link from "next/link";
 
 const customStyles = {
   content: {
@@ -1744,9 +1745,9 @@ const FirstSubsectionFourth = () => {
             } as any
           }
         >
-          <a
+          <Link
             className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
-            href="/work/curtin-open-day"
+            href="?modal=true"
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
               <div
@@ -1828,7 +1829,7 @@ const FirstSubsectionFourth = () => {
                 </h3>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--portrait__nwacA">
