@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WorkModal } from "@/components/WorkModal";
 // import Template from "./template";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +14,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="lenis lenis-smooth">
@@ -35,11 +36,12 @@ export default function RootLayout({
             }}
           >
             {children}
+            {modal}
           </div>
+
           <div className="FooterRevealPageWrap_footer-scroll-twin__tn7UN"></div>
           <Footer />
         </div>
-        <WorkModal />
       </body>
     </html>
   );

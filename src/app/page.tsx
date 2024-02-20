@@ -1,47 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { WorkGrid } from "@/components/WorkGrid";
-import { useState } from "react";
-import { WorkModal } from "@/components/WorkModal";
-import Modal from "react-modal";
 import Link from "next/link";
-
-const customStyles = {
-  content: {
-    top: "75%",
-    left: "50%",
-    right: "0",
-    bottom: "0",
-    width: "90%",
-    height: "50%",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    background: "#f3f3e9",
-    borderRadius: "50px 50px 0 0",
-    padding: 30,
-    border: "none",
-    overflow: "hidden",
-  },
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-};
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-
-const variants = {
-  hidden: { opacity: 0, x: 0, y: 200 },
-  enter: { opacity: 1, x: 0, y: 0 },
-};
+import { useRef, useState } from "react";
 
 export default function Home() {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
   return (
     <main className="page_homepage__06uL1">
       <style>
@@ -273,6 +235,19 @@ const SectionOneHeading = () => {
 
 //TODO: resolve mobile video playback, size change on scroll
 const SecondSectionVideo = () => {
+  const [isSoundEnabled, setIsSoundEnabled] = useState<boolean>(false);
+  const [isVideoPaused, setIsVideoPaused] = useState<boolean>(false);
+  const vidRef = useRef<HTMLVideoElement>(null);
+  const handlePlayVideo = () => {
+    if (vidRef.current?.paused) {
+      setIsVideoPaused(false);
+      vidRef.current?.play();
+    } else {
+      setIsVideoPaused(true);
+      vidRef.current?.pause();
+    }
+  };
+
   const stylesWithProgress = ({
     progressValue,
     rest,
@@ -329,9 +304,11 @@ const SecondSectionVideo = () => {
               src="https://player.vimeo.com/progressive_redirect/playback/900035537/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=92f8baecbcaa673d013bf28d8697afbb95b9360f73659a39636e837060325902"
               preload="none"
               autoPlay
+              ref={vidRef}
               loop
               playsInline
               disablePictureInPicture
+              muted={!isSoundEnabled}
             ></video>
             <button className="Button_button-wrapper__2Ps4h HomepageShowreel_showreel__fullscreen-button__flQO2">
               <span
@@ -361,37 +338,77 @@ const SecondSectionVideo = () => {
               </span>
             </button>
             <div className="HomepageShowreel_showreel__controls__wsIiL HomepageShowreel_showreel__controls--playing__k_fZx">
-              <button aria-label="Pause Showreel Video">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="26"
-                  height="26"
-                  fill="none"
-                  viewBox="0 0 26 26"
-                  className=""
-                  style={{ "--width": 26, "--height": 26 } as any}
-                >
-                  <path
-                    fill="currentColor"
-                    d="M9.75 17.333h2.167V8.667H9.75v8.666ZM13 2.167C7.02 2.166 2.167 7.02 2.167 13S7.02 23.833 13 23.833 23.834 18.98 23.834 13 18.98 2.166 13 2.166Zm0 19.5c-4.777 0-8.666-3.89-8.666-8.667 0-4.778 3.889-8.667 8.666-8.667 4.778 0 8.667 3.89 8.667 8.667 0 4.777-3.89 8.666-8.667 8.666Zm1.084-4.334h2.166V8.667h-2.166v8.666Z"
-                  ></path>
-                </svg>
+              <button
+                aria-label="Pause Showreel Video"
+                onClick={() => handlePlayVideo()}
+              >
+                {isVideoPaused ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="26"
+                    height="26"
+                    fill="none"
+                    viewBox="0 0 26 26"
+                    className=""
+                    style={{ "--width": 26, "--height": 26 } as any}
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m10.834 17.875 6.5-4.875-6.5-4.875v9.75ZM13 2.166C7.02 2.166 2.167 7.02 2.167 13c0 5.98 4.853 10.833 10.833 10.833S23.834 18.98 23.834 13 18.98 2.166 13 2.166Zm0 19.5c-4.777 0-8.666-3.889-8.666-8.666 0-4.778 3.889-8.667 8.666-8.667 4.778 0 8.667 3.89 8.667 8.667 0 4.777-3.89 8.666-8.667 8.666Z"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="26"
+                    height="26"
+                    fill="none"
+                    viewBox="0 0 26 26"
+                    className=""
+                    style={{ "--width": 26, "--height": 26 } as any}
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M9.75 17.333h2.167V8.667H9.75v8.666ZM13 2.167C7.02 2.166 2.167 7.02 2.167 13S7.02 23.833 13 23.833 23.834 18.98 23.834 13 18.98 2.166 13 2.166Zm0 19.5c-4.777 0-8.666-3.89-8.666-8.667 0-4.778 3.889-8.667 8.666-8.667 4.778 0 8.667 3.89 8.667 8.667 0 4.777-3.89 8.666-8.667 8.666Zm1.084-4.334h2.166V8.667h-2.166v8.666Z"
+                    ></path>
+                  </svg>
+                )}
               </button>
-              <button aria-label="Unmute Showreel Video">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="26"
-                  height="26"
-                  fill="none"
-                  viewBox="0 0 26 26"
-                  className=""
-                  style={{ "--width": 26, "--height": 26 } as any}
-                >
-                  <path
-                    fill="currentColor"
-                    d="M4.701 3.174 3.174 4.702l4.723 4.723-.314.325H3.25v6.5h4.333L13 21.667v-7.14l4.528 4.529a7.272 7.272 0 0 1-2.362 1.203v2.231a9.685 9.685 0 0 0 3.911-1.896l2.221 2.221 1.528-1.527L4.7 3.174Zm6.132 13.26-2.35-2.35H5.415v-2.167h3.066l.953-.954 1.398 1.398v4.073ZM20.583 13c0 .889-.162 1.744-.444 2.535l1.657 1.658A9.68 9.68 0 0 0 22.75 13c0-4.637-3.24-8.515-7.584-9.5V5.73a7.589 7.589 0 0 1 5.417 7.27ZM13 4.333 10.963 6.37 13 8.407V4.333ZM17.875 13a4.875 4.875 0 0 0-2.709-4.366v1.94l2.687 2.686c.01-.086.022-.173.022-.26Z"
-                  ></path>
-                </svg>
+              <button
+                aria-label="Unmute Showreel Video"
+                onClick={() => setIsSoundEnabled((prev) => !prev)}
+              >
+                {isSoundEnabled ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="26"
+                    height="26"
+                    fill="none"
+                    viewBox="0 0 26 26"
+                    className=""
+                    style={{ "--width": 26, "--height": 26 } as any}
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M3.25 9.75v6.5h4.333L13 21.666V4.334L7.583 9.75H3.25Zm7.583-.184v6.868l-2.35-2.35H5.417v-2.168h3.066l2.35-2.35ZM17.875 13a4.875 4.875 0 0 0-2.708-4.366v8.72A4.847 4.847 0 0 0 17.875 13Zm-2.708-9.501v2.232A7.589 7.589 0 0 1 20.583 13a7.589 7.589 0 0 1-5.416 7.269v2.232c4.344-.986 7.583-4.864 7.583-9.501s-3.24-8.515-7.583-9.501Z"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="26"
+                    height="26"
+                    fill="none"
+                    viewBox="0 0 26 26"
+                    className=""
+                    style={{ "--width": 26, "--height": 26 } as any}
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M4.701 3.174 3.174 4.702l4.723 4.723-.314.325H3.25v6.5h4.333L13 21.667v-7.14l4.528 4.529a7.272 7.272 0 0 1-2.362 1.203v2.231a9.685 9.685 0 0 0 3.911-1.896l2.221 2.221 1.528-1.527L4.7 3.174Zm6.132 13.26-2.35-2.35H5.415v-2.167h3.066l.953-.954 1.398 1.398v4.073ZM20.583 13c0 .889-.162 1.744-.444 2.535l1.657 1.658A9.68 9.68 0 0 0 22.75 13c0-4.637-3.24-8.515-7.584-9.5V5.73a7.589 7.589 0 0 1 5.417 7.27ZM13 4.333 10.963 6.37 13 8.407V4.333ZM17.875 13a4.875 4.875 0 0 0-2.709-4.366v1.94l2.687 2.686c.01-.086.022-.173.022-.26Z"
+                    ></path>
+                  </svg>
+                )}
               </button>
             </div>
           </div>
@@ -1747,7 +1764,7 @@ const FirstSubsectionFourth = () => {
         >
           <Link
             className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
-            href="?modal=true"
+            href={`/work/curtin-open-day`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
               <div
@@ -1844,9 +1861,9 @@ const FirstSubsectionFourth = () => {
             } as any
           }
         >
-          <a
+          <Link
             className="WorkCard_work-card__Z7y63 WorkCard_work-card--portrait__WHYgm"
-            href="/work/sussex-taps"
+            href={`/work/sussex-taps`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
               <div
@@ -1899,7 +1916,7 @@ const FirstSubsectionFourth = () => {
                 </h3>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
         <div
           className="WorkCard_work-card-wrapper__7mGrZ"
@@ -1912,9 +1929,9 @@ const FirstSubsectionFourth = () => {
             } as any
           }
         >
-          <a
+          <Link
             className="WorkCard_work-card__Z7y63 WorkCard_work-card--portrait__WHYgm"
-            href="/work/ferox"
+            href={`/work/ferox`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
               <div
@@ -1994,7 +2011,7 @@ const FirstSubsectionFourth = () => {
                 <h3 className="WorkCard_work-card__title__vsvFl">Ferox</h3>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--landscape__klf5g">
@@ -2009,9 +2026,9 @@ const FirstSubsectionFourth = () => {
             } as any
           }
         >
-          <a
+          <Link
             className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
-            href="/work/trailswa"
+            href={`/work/trailswa`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
               <div
@@ -2091,7 +2108,7 @@ const FirstSubsectionFourth = () => {
                 <h3 className="WorkCard_work-card__title__vsvFl">TrailsWA</h3>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
