@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Parallax from "@/components/Parallax";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Home() {
   return (
@@ -238,6 +239,7 @@ const SecondSectionVideo = () => {
   const [isSoundEnabled, setIsSoundEnabled] = useState<boolean>(false);
   const [isVideoPaused, setIsVideoPaused] = useState<boolean>(false);
   const vidRef = useRef<HTMLVideoElement>(null);
+
   const handlePlayVideo = () => {
     if (vidRef.current?.paused) {
       setIsVideoPaused(false);
@@ -248,29 +250,18 @@ const SecondSectionVideo = () => {
     }
   };
 
-  const stylesWithProgress = ({
-    progressValue,
-    rest,
-  }: {
-    progressValue: number;
-    rest: object;
-  }) => {
-    const style: any = {
-      "--progress": progressValue,
-      ...rest,
-    };
-    return style;
-  };
   return (
     <div className="page_homepage__purple-change__jZXd6">
       <div className=""></div>
       <div className="HomepageShowreel_showreel-wrapper__34lEW page_homepage__showreel__Tgw78">
         <div
           className="HomepageShowreel_showreel__0_0mY"
-          style={stylesWithProgress({
-            progressValue: 0,
-            rest: { transform: "translateY(0vh) translateZ(0px)" },
-          })}
+          style={
+            {
+              "--progress": 0,
+              transform: "translateY(0vh) translateZ(0px)",
+            } as any
+          }
         >
           <div
             className="HomepageShowreel_showreel__inner__PDtub"
@@ -1767,11 +1758,9 @@ const FirstSubsectionFourth = () => {
             href={`/work/curtin-open-day`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-              <div
-                className="WorkCard_work-card__thumbnail-outer__kJvp9"
-                style={{
-                  transform: "translateY(-49.256%) translateZ(0px)",
-                }}
+              <Parallax
+                speed={1}
+                className="WorkCard_work-card__thumbnail-outer__kJvp9 self-start overflow-hidden"
               >
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                   <source
@@ -1800,7 +1789,7 @@ const FirstSubsectionFourth = () => {
                     draggable="false"
                   />
                 </picture>
-              </div>
+              </Parallax>
               <div className="WorkCard_work-card__thumbnail-inner__YScRN">
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                   <source
@@ -1829,6 +1818,7 @@ const FirstSubsectionFourth = () => {
                     draggable="false"
                   />
                 </picture>
+
                 <video
                   className="WorkCard_work-card__video__hb14D"
                   muted
@@ -1872,41 +1862,43 @@ const FirstSubsectionFourth = () => {
                   transform: "translateY(-48.1254%) translateZ(0px)",
                 }}
               >
-                <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/450x677/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/900x1354/filters:quality(80) 2x"
-                    media="(min-width: 0px) and (max-width: 479px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/932x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/1864x2804/filters:quality(80) 2x"
-                    media="(min-width: 480px) and (max-width: 991px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/710x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/1420x2136/filters:quality(80) 2x"
-                    media="(min-width: 992px) and (max-width: 1512px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/933x1403/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/1866x2806/filters:quality(80) 2x"
-                    media="(min-width: 1513px)"
-                  />
-                  <img
-                    src="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/450x677/filters:quality(80)"
-                    loading="lazy"
-                    width="450"
-                    height="677"
-                    alt=""
-                    className=""
-                    draggable="false"
-                  />
-                </picture>
-                <video
-                  className="WorkCard_work-card__video__hb14D"
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  src="https://player.vimeo.com/progressive_redirect/playback/745004855/rendition/720p/file.mp4?loc=external&amp;signature=1dd35b7b1001be056347f1aa639461cf56f40fc35b3f0ad75170809e8ca7d4e4"
-                ></video>
+                <Parallax speed={1} className="self-start overflow-hidden">
+                  <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/450x677/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/900x1354/filters:quality(80) 2x"
+                      media="(min-width: 0px) and (max-width: 479px)"
+                    />
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/932x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/1864x2804/filters:quality(80) 2x"
+                      media="(min-width: 480px) and (max-width: 991px)"
+                    />
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/710x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/1420x2136/filters:quality(80) 2x"
+                      media="(min-width: 992px) and (max-width: 1512px)"
+                    />
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/933x1403/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/1866x2806/filters:quality(80) 2x"
+                      media="(min-width: 1513px)"
+                    />
+                    <img
+                      src="https://a-us.storyblok.com/f/1017006/1864x2333/f75518e100/sussex-portrait-card.jpg/m/450x677/filters:quality(80)"
+                      loading="lazy"
+                      width="450"
+                      height="677"
+                      alt=""
+                      className=""
+                      draggable="false"
+                    />
+                  </picture>
+                  <video
+                    className="WorkCard_work-card__video__hb14D"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    src="https://player.vimeo.com/progressive_redirect/playback/745004855/rendition/720p/file.mp4?loc=external&amp;signature=1dd35b7b1001be056347f1aa639461cf56f40fc35b3f0ad75170809e8ca7d4e4"
+                  ></video>
+                </Parallax>
               </div>
             </div>
             <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
@@ -1940,41 +1932,43 @@ const FirstSubsectionFourth = () => {
                   transform: "translateY(-48.1254%) translateZ(0px)",
                 }}
               >
-                <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/450x677/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/900x1354/filters:quality(80) 2x"
-                    media="(min-width: 0px) and (max-width: 479px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/932x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1864x2804/filters:quality(80) 2x"
-                    media="(min-width: 480px) and (max-width: 991px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/710x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1420x2136/filters:quality(80) 2x"
-                    media="(min-width: 992px) and (max-width: 1512px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/933x1403/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1866x2806/filters:quality(80) 2x"
-                    media="(min-width: 1513px)"
-                  />
-                  <img
-                    src="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/450x677/filters:quality(80)"
-                    loading="lazy"
-                    width="450"
-                    height="677"
-                    alt="Futuristic car concept masked by fog on a dark stage"
-                    className=""
-                    draggable="false"
-                  />
-                </picture>
-                <video
-                  className="WorkCard_work-card__video__hb14D"
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  src="https://player.vimeo.com/progressive_redirect/playback/896099361/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=49e8fbb1560dccb3f536c1caad171d4f6d0f92cc8a03c7e706b7a2527814145a"
-                ></video>
+                <Parallax speed={1} className="self-start overflow-hidden">
+                  <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/450x677/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/900x1354/filters:quality(80) 2x"
+                      media="(min-width: 0px) and (max-width: 479px)"
+                    />
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/932x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1864x2804/filters:quality(80) 2x"
+                      media="(min-width: 480px) and (max-width: 991px)"
+                    />
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/710x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1420x2136/filters:quality(80) 2x"
+                      media="(min-width: 992px) and (max-width: 1512px)"
+                    />
+                    <source
+                      srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/933x1403/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1866x2806/filters:quality(80) 2x"
+                      media="(min-width: 1513px)"
+                    />
+                    <img
+                      src="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/450x677/filters:quality(80)"
+                      loading="lazy"
+                      width="450"
+                      height="677"
+                      alt="Futuristic car concept masked by fog on a dark stage"
+                      className=""
+                      draggable="false"
+                    />
+                  </picture>
+                  <video
+                    className="WorkCard_work-card__video__hb14D"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    src="https://player.vimeo.com/progressive_redirect/playback/896099361/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=49e8fbb1560dccb3f536c1caad171d4f6d0f92cc8a03c7e706b7a2527814145a"
+                  ></video>
+                </Parallax>
               </div>
               <div className="WorkCard_work-card__thumbnail-inner__YScRN">
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
@@ -2031,11 +2025,9 @@ const FirstSubsectionFourth = () => {
             href={`/work/trailswa`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-              <div
-                className="WorkCard_work-card__thumbnail-outer__kJvp9"
-                style={{
-                  transform: "translateY(-49.2778%) translateZ(0px)",
-                }}
+              <Parallax
+                speed={1}
+                className=" WorkCard_work-card__thumbnail-outer__kJvp9 self-start overflow-hidden"
               >
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                   <source
@@ -2064,7 +2056,7 @@ const FirstSubsectionFourth = () => {
                     draggable="false"
                   />
                 </picture>
-              </div>
+              </Parallax>
               <div className="WorkCard_work-card__thumbnail-inner__YScRN">
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                   <source

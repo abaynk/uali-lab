@@ -4,6 +4,7 @@ import React from "react";
 import styles from "./WorkModal.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useScroll } from "framer-motion";
 
 export const WorkModal = ({ blogName }: { blogName: string }) => {
   const router = useRouter();

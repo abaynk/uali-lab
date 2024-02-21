@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import SmoothScrolling from "@/components/SmoothScrolling";
 // import Template from "./template";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,24 +25,26 @@ export default function RootLayout({
       <body
         className={`${inter.className} __className_254d6c __variable_254d6c`}
       >
-        <div className="FooterRevealPageWrap_frame-wrap__PJi9O">
-          <Header />
-          <div
-            className="FooterRevealPageWrap_page-wrap__RQIzf"
-            id="page-content"
-            style={{
-              transform: "none",
-              willChange: "auto",
-              transformOrigin: "center bottom",
-            }}
-          >
-            {children}
-            {modal}
-          </div>
+        <SmoothScrolling>
+          <div className="FooterRevealPageWrap_frame-wrap__PJi9O">
+            <Header />
+            <div
+              className="FooterRevealPageWrap_page-wrap__RQIzf"
+              id="page-content"
+              style={{
+                transform: "none",
+                willChange: "auto",
+                transformOrigin: "center bottom",
+              }}
+            >
+              {children}
+              {modal}
+            </div>
 
-          <div className="FooterRevealPageWrap_footer-scroll-twin__tn7UN"></div>
-          <Footer />
-        </div>
+            <div className="FooterRevealPageWrap_footer-scroll-twin__tn7UN"></div>
+            <Footer />
+          </div>
+        </SmoothScrolling>
       </body>
     </html>
   );
