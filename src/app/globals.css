@@ -2831,6 +2831,7 @@ body.overflow-hidden {
     position: sticky;
     top: 0;
     height: 100vh;
+    border-radius: var(--borderRadius);
   }
 }
 
@@ -2851,6 +2852,7 @@ body.overflow-hidden {
     );
     left: var(--offset);
     right: var(--offset);
+    border-radius: var(--borderRadius);
   }
 }
 
@@ -3119,6 +3121,7 @@ body.overflow-hidden {
   user-select: none;
   padding-bottom: clamp(0.625rem, 0.6613756614vw, 0.83125rem);
   overflow: hidden;
+  overflow-x: scroll;
   margin-left: calc(-1 * var(--feed-overflow, 0));
   margin-right: calc(-1 * var(--feed-overflow, 0));
   color: rgba(0, 0, 0, 0.5);

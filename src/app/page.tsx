@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Parallax from "@/components/Parallax";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -249,27 +250,52 @@ const SecondSectionVideo = () => {
       vidRef.current?.pause();
     }
   };
+  const ref = useRef(null);
+  const ref2 = useRef(null);
+
+  const [progress1, setProgress1] = useState(1.0485436893203883);
+  const [progress2, setProgress2] = useState(0);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: ref2,
+    offset: ["end start", "start end"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setProgress1(latest);
+  });
+  useMotionValueEvent(scrollYProgress2, "change", (latest) => {
+    setProgress2(latest);
+  });
 
   return (
     <div className="page_homepage__purple-change__jZXd6">
-      <div className=""></div>
+      <div className="" ref={ref}></div>
       <div className="HomepageShowreel_showreel-wrapper__34lEW page_homepage__showreel__Tgw78">
-        <div
+        <motion.div
           className="HomepageShowreel_showreel__0_0mY"
           style={
             {
-              "--progress": 0,
+              "--progress": (progress1 + progress2) * 2 - 2,
+              "--borderRadius": `${
+                Math.abs(1 - ((progress1 + progress2) * 2 - 2)) * 30
+              }px`,
               transform: "translateY(0vh) translateZ(0px)",
             } as any
           }
         >
           <div
             className="HomepageShowreel_showreel__inner__PDtub"
-            style={{
-              borderRadius: "30px",
-              transform: "none",
-              transformOrigin: "50% 50% 0px;",
-            }}
+            style={
+              {
+                transform: "none",
+                transformOrigin: "50% 50% 0px;",
+              } as any
+            }
           >
             <picture className="Picture_picture__X3Eos Picture_picture--responsive__gDfjI HomepageShowreel_showreel__image__M37pn">
               <source
@@ -403,9 +429,9 @@ const SecondSectionVideo = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className=""></div>
+      <div className="" ref={ref2}></div>
     </div>
   );
 };
