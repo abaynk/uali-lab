@@ -2200,64 +2200,72 @@ body.overflow-hidden {
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/6bf2ef6fbd7735ea-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Bold.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/0a8748711de16268-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-BoldItalic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/b9da7318b7abaa15-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Medium.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/b29d22fbf0cf099c-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-MediumItalic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/b755838d3028ac33-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Regular.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/cb6468dca0919260-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Italic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/4f1ab50647fca980-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Light.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: __neueMontreal_254d6c;
-  src: url(/_next/static/media/e22c6cbf03584e52-s.p.otf) format("opentype");
+  font-family: neueMontreal;
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-LightItalic.otf)
+    format("opentype");
   font-display: swap;
   font-weight: 300;
   font-style: italic;
@@ -2273,12 +2281,11 @@ body.overflow-hidden {
 }
 
 .__className_254d6c {
-  font-family: __neueMontreal_254d6c, __neueMontreal_Fallback_254d6c;
+  font-family: neueMontreal, __neueMontreal_Fallback_254d6c;
 }
 
 .__variable_254d6c {
-  --font-neue-montreal: "__neueMontreal_254d6c",
-    "__neueMontreal_Fallback_254d6c";
+  --font-neue-montreal: "neueMontreal", "__neueMontreal_Fallback_254d6c";
 }
 .page_homepage__hero__7HVdw {
   width: 100%;
@@ -5135,4 +5142,44 @@ body.overflow-hidden {
     transform: translateY(0);
     opacity: 1;
   }
+}
+.not-found_not-found__LjI67 {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border-radius: inherit;
+  min-height: calc(100vh - var(--header-height));
+  text-align: center;
+}
+
+.not-found_not-found__heading__yvzst {
+  font-size: clamp(2.5rem, 5.2083333333vw, 3.325rem);
+  color: var(--theme-secondary);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .not-found_not-found__heading__yvzst {
+    font-size: clamp(5rem, 5.291005291vw, 6.65rem);
+  }
+}
+
+.not-found_not-found__error__fntSq {
+  font-size: clamp(1.25rem, 2.6041666667vw, 1.6625rem);
+}
+
+@media (min-width: 768px) {
+  .not-found_not-found__error__fntSq {
+    font-size: clamp(2.5rem, 2.6455026455vw, 3.325rem);
+  }
+}
+
+.not-found_not-found__image__Q0x0j {
+  height: auto;
+  max-width: 50vw;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  image-rendering: pixelated;
+  border-bottom-left-radius: inherit;
 }
