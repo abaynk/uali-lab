@@ -1,9 +1,15 @@
-export type homePageContentType = {
+export type HomePageContentType = {
   _id: string;
-  text: string;
-};
-
-export type HomePageVideoType = {
-  _id: string;
-  video: any;
+  bottomContent: {
+    bottomContentDescriptionText: string;
+    bottomContentHeadingText: string;
+    bottomContentImage: {
+      alt: string;
+      url: string;
+    };
+  };
+  companiesLogos: string[];
+  headingText: string;
+  showCaseHeadingText: string;
+  showReelVideo: string;
 };
