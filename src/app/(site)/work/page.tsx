@@ -6,7 +6,6 @@ import { getAllProjects } from "../../../../sanity/lib/query";
 import Link from "next/link";
 import Parallax from "@/components/Parallax";
 
-
 export default function Work() {
   const [projects, setPorjects] = useState<IProject[]>([]);
 
@@ -350,56 +349,45 @@ export default function Work() {
 const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
   return (
     <div className="WorkGrid_work-grid__0043M page_work-grid__VoMxE">
-      <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--landscape__klf5g">
-        <div
-          className="WorkCard_work-card-wrapper__7mGrZ"
-          style={
-            {
-              "--aspect-x": 1452,
-              "--aspect-y": 890,
-              opacity: 1,
-              transform: "translateY(0px)",
-            } as any
-          }
-        >
-          <Link
-            className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
-            href={`/work/${projects[0]?.slug}`}
+      {projects.map((project: IProject, index: number) => {
+        return (
+          <div
+            className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--landscape__klf5g"
+            key={index}
           >
-            <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-              <Parallax
-                speed={1}
-                className="WorkCard_work-card__thumbnail-outer__kJvp9 self-start overflow-hidden"
+            <div
+              className="WorkCard_work-card-wrapper__7mGrZ"
+              style={
+                {
+                  "--aspect-x": 1452,
+                  "--aspect-y": 890,
+                  opacity: 1,
+                  transform: "translateY(0px)",
+                } as any
+              }
+            >
+              <Link
+                className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
+                href={`/work/${project?.slug}`}
               >
-                <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/450x330/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/900x660/filters:quality(80) 2x"
-                    media="(min-width: 0px) and (max-width: 479px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/932x685/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/1864x1370/filters:quality(80) 2x"
-                    media="(min-width: 480px) and (max-width: 991px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/1452x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/2904x2136/filters:quality(80) 2x"
-                    media="(min-width: 992px) and (max-width: 1512px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/1905x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/3810x2804/filters:quality(80) 2x"
-                    media="(min-width: 1513px)"
-                  />
-                  <img
-                    src={projects[0]?.coverImage}
-                    loading="lazy"
-                    width="450"
-                    height="330"
-                    alt=""
-                    className=""
-                    draggable="false"
-                  />
-                </picture>
-              </Parallax>
-              {/* <div className="WorkCard_work-card__thumbnail-inner__YScRN">
+                <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
+                  <Parallax
+                    speed={1}
+                    className="WorkCard_work-card__thumbnail-outer__kJvp9 self-start overflow-hidden"
+                  >
+                    <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
+                      <img
+                        src={project?.coverImage}
+                        loading="lazy"
+                        width="450"
+                        height="330"
+                        alt=""
+                        className=""
+                        draggable="false"
+                      />
+                    </picture>
+                  </Parallax>
+                  {/* <div className="WorkCard_work-card__thumbnail-inner__YScRN">
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                   <source
                     srcSet="https://a-us.storyblok.com/f/1017006/1476x843/7c8bacd5b5/open-day-inner.jpg/m/312x178/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1476x843/7c8bacd5b5/open-day-inner.jpg/m/624x356/filters:quality(80) 2x"
@@ -437,17 +425,19 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
                   src="https://player.vimeo.com/progressive_redirect/playback/900034563/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=d9dc0f26e3fb0d5ec5129dd195e45be6d61df2057fb4e2a54f96783adb9d8392"
                 ></video>
               </div> */}
+                </div>
+                <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
+                  <div className="WorkCard_work-card__content-inner__8Mqvf">
+                    <h3 className="WorkCard_work-card__title__vsvFl">
+                      {project?.title}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
             </div>
-            <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
-              <div className="WorkCard_work-card__content-inner__8Mqvf">
-                <h3 className="WorkCard_work-card__title__vsvFl">
-                  {projects[0]?.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
+          </div>
+        );
+      })}
       {/* <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--portrait__nwacA">
         <div
           className="WorkCard_work-card-wrapper__7mGrZ"
@@ -715,4 +705,3 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
     </div>
   );
 };
-
