@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
 type Props = {};
@@ -9,6 +8,7 @@ type Props = {};
 export const Header = (props: Props) => {
   const pathname = usePathname().split("/")[1];
   const pathnames = ["", "about", "work", "expertise", "contact"];
+  const [hoverIndex, setHoverIndex] = useState(-1);
   return (
     <header className="Header_header__r9N9Y">
       <a className="Header_skip-link__VZ9J_" href="#page-content">
@@ -35,7 +35,11 @@ export const Header = (props: Props) => {
         </a>
         <nav className="Header_menu__Yr6mh">
           <ul className="Header_menu__list__h_Anx">
-            <li className="Header_menu__item__cb_Hw">
+            <li
+              className="Header_menu__item__cb_Hw"
+              onMouseEnter={() => setHoverIndex(1)}
+              onMouseLeave={() => setHoverIndex(-1)}
+            >
               <a
                 className={`Header_menu__link__UGkEv ${
                   pathname === "" && "Header_menu__link--active__QKyk9"
@@ -45,7 +49,11 @@ export const Header = (props: Props) => {
                 Home
               </a>
             </li>
-            <li className="Header_menu__item__cb_Hw">
+            <li
+              className="Header_menu__item__cb_Hw"
+              onMouseEnter={() => setHoverIndex(2)}
+              onMouseLeave={() => setHoverIndex(-1)}
+            >
               <a
                 className={`Header_menu__link__UGkEv ${
                   pathname === "about" && "Header_menu__link--active__QKyk9"
@@ -55,7 +63,11 @@ export const Header = (props: Props) => {
                 About
               </a>
             </li>
-            <li className="Header_menu__item__cb_Hw">
+            <li
+              className="Header_menu__item__cb_Hw"
+              onMouseEnter={() => setHoverIndex(3)}
+              onMouseLeave={() => setHoverIndex(-1)}
+            >
               <a
                 className={`Header_menu__link__UGkEv ${
                   pathname === "work" && "Header_menu__link--active__QKyk9"
@@ -65,14 +77,22 @@ export const Header = (props: Props) => {
                 Work
               </a>
             </li>
-            <li className="Header_menu__item__cb_Hw">
+            <li
+              className="Header_menu__item__cb_Hw"
+              onMouseEnter={() => setHoverIndex(4)}
+              onMouseLeave={() => setHoverIndex(-1)}
+            >
               <div className="link-wrap">
                 <button className={`Header_menu__link__UGkEv`}>
                   Expertise
                 </button>
               </div>
             </li>
-            <li className="Header_menu__item__cb_Hw">
+            <li
+              className="Header_menu__item__cb_Hw"
+              onMouseEnter={() => setHoverIndex(5)}
+              onMouseLeave={() => setHoverIndex(-1)}
+            >
               <a
                 className={`Header_menu__link__UGkEv ${
                   pathname === "contact" && "Header_menu__link--active__QKyk9"
@@ -120,8 +140,9 @@ export const Header = (props: Props) => {
             <div
               className="Header_menu__hover-pill__NFAxL"
               style={{
+                display: hoverIndex === -1 ? "none" : "block",
                 position: "relative",
-                gridColumn: pathnames.indexOf(pathname) + 1,
+                gridColumn: hoverIndex,
                 borderRadius: "100px",
                 transform: "none",
                 transformOrigin: "50% 50% 0px",
@@ -132,6 +153,7 @@ export const Header = (props: Props) => {
             <div
               className="Header_menu__active-pill__YdBUl"
               style={{
+                display: pathnames.indexOf(pathname) === -1 ? "none" : "block",
                 position: "relative",
                 gridColumn: pathnames.indexOf(pathname) + 1,
                 borderRadius: "100px",
