@@ -4,8 +4,11 @@ import Parallax from "@/components/Parallax";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { getHomePageContent } from "../../../sanity/lib/query";
-import { HomePageContentType } from "@/types";
+import {
+  getHomePageContent,
+  getHomePageProjects,
+} from "../../../sanity/lib/query";
+import IProject, { HomePageContentType } from "@/types";
 import Image from "next/image";
 
 export default function Home() {
@@ -26,15 +29,21 @@ export default function Home() {
     showReelVideo:
       "https://player.vimeo.com/progressive_redirect/playback/900035537/rendition/1080p/file.mp4?loc=external&log_user=0&signature=92f8baecbcaa673d013bf28d8697afbb95b9360f73659a39636e837060325902",
   });
+  const [projects, setPorjects] = useState<IProject[]>([]);
+
   useEffect(() => {
-    const requestHomePageContent = async () => {
+    const fetchHomePageProjects = async () => {
+      const projects = await getHomePageProjects();
+      setPorjects(projects);
+    };
+    const fetchHomePageContent = async () => {
       const homePageContent: HomePageContentType = await getHomePageContent();
       homePageContent && setHomePageContent(homePageContent);
     };
 
-    requestHomePageContent();
+    fetchHomePageContent();
+    fetchHomePageProjects();
   }, []);
-  console.log({ homePageContent });
 
   return (
     <main className="page_homepage__06uL1">
@@ -57,7 +66,10 @@ export default function Home() {
         showCaseHeadingText={homePageContent?.showCaseHeadingText}
         companiesLogos={homePageContent?.companiesLogos}
       />
-      <FourthSectionWork bottomContent={homePageContent?.bottomContent} />
+      <FourthSectionWork
+        projects={projects}
+        bottomContent={homePageContent?.bottomContent}
+      />
     </main>
   );
 }
@@ -303,17 +315,27 @@ const ThirdSectionShowCase = ({
 };
 
 //TODO: add parallax effect
-const FourthSectionWork = ({ bottomContent }: { bottomContent: any }) => {
+const FourthSectionWork = ({
+  projects,
+  bottomContent,
+}: {
+  projects: IProject[];
+  bottomContent: any;
+}) => {
   return (
     <div className="page_homepage__section__S9KCY">
-      <FirstSubsectionFourth />
+      <FirstSubsectionFourth projects={projects} />
       <SecondSubsectionFourth bottomContent={bottomContent} />
       <ThirdSubsectionFourth />
     </div>
   );
 };
 
-const FirstSubsectionFourth = () => {
+export const FirstSubsectionFourth = ({
+  projects,
+}: {
+  projects: IProject[];
+}) => {
   return (
     <div className="WorkGrid_work-grid__0043M page_work-grid__VoMxE">
       <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--landscape__klf5g">
@@ -330,7 +352,7 @@ const FirstSubsectionFourth = () => {
         >
           <Link
             className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
-            href={`/work/curtin-open-day`}
+            href={`/work/${projects[0]?.slug}`}
           >
             <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
               <Parallax
@@ -355,7 +377,7 @@ const FirstSubsectionFourth = () => {
                     media="(min-width: 1513px)"
                   />
                   <img
-                    src="https://a-us.storyblok.com/f/1017006/3720x2280/c7c8f88227/curtin-open-landscape-card.jpg/m/450x330/filters:quality(80)"
+                    src={projects[0]?.coverImage}
                     loading="lazy"
                     width="450"
                     height="330"
@@ -365,7 +387,7 @@ const FirstSubsectionFourth = () => {
                   />
                 </picture>
               </Parallax>
-              <div className="WorkCard_work-card__thumbnail-inner__YScRN">
+              {/* <div className="WorkCard_work-card__thumbnail-inner__YScRN">
                 <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                   <source
                     srcSet="https://a-us.storyblok.com/f/1017006/1476x843/7c8bacd5b5/open-day-inner.jpg/m/312x178/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1476x843/7c8bacd5b5/open-day-inner.jpg/m/624x356/filters:quality(80) 2x"
@@ -402,19 +424,19 @@ const FirstSubsectionFourth = () => {
                   playsInline
                   src="https://player.vimeo.com/progressive_redirect/playback/900034563/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=d9dc0f26e3fb0d5ec5129dd195e45be6d61df2057fb4e2a54f96783adb9d8392"
                 ></video>
-              </div>
+              </div> */}
             </div>
             <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
               <div className="WorkCard_work-card__content-inner__8Mqvf">
                 <h3 className="WorkCard_work-card__title__vsvFl">
-                  Curtin Open Day
+                  {projects[0]?.title}
                 </h3>
               </div>
             </div>
           </Link>
         </div>
       </div>
-      <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--portrait__nwacA">
+      {/* <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--portrait__nwacA">
         <div
           className="WorkCard_work-card-wrapper__7mGrZ"
           style={
@@ -677,7 +699,7 @@ const FirstSubsectionFourth = () => {
             </div>
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

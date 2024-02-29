@@ -1,3 +1,5 @@
+export type { default } from "./ProjectType";
+
 export type HomePageContentType = {
   _id: string;
   bottomContent: {

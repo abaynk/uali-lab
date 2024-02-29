@@ -1,90 +1,347 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { WorkGrid } from "@/components/WorkGrid";
-import { useState } from "react";
-import { WorkModal } from "@/components/WorkModal";
-import Modal from "react-modal";
-
-const customStyles = {
-  content: {
-    top: "75%",
-    left: "50%",
-    right: "0",
-    bottom: "0",
-    width: "90%",
-    height: "50%",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    background: "#f3f3e9",
-    borderRadius: "50px 50px 0 0",
-    padding: 30,
-    border: "none",
-    overflow: "hidden",
-  },
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-};
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-
-const variants = {
-  hidden: { opacity: 0, x: 0, y: 200 },
-  enter: { opacity: 1, x: 0, y: 0 },
-};
+import { useEffect, useState } from "react";
+import { FirstSubsectionFourth } from "../page";
+import IProject from "@/types";
+import { getAllProjects } from "../../../../sanity/lib/query";
 
 export default function Work() {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [projects, setPorjects] = useState<IProject[]>([]);
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  useEffect(() => {
+    const fetchAllProjects = async () => {
+      const projects = await getAllProjects();
+      setPorjects(projects);
+    };
+
+    fetchAllProjects();
+  }, []);
+
   return (
-    <div>
-      <h2>
-        We design, build and ship world-class digital products for
-        forward-thinking brands.
-      </h2>
-      <WorkGrid setIsModalOpen={setIsOpen} />
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <div className="flex justify-between gap-2">
-          <div className="w-full">
-            <h2>Sussex Taps</h2>
-            <button className="bg-[#0f1d07] text-[#fff] rounded-full p-1 px-2 hover:bg-[#90f188] hover:text-[#0f1d07]">
-              Visit Website
-            </button>
-            <h3 className="mt-2">
-              Sussex Taps is a manufacturer of premium tapware with a deep
-              heritage in Australian manufacturing.
-            </h3>
-            <p className="mt-2">
-              Following a brand repositioning, Sussex Taps engaged Humaan to
-              design an immersive digital experience that communicated the
-              brand`s core proposition of quality, heritage and craftsmanship.
-              The product suite played an iconic role in the overall website
-              experience. The visual content played a hero role within the
-              website, which was augmented by bleeding-edge interactivity and
-              animation treatments to give the audiences a tangible and tactile
-              digital showroom experience.
-            </p>
-          </div>
-          <div className="w-full">
-            <img
-              src={"/assets/images/spring-1377434.jpg"}
-              alt=""
-              width="100%"
-              style={{ borderRadius: "40px" }}
-            />
-          </div>
-        </div>
-      </Modal>
-    </div>
+    <main className="layout_work-page__yja2T">
+      <style>
+        {`:root{
+            --theme-primary: var(--default-primary);
+            --theme-primary-text: var(--default-primary-text);
+            --theme-secondary: var(--default-secondary);
+            --theme-text: var(--default-text);
+            --theme-background: var(--default-tertiary);
+            --theme-logo: var(--default-secondary);
+            --theme-header-face: var(--default-primary);
+        }`}
+      </style>
+      <div className="layout_work-header__q0X91">
+        <h1 className="layout_work-header__heading__HhhhV">
+          <span
+            className="TextAnimateUp_word__Yvn5A"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transform: "translate3d(0px, 0%, 0px)",
+              animation:
+                "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+            }}
+          >
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              W
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              o
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              r
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              l
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              d
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              -
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              c
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              l
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              a
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              s
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              s
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              {" "}
+            </span>
+          </span>
+          <span
+            className="TextAnimateUp_word__Yvn5A"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transform: "translate3d(0px, 0%, 0px)",
+              animation:
+                "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+            }}
+          >
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              d
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              i
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              g
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              i
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              t
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              a
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              l
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              {" "}
+            </span>
+          </span>
+          <span
+            className="TextAnimateUp_word__Yvn5A"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transform: "translate3d(0px, 0%, 0px)",
+              animation:
+                "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+            }}
+          >
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              p
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              r
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              o
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              d
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              u
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              c
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              t
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              s
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              ,
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              {" "}
+            </span>
+          </span>
+          <span
+            className="TextAnimateUp_word__Yvn5A"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transform: "translate3d(0px, 0%, 0px)",
+              animation:
+                "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+            }}
+          >
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              i
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              d
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              e
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              a
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              {" "}
+            </span>
+          </span>
+          <span
+            className="TextAnimateUp_word__Yvn5A"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transform: "translate3d(0px, 0%, 0px)",
+              animation:
+                "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+            }}
+          >
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              t
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              o
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              {" "}
+            </span>
+          </span>
+          <span
+            className="TextAnimateUp_word__Yvn5A"
+            style={{
+              display: "inline-block",
+              whiteSpace: "pre",
+              transform: "translate3d(0px, 0%, 0px)",
+              animation:
+                "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+            }}
+          >
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              e
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              x
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              e
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              c
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              u
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              t
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              i
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              o
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              n
+            </span>
+            <span
+              style={{ display: "inline-block", whiteSpace: "pre", opacity: 1 }}
+            >
+              .
+            </span>
+          </span>
+        </h1>
+      </div>
+
+      <FirstSubsectionFourth projects={projects} />
+    </main>
   );
 }
