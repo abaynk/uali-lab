@@ -7,6 +7,7 @@ export type HomePageContentType = {
       alt: string;
       url: string;
     };
+    bottomContentStats: any[];
   };
   companiesLogos: string[];
   headingText: string;

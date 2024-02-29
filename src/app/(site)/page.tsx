@@ -19,6 +19,7 @@ export default function Home() {
         alt: "",
         url: "",
       },
+      bottomContentStats: [],
     },
     companiesLogos: [],
     showCaseHeadingText: "",
