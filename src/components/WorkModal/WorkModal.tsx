@@ -585,7 +585,7 @@ export const WorkModal = ({
                   >
                     <Link
                       className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a ProjectContents_project-footer__card__7Ei_t"
-                      href="/work/fremantle-arts-centre"
+                      href={`/work/${projectData?.nextProjectSlug}`}
                     >
                       <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
                         <div
