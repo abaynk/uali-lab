@@ -6,6 +6,7 @@ import { getAllProjects } from "../../../../sanity/lib/query";
 import Link from "next/link";
 import Parallax from "@/components/Parallax";
 
+
 export default function Work() {
   const [projects, setPorjects] = useState<IProject[]>([]);
 
@@ -714,3 +715,4 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
     </div>
   );
 };
+
