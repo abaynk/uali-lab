@@ -331,11 +331,7 @@ const FourthSectionWork = ({
   );
 };
 
-export const FirstSubsectionFourth = ({
-  projects,
-}: {
-  projects: IProject[];
-}) => {
+const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
   return (
     <div className="WorkGrid_work-grid__0043M page_work-grid__VoMxE">
       <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--landscape__klf5g">
