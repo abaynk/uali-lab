@@ -2201,8 +2201,7 @@ body.overflow-hidden {
 
 @font-face {
   font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-Bold.otf)
-    format("opentype");
+  src: url(/assets/fonts/neue-montreal/NeueMontreal-Bold.otf) format("opentype");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
@@ -5182,4 +5181,23 @@ body.overflow-hidden {
   bottom: 0;
   image-rendering: pixelated;
   border-bottom-left-radius: inherit;
+}
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
