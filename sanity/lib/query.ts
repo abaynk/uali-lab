@@ -59,7 +59,7 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
 }
 export async function getHomePageProjects(): Promise<IProject[]> {
   return client.fetch(
-    groq`*[_type == "project" && isHomePageProject == true]{
+    groq`*[_type == "project" && isHomePageProject == true][0...3]{
       _id,
       "assets": assets[].asset->url,
       category,
