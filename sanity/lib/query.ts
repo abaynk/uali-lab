@@ -34,7 +34,9 @@ export async function getAllProjects(): Promise<IProject[]> {
       "slug":slug.current,
       title,
       url,
-    }`
+      _createdAt,
+      _updatedAt
+    }| order(_createdAt asc)`
   );
 }
 export async function getOneProject(projectSlug: string): Promise<IProject> {

@@ -373,7 +373,7 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
                 <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
                   <Parallax
                     speed={1}
-                    className="WorkCard_work-card__thumbnail-outer__kJvp9 self-start overflow-hidden"
+                    className="WorkCard_work-card__thumbnail-outer__kJvp9 self-start"
                   >
                     <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
                       <img
