@@ -38,7 +38,11 @@ const WorkCard = ({ isPortrait = false, project }: Props) => {
           >
             <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
               <img
-                src={project?.coverImage}
+                src={
+                  isPortrait
+                    ? project?.coverImagePortrait ?? project?.coverImage
+                    : project?.coverImage
+                }
                 loading="lazy"
                 width={450}
                 height={isPortrait ? 677 : 330}

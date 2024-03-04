@@ -46,6 +46,8 @@ export default function Home() {
     fetchHomePageProjects();
   }, []);
 
+  console.log({ projects });
+
   return (
     <main className="page_homepage__06uL1">
       <style>

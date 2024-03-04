@@ -26,7 +26,12 @@ export default {
     {
       name: "coverImage",
       type: "image",
-      title: "Cover image",
+      title: "Cover image (Landscape)",
+    },
+    {
+      name: "coverImagePortrait",
+      type: "image",
+      title: "Cover image (Portrait)",
     },
     {
       name: "description",

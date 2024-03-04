@@ -1,6 +1,7 @@
 export default interface IProject {
   contents: string;
   coverImage: string;
+  coverImagePortrait: string;
   description: string;
   nextProjectSlug: string;
   url: string;
