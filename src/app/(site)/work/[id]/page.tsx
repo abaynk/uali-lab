@@ -4,6 +4,7 @@ import IProject from "@/types/ProjectType";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { getOneProject } from "../../../../../sanity/lib/query";
+import Vimeo from "@u-wave/react-vimeo";
 
 const WorkPage = ({ params }: { params: { id: string } }) => {
   const [projectData, setProjectData] = useState<IProject>();
@@ -76,6 +77,29 @@ const WorkPage = ({ params }: { params: { id: string } }) => {
             </div>
           </div>
           <div className="ProjectContents_project-content__blocks__zlvle">
+            {projectData?.embeddedVideoUrl && (
+              <div className="ProjectContents_project-content__block-image__zfS56">
+                <div
+                  className="ProjectContents_project-content__image__SCygk"
+                  style={{
+                    opacity: 1,
+                    transform: "translateY(0px)",
+                  }}
+                >
+                  <div className="Picture_picture__X3Eos Picture_picture--responsive__gDfjI ProjectContents_project-content__picture__tSYMa embed-container">
+                    <Vimeo
+                      video={projectData?.embeddedVideoUrl}
+                      autoplay
+                      style={{
+                        width: "100%;",
+                        height: "100%",
+                        backgroundColor: "#000",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
             {projectData?.assets?.map((asset: string, index: number) => {
               return (
                 <div

@@ -55,6 +55,7 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
       "slug":slug.current,
       title,
       url,
+      embeddedVideoUrl
     }`,
     { projectSlug }
   );
