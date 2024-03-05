@@ -11,7 +11,7 @@ export default {
       type: "string",
       title: "Title",
     },
-    {
+    defineField({
       title: "Slug",
       name: "slug",
       type: "slug",
@@ -22,7 +22,8 @@ export default {
         slugify: (input: any) =>
           input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
-    },
+      validation: (rule) => rule.required(),
+    }),
     {
       name: "coverImage",
       type: "image",
