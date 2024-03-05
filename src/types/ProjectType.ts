@@ -11,4 +11,5 @@ export default interface IProject {
   category: string;
   isHomePageProject: boolean;
   slug: string;
+  embeddedVideoUrl?: string;
 }

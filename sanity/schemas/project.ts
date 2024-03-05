@@ -45,6 +45,12 @@ export default {
       title: "Content",
     },
     defineField({
+      name: "embeddedVideoUrl",
+      title: "Embedded video URL",
+      description: "Enter url for video preview of project",
+      type: "url",
+    }),
+    defineField({
       name: "assets",
       title: "Assets",
       description: "Add images for the project",
