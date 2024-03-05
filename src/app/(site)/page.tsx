@@ -11,6 +11,7 @@ import {
 import IProject, { HomePageContentType } from "@/types";
 import Image from "next/image";
 import WorkCard from "@/components/WorkCard";
+import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
 
 export default function Home() {
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
@@ -45,8 +46,6 @@ export default function Home() {
     fetchHomePageContent();
     fetchHomePageProjects();
   }, []);
-
-  console.log({ projects });
 
   return (
     <main className="page_homepage__06uL1">
@@ -336,193 +335,15 @@ const FourthSectionWork = ({
 
 const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
   return (
-    <div className="WorkGrid_work-grid__0043M page_work-grid__VoMxE">
-      <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--landscape__klf5g">
-        {/* <div
-          className="WorkCard_work-card-wrapper__7mGrZ"
-          style={
-            {
-              "--aspect-x": 1452,
-              "--aspect-y": 890,
-              opacity: 1,
-              transform: "translateY(0px)",
-            } as any
-          }
-        >
-          <Link
-            className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a"
-            href={`/work/${projects[0]?.slug}`}
-          >
-            <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-              <Parallax
-                speed={1}
-                className="WorkCard_work-card__thumbnail-outer__kJvp9 "
-              >
-                <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                  <img
-                    src={projects[0]?.coverImage}
-                    loading="lazy"
-                    width="450"
-                    height="330"
-                    alt=""
-                    className=""
-                    draggable="false"
-                  />
-                </picture>
-              </Parallax>
-            </div>
-            <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
-              <div className="WorkCard_work-card__content-inner__8Mqvf">
-                <h3 className="WorkCard_work-card__title__vsvFl">
-                  {projects[0]?.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        </div> */}
+    <WorkGrid>
+      <WorkGridRow>
         <WorkCard project={projects[0]} />
-      </div>
-      <div className="WorkGrid_work-grid__row__p9SUz WorkGrid_work-grid__row--portrait__nwacA">
-        {/* <div
-          className="WorkCard_work-card-wrapper__7mGrZ"
-          style={
-            {
-              "--aspect-x": 710,
-              "--aspect-y": 890,
-              opacity: 1,
-              transform: "translateY(0px)",
-            } as any
-          }
-        >
-          <Link
-            className="WorkCard_work-card__Z7y63 WorkCard_work-card--portrait__WHYgm"
-            href={`/work/sussex-taps`}
-          >
-            <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-              <Parallax
-                speed={1}
-                className="WorkCard_work-card__thumbnail-outer__kJvp9"
-              >
-                <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                  <img
-                    src={projects[0]?.coverImage}
-                    loading="lazy"
-                    width="450"
-                    height="677"
-                    alt=""
-                    className=""
-                    draggable="false"
-                  />
-                </picture>
-              </Parallax>
-            </div>
-            <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
-              <div className="WorkCard_work-card__content-inner__8Mqvf">
-                <h3 className="WorkCard_work-card__title__vsvFl">
-                  Sussex Taps
-                </h3>
-              </div>
-            </div>
-          </Link>
-        </div> */}
+      </WorkGridRow>
+      <WorkGridRow isPortrait>
         <WorkCard project={projects[1]} isPortrait />
-
-        {/* <div
-          className="WorkCard_work-card-wrapper__7mGrZ"
-          style={
-            {
-              "--aspect-x": 710,
-              "--aspect-y": 890,
-              opacity: 1,
-              transform: "translateY(0px)",
-            } as any
-          }
-        >
-          <Link
-            className="WorkCard_work-card__Z7y63 WorkCard_work-card--portrait__WHYgm"
-            href={`/work/ferox`}
-          >
-            <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-              <Parallax
-                speed={1}
-                className="WorkCard_work-card__thumbnail-outer__kJvp9"
-              >
-                <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/450x677/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/900x1354/filters:quality(80) 2x"
-                    media="(min-width: 0px) and (max-width: 479px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/932x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1864x2804/filters:quality(80) 2x"
-                    media="(min-width: 480px) and (max-width: 991px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/710x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1420x2136/filters:quality(80) 2x"
-                    media="(min-width: 992px) and (max-width: 1512px)"
-                  />
-                  <source
-                    srcSet="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/933x1403/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/1866x2806/filters:quality(80) 2x"
-                    media="(min-width: 1513px)"
-                  />
-                  <img
-                    src="https://a-us.storyblok.com/f/1017006/1864x2803/5416277cd6/ferox-outer.jpg/m/450x677/filters:quality(80)"
-                    loading="lazy"
-                    width="450"
-                    height="677"
-                    alt="Futuristic car concept masked by fog on a dark stage"
-                    className=""
-                    draggable="false"
-                  />
-                </picture>
-                <video
-                  className="WorkCard_work-card__video__hb14D"
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  src="https://player.vimeo.com/progressive_redirect/playback/896099361/rendition/1080p/file.mp4?loc=external&amp;log_user=0&amp;signature=49e8fbb1560dccb3f536c1caad171d4f6d0f92cc8a03c7e706b7a2527814145a"
-                ></video>
-              </Parallax>
-            </div>
-            <div className="WorkCard_work-card__thumbnail-inner__YScRN">
-              <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                <source
-                  srcSet="https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/171x369/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/342x738/filters:quality(80) 2x"
-                  media="(min-width: 0px) and (max-width: 479px)"
-                />
-                <source
-                  srcSet="https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/355x765/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/710x1530/filters:quality(80) 2x"
-                  media="(min-width: 480px) and (max-width: 991px)"
-                />
-                <source
-                  srcSet="https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/270x582/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/540x1164/filters:quality(80) 2x"
-                  media="(min-width: 992px) and (max-width: 1679px)"
-                />
-                <source
-                  srcSet="https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/355x765/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/710x1530/filters:quality(80) 2x"
-                  media="(min-width: 1680px)"
-                />
-                <img
-                  src="https://a-us.storyblok.com/f/1017006/1684x3630/aff95687f6/ferox-inner.jpg/m/171x369/filters:quality(80)"
-                  loading="lazy"
-                  width="171"
-                  height="369"
-                  alt="Screenshot of the Ferox website"
-                  className=""
-                  draggable="false"
-                />
-              </picture>
-            </div>
-            <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
-              <div className="WorkCard_work-card__content-inner__8Mqvf">
-                <h3 className="WorkCard_work-card__title__vsvFl">Ferox</h3>
-              </div>
-            </div>
-          </Link>
-        </div> */}
         <WorkCard project={projects[2]} isPortrait />
-      </div>
-    </div>
+      </WorkGridRow>
+    </WorkGrid>
   );
 };
 
