@@ -30,6 +30,7 @@ const WorkCard = ({ isPortrait = false, project }: Props) => {
             : "WorkCard_work-card--landscape__cw0_a"
         }`}
         href={`/work/${project?.slug}`}
+        scroll={false}
       >
         <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
           <Parallax

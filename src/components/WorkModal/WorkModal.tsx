@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./WorkModal.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useScroll } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import IProject from "@/types/ProjectType";
 import Vimeo from "@u-wave/react-vimeo";
 
@@ -30,9 +30,12 @@ export const WorkModal = ({
         style={{ opacity: 1 }}
       >
         <div className="lenis-content">
-          <div
+          <motion.div
             className="SmoothModal_modal-inner__5cyWM"
             style={{ transform: "none" }}
+            initial={{ y: 700 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <div
               className="SmoothModal_modal-inner__bg__c_nv9"
@@ -282,7 +285,7 @@ export const WorkModal = ({
                 </footer>
               </div>
             </main>
-          </div>
+          </motion.div>
         </div>
       </div>
       <div tabIndex={-1}></div>
