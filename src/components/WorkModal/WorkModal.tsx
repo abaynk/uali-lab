@@ -8,18 +8,61 @@ import { motion, useScroll } from "framer-motion";
 import IProject from "@/types/ProjectType";
 import Vimeo from "@u-wave/react-vimeo";
 
+const dropIn = {
+  hidden: {
+    y: "calc(100vh - 200px)",
+  },
+  visible: {
+    y: "0",
+    transition: {
+      duration: 0.5,
+      ease: [1.0, 0.0, 0.68, 1.0],
+    },
+  },
+  exit: {
+    y: "calc(100vh - 200px)",
+    transition: {
+      duration: 0.5,
+      ease: [1.0, 0.0, 0.68, 1.0],
+    },
+  },
+};
+
+const opacityIn = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 0.5,
+    transition: {
+      duration: 0.5,
+      ease: [1.0, 0.005, 0.68, 1.0],
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: [1.0, 0.005, 0.68, 1.0],
+    },
+  },
+};
 export const WorkModal = ({
   projectData,
+  handleClose,
 }: {
   projectData: IProject | undefined;
+  handleClose: () => void;
 }) => {
-  const router = useRouter();
   return (
     <div className="SmoothModal_modal-wrapper__kCDpT">
-      <div
+      <motion.div
         className="SmoothModal_modal-backdrop__Yw8at"
-        style={{ opacity: 0.5, pointerEvents: "all" }}
-      ></div>
+        variants={opacityIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      ></motion.div>
       <div tabIndex={0}></div>
       <div
         className="SmoothModal_modal-tab-trap-start__Eb_c5"
@@ -32,10 +75,11 @@ export const WorkModal = ({
         <div className="lenis-content">
           <motion.div
             className="SmoothModal_modal-inner__5cyWM"
-            style={{ transform: "none" }}
-            initial={{ y: 700 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            variants={dropIn}
+            onClick={(e) => e.stopPropagation()}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
           >
             <div
               className="SmoothModal_modal-inner__bg__c_nv9"
@@ -52,7 +96,7 @@ export const WorkModal = ({
               style={{
                 transform: "translateX(0px) translateY(0px) translateZ(0px);",
               }}
-              onClick={() => router.back()}
+              onClick={handleClose}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

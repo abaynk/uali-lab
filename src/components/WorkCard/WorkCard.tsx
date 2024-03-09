@@ -31,6 +31,7 @@ const WorkCard = ({ isPortrait = false, project }: Props) => {
         }`}
         href={`/work/${project?.slug}`}
         scroll={false}
+        prefetch={true}
       >
         <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
           <Parallax
