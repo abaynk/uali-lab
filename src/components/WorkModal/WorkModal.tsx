@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { motion, useScroll } from "framer-motion";
 import IProject from "@/types/ProjectType";
 import Vimeo from "@u-wave/react-vimeo";
+import { ReactLenis } from "@studio-freight/react-lenis";
 
 const dropIn = {
   hidden: {
@@ -68,10 +69,11 @@ export const WorkModal = ({
         className="SmoothModal_modal-tab-trap-start__Eb_c5"
         tabIndex={-1}
       ></div>
-      <div
+      <ReactLenis className="SmoothModal_modal__46NFH">
+        {/* <div
         className="lenis lenis-smooth SmoothModal_modal__46NFH"
         style={{ opacity: 1 }}
-      >
+      > */}
         <div className="lenis-content">
           <motion.div
             className="SmoothModal_modal-inner__5cyWM"
@@ -331,7 +333,9 @@ export const WorkModal = ({
             </main>
           </motion.div>
         </div>
-      </div>
+        {/* </div> */}
+      </ReactLenis>
+
       <div tabIndex={-1}></div>
       <div tabIndex={0}></div>
     </div>
