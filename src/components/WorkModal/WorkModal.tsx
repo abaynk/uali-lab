@@ -70,10 +70,6 @@ export const WorkModal = ({
         tabIndex={-1}
       ></div>
       <ReactLenis className="SmoothModal_modal__46NFH">
-        {/* <div
-        className="lenis lenis-smooth SmoothModal_modal__46NFH"
-        style={{ opacity: 1 }}
-      > */}
         <div className="lenis-content">
           <motion.div
             className="SmoothModal_modal-inner__5cyWM"
@@ -198,6 +194,7 @@ export const WorkModal = ({
                                 height: "100%",
                                 backgroundColor: "#000",
                               }}
+                              muted={true}
                             />
                           </div>
                         </div>
@@ -333,7 +330,6 @@ export const WorkModal = ({
             </main>
           </motion.div>
         </div>
-        {/* </div> */}
       </ReactLenis>
 
       <div tabIndex={-1}></div>
