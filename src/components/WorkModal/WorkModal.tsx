@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./WorkModal.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, useScroll } from "framer-motion";
 import IProject from "@/types/ProjectType";
 import Vimeo from "@u-wave/react-vimeo";
+import { ReactLenis } from "@studio-freight/react-lenis";
 
 const dropIn = {
   hidden: {
@@ -54,6 +55,25 @@ export const WorkModal = ({
   projectData: IProject | undefined;
   handleClose: () => void;
 }) => {
+  const myElementRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleDocumentClick = (event: any) => {
+      if (
+        myElementRef.current &&
+        !myElementRef.current.contains(event.target)
+      ) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
+
   return (
     <div className="SmoothModal_modal-wrapper__kCDpT">
       <motion.div
@@ -68,11 +88,8 @@ export const WorkModal = ({
         className="SmoothModal_modal-tab-trap-start__Eb_c5"
         tabIndex={-1}
       ></div>
-      <div
-        className="lenis lenis-smooth SmoothModal_modal__46NFH"
-        style={{ opacity: 1 }}
-      >
-        <div className="lenis-content">
+      <ReactLenis className="SmoothModal_modal__46NFH">
+        <div className="lenis-content" ref={myElementRef}>
           <motion.div
             className="SmoothModal_modal-inner__5cyWM"
             variants={dropIn}
@@ -196,6 +213,7 @@ export const WorkModal = ({
                                 height: "100%",
                                 backgroundColor: "#000",
                               }}
+                              muted={true}
                             />
                           </div>
                         </div>
@@ -331,7 +349,8 @@ export const WorkModal = ({
             </main>
           </motion.div>
         </div>
-      </div>
+      </ReactLenis>
+
       <div tabIndex={-1}></div>
       <div tabIndex={0}></div>
     </div>

@@ -38,13 +38,13 @@ export default function RootLayout({
               }}
             >
               {children}
-              {modal}
             </div>
 
             <div className="FooterRevealPageWrap_footer-scroll-twin__tn7UN"></div>
             <Footer />
           </div>
         </SmoothScrolling>
+        {modal}
       </body>
     </html>
   );

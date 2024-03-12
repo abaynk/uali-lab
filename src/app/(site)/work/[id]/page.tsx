@@ -95,6 +95,7 @@ const WorkPage = ({ params }: { params: { id: string } }) => {
                         height: "100%",
                         backgroundColor: "#000",
                       }}
+                      muted={true}
                     />
                   </div>
                 </div>
