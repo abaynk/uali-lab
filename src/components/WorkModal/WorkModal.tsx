@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./WorkModal.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -55,6 +55,25 @@ export const WorkModal = ({
   projectData: IProject | undefined;
   handleClose: () => void;
 }) => {
+  const myElementRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleDocumentClick = (event: any) => {
+      if (
+        myElementRef.current &&
+        !myElementRef.current.contains(event.target)
+      ) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
+
   return (
     <div className="SmoothModal_modal-wrapper__kCDpT">
       <motion.div
@@ -70,7 +89,7 @@ export const WorkModal = ({
         tabIndex={-1}
       ></div>
       <ReactLenis className="SmoothModal_modal__46NFH">
-        <div className="lenis-content">
+        <div className="lenis-content" ref={myElementRef}>
           <motion.div
             className="SmoothModal_modal-inner__5cyWM"
             variants={dropIn}

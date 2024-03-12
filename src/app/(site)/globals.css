@@ -4684,7 +4684,7 @@ body.overflow-hidden {
   height: 100%;
   background: #000;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: all;
 }
 
 .SmoothModal_modal__46NFH {
