@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Parallax from "@/components/Parallax";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { animate, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -12,6 +12,7 @@ import IProject, { HomePageContentType } from "@/types";
 import Image from "next/image";
 import WorkCard from "@/components/WorkCard";
 import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
+import { inView } from "framer-motion";
 
 export default function Home() {
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
@@ -32,6 +33,15 @@ export default function Home() {
       "https://player.vimeo.com/progressive_redirect/playback/900035537/rendition/1080p/file.mp4?loc=external&log_user=0&signature=92f8baecbcaa673d013bf28d8697afbb95b9360f73659a39636e837060325902",
   });
   const [projects, setPorjects] = useState<IProject[]>([]);
+  const purpleContainer = document.getElementsByClassName(
+    "page_showcase__LVgh4"
+  )[0];
+
+  const [bgColor, setBgColor] = useState<any>("var(--default-tertiary)");
+  inView(purpleContainer, (info) => {
+    setBgColor("#B488F1");
+    return (leaveInfo) => setBgColor("var(--default-tertiary)");
+  });
 
   useEffect(() => {
     const fetchHomePageProjects = async () => {
@@ -56,7 +66,7 @@ export default function Home() {
   --theme-primary-text: var(--default-primary-text);
   --theme-secondary: var(--default-secondary);
   --theme-text: var(--default-text);
-  --theme-background: var(--default-tertiary);
+  --theme-background: ${bgColor};
   --theme-logo: var(--default-secondary);
   --theme-header-face: var(--default-primary);
 }
