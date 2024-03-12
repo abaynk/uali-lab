@@ -1,18 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import Parallax from "@/components/Parallax";
-import { animate, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { inView, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import {
   getHomePageContent,
   getHomePageProjects,
 } from "../../../sanity/lib/query";
 import IProject, { HomePageContentType } from "@/types";
-import Image from "next/image";
 import WorkCard from "@/components/WorkCard";
 import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
-import { inView } from "framer-motion";
 
 export default function Home() {
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
@@ -33,15 +29,10 @@ export default function Home() {
       "https://player.vimeo.com/progressive_redirect/playback/900035537/rendition/1080p/file.mp4?loc=external&log_user=0&signature=92f8baecbcaa673d013bf28d8697afbb95b9360f73659a39636e837060325902",
   });
   const [projects, setPorjects] = useState<IProject[]>([]);
-  const purpleContainer = document.getElementsByClassName(
-    "page_showcase__LVgh4"
-  )[0];
+  const purpleContainerRef = useRef<any>(null);
+  ("page_showcase__LVgh4");
 
   const [bgColor, setBgColor] = useState<any>("var(--default-tertiary)");
-  inView(purpleContainer, (info) => {
-    setBgColor("#B488F1");
-    return (leaveInfo) => setBgColor("var(--default-tertiary)");
-  });
 
   useEffect(() => {
     const fetchHomePageProjects = async () => {
@@ -55,6 +46,13 @@ export default function Home() {
 
     fetchHomePageContent();
     fetchHomePageProjects();
+
+    const stop = inView(purpleContainerRef.current, (info) => {
+      setBgColor("#B488F1");
+      return (leaveInfo) => setBgColor("var(--default-tertiary)");
+    });
+
+    return () => stop();
   }, []);
 
   return (
@@ -77,6 +75,7 @@ export default function Home() {
       <ThirdSectionShowCase
         showCaseHeadingText={homePageContent?.showCaseHeadingText}
         companiesLogos={homePageContent?.companiesLogos}
+        purpleContainerRef={purpleContainerRef}
       />
       <FourthSectionWork
         projects={projects}
@@ -303,12 +302,14 @@ const SecondSectionVideo = ({ videoURL }: { videoURL: string }) => {
 const ThirdSectionShowCase = ({
   showCaseHeadingText,
   companiesLogos,
+  purpleContainerRef,
 }: {
   showCaseHeadingText: string;
   companiesLogos: string[];
+  purpleContainerRef: any;
 }) => {
   return (
-    <section className="page_showcase__LVgh4">
+    <section className="page_showcase__LVgh4" ref={purpleContainerRef}>
       <h2 className="page_showcase__heading__0aQHD">{showCaseHeadingText}</h2>
       <div className="HomepageLogos_homepage-logos__76775">
         {companiesLogos.map((logo, index) => (
