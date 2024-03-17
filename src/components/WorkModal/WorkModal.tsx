@@ -56,6 +56,7 @@ export const WorkModal = ({
   handleClose: () => void;
 }) => {
   const myElementRef = useRef<any>(null);
+  const scrollableRef = useRef<any>(null);
 
   useEffect(() => {
     const handleDocumentClick = (event: any) => {
@@ -113,7 +114,9 @@ export const WorkModal = ({
               style={{
                 transform: "translateX(0px) translateY(0px) translateZ(0px);",
               }}
-              onClick={handleClose}
+              onClick={() => {
+                handleClose();
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

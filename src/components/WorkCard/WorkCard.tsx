@@ -1,9 +1,10 @@
-import React, { ImgHTMLAttributes } from "react";
+import React, { ImgHTMLAttributes, useRef } from "react";
 import styles from "./WorkCard.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Parallax from "../Parallax";
 import IProject from "@/types";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 
 interface Props {
   isPortrait?: boolean;
@@ -11,15 +12,22 @@ interface Props {
 }
 
 const WorkCard = ({ isPortrait = false, project }: Props) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+  });
+
   return (
     <div
+      ref={ref}
       className="WorkCard_work-card-wrapper__7mGrZ"
       style={
         {
           "--aspect-x": isPortrait ? 710 : 1452,
           "--aspect-y": 890,
-          opacity: 1,
-          transform: "translateY(0px)",
+          opacity: !isInView ? 0 : 1,
+          transform: !isInView ? "translateY(50px)" : "translateY(0px)",
+          transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
         } as any
       }
     >

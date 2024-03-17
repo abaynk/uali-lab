@@ -2265,7 +2265,7 @@ body.overflow-hidden {
     margin: 0;
     padding-top: clamp(3.125rem, 3.3068783069vw, 4.15625rem);
     padding-bottom: clamp(3.125rem, 3.3068783069vw, 4.15625rem);
-    max-width: clamp(68.75rem, 72.7513227513vw, 91.4375rem);
+    max-width: clamp(69.8rem, 72.7513227513vw, 91.4375rem);
   }
 }
 
