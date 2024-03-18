@@ -14,5 +14,11 @@ export type HomePageContentType = {
   companiesLogos: string[];
   headingText: string;
   showCaseHeadingText: string;
-  showReelVideo: string;
+  showReel: {
+    showReelVideo: string;
+    showReelVideoThumbnail: {
+      alt: string;
+      url: string;
+    };
+  };
 };

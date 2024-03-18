@@ -13,13 +13,27 @@ export default {
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "showReelVideo",
-      type: "file",
-      title: "Show Reel video",
-      description: "Upload file",
-      options: {
-        accept: "video/*",
-      },
+      name: "showReel",
+      title: "Show reel video",
+      type: "object",
+      fields: [
+        defineField({
+          name: "showReelVideo",
+          type: "file",
+          title: "Video",
+          description: "Upload video file",
+          validation: (rule) => rule.required(),
+          options: {
+            accept: "video/*",
+          },
+        }),
+        defineField({
+          name: "showReelVideoThumbnail",
+          type: "image",
+          title: "Video thumbnail",
+          description: "Upload image",
+        }),
+      ],
     }),
     defineField({
       name: "showCaseHeadingText",

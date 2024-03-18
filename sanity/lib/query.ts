@@ -15,7 +15,10 @@ export async function getHomePageContent(): Promise<HomePageContentType> {
       "companiesLogos": companiesLogos[].asset->url,
       headingText,
       showCaseHeadingText,
-      "showReelVideo":showReelVideo.asset->url 
+      showReel {
+        "showReelVideo":showReelVideo.asset->url,
+        showReelVideoThumbnail{alt,"url":asset->url}
+      }
     }`
   );
 }

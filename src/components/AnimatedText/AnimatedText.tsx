@@ -54,6 +54,8 @@ const AnimatedCharacters = ({ text }: any) => {
                   style={{
                     display: "inline-block",
                     whiteSpace: "pre",
+                    animation:
+                      "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
                   }}
                   variants={item}
                   key={index}
