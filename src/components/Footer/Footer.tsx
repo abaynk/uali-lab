@@ -2,10 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.scss";
+import { usePathname } from "next/navigation";
 
 type Props = {};
 
 export const Footer = (props: Props) => {
+  const routerPathName = usePathname();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -21,7 +23,10 @@ export const Footer = (props: Props) => {
     //     <H2 activeIndex={activeIndex} />
     //   </div>
     // </footer>
-    <footer className="Footer_footer__GQa1y">
+    <footer
+      className="Footer_footer__GQa1y"
+      style={{ display: routerPathName === "/contact" ? "none" : "block" }}
+    >
       <div
         className="Footer_footer__sticky-inner__m5LLE"
         style={{ transform: "none" }}

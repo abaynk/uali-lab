@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { useRouter } from "next/router";
 // import Template from "./template";
 
 const inter = Inter({ subsets: ["latin"] });
