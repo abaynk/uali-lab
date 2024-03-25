@@ -39,20 +39,20 @@ export default function Work() {
         }`}
       </style>
       <div className="layout_work-header__q0X91">
-        {/*<h1 className="layout_work-header__heading__HhhhV">
+        <h1 className="layout_work-header__heading__HhhhV">
           {!!headingText &&
             textMap &&
             textMap?.map((line, index) => {
               return <AnimatedCharacters text={line} key={index} />;
             })}
-        </h1>*/}
-        <AnimatedText2
-            el="h1"
-            text={[headingText]}
-            className="layout_work-header__heading__HhhhV"
-            repeatDelay={10000}
-            once={true}
-          />
+        </h1>
+        {/* <AnimatedText2
+          el="h1"
+          text={[headingText]}
+          className="layout_work-header__heading__HhhhV"
+          repeatDelay={10000}
+          once={true}
+        /> */}
       </div>
 
       <FirstSubsectionFourth projects={projects} />

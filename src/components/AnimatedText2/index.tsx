@@ -1,7 +1,6 @@
 import { motion, useInView, useAnimation, Variant } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-
 type AnimatedTextProps = {
   text: string | string[];
   el?: keyof JSX.IntrinsicElements;
@@ -17,7 +16,7 @@ type AnimatedTextProps = {
 const defaultAnimations = {
   hidden: {
     opacity: 0,
-    y: 20,
+    y: 10,
   },
   visible: {
     opacity: 1,
@@ -28,7 +27,7 @@ const defaultAnimations = {
   },
 };
 
- const AnimatedText2 = ({
+const AnimatedText2 = ({
   text,
   el: Wrapper = "p",
   className,
@@ -39,7 +38,7 @@ const defaultAnimations = {
   const controls = useAnimation();
   const textArray = Array.isArray(text) ? text : [text];
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5, once });
+  const isInView = useInView(ref, { amount: 0.5, once: true });
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -76,20 +75,33 @@ const defaultAnimations = {
         aria-hidden
       >
         {textArray.map((line, lineIndex) => (
-          <span className="block" key={`${line}-${lineIndex}`} style={{display:"block"}}>
+          <span
+            className="block"
+            key={`${line}-${lineIndex}`}
+            style={{ display: "block" }}
+          >
             {line.split(" ").map((word, wordIndex) => (
-              <span className="inline-block" style={{display:"inline-block"}} key={`${word}-${wordIndex}`}>
+              <span
+                className="inline-block"
+                style={{ display: "inline-block" }}
+                key={`${word}-${wordIndex}`}
+              >
                 {word.split("").map((char, charIndex) => (
                   <motion.span
                     key={`${char}-${charIndex}`}
                     className="inline-block"
-                    style={{display:"inline-block"}} 
+                    style={{ display: "inline-block" }}
                     variants={animation}
                   >
                     {char}
                   </motion.span>
                 ))}
-                <span className="inline-block" style={{display:"inline-block"}} >&nbsp;</span>
+                <span
+                  className="inline-block"
+                  style={{ display: "inline-block" }}
+                >
+                  &nbsp;
+                </span>
               </span>
             ))}
           </span>

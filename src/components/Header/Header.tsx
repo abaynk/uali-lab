@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import ExpertiseDropDown from "./ExpertiseDropDown";
 
 type Props = {};
 
@@ -93,11 +94,7 @@ export const Header = (props: Props) => {
               onMouseEnter={() => setHoverIndex(4)}
               onMouseLeave={() => setHoverIndex(-1)}
             >
-              <div className="link-wrap">
-                <button className={`Header_menu__link__UGkEv`}>
-                  Expertise
-                </button>
-              </div>
+              <ExpertiseDropDown />
             </li>
             <li
               className="Header_menu__item__cb_Hw"
