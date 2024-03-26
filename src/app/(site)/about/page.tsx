@@ -1,11 +1,41 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
 import SectionLast from "./SectionLast";
+import { motion, useScroll } from "framer-motion";
+import AnimatedCharacters from "@/components/AnimatedText";
+import { getAboutPageContent } from "../../../../sanity/lib/query";
+import { AboutPageContent } from "@/types";
 
 type Props = {};
 
 const About = (props: Props) => {
+  const [aboutPageContent, setAboutPageContent] = useState<AboutPageContent>({
+    _id: "",
+    headingText: "",
+    headingTextHidden: "",
+    headingImage: {
+      alt: "",
+      url: "",
+    },
+    descriptionTextBlock: "",
+    collaborations: {
+      collabsText: "",
+    },
+  });
+
+  useEffect(() => {
+    const fetchAboutPageContent = async () => {
+      const aboutPageContent = await getAboutPageContent();
+      console.log({ aboutPageContent });
+      setAboutPageContent(aboutPageContent);
+    };
+
+    fetchAboutPageContent();
+  }, []);
+
   return (
     <main className="page_about__Y3n_Y">
       <style>
@@ -19,19 +49,26 @@ const About = (props: Props) => {
             --theme-header-face: var(--default-primary);
         }`}
       </style>
-      <SectionOne />
-      <SectionTwo />
-      <SectionThree />
-      <SectionLast />
+      <SectionOne aboutPageContent={aboutPageContent} />
+      <SectionTwo aboutPageContent={aboutPageContent} />
+      <SectionThree aboutPageContent={aboutPageContent} />
+      <SectionLast aboutPageContent={aboutPageContent} />
     </main>
   );
 };
 
-const SectionOne = () => {
+const SectionOne = ({
+  aboutPageContent,
+}: {
+  aboutPageContent: AboutPageContent;
+}) => {
+  const headingText = aboutPageContent?.headingText?.split(" ");
+
+  const { scrollY } = useScroll();
   return (
-    <div
+    <motion.div
       className="AboutHero_about-hero__JIXuc"
-      style={{ "--scrollY": "0" } as any}
+      style={{ "--scrollY": scrollY } as any}
     >
       <div>
         <div className="AboutHero_about-hero__hero-wrapper__OFHLs">
@@ -79,53 +116,43 @@ const SectionOne = () => {
           </h1>
           <h1 className="AboutHero_about-hero__heading__ws2_B AboutHero_about-hero__heading--desktop__Ti0ck">
             <span>
-              <span
-                className="TextAnimateUp_word__Yvn5A"
-                style={{
-                  display: "inline-block",
-                  whiteSpace: "pre",
-                  transform: "translate3d(0px, 0%, 0px)",
-                  animation:
-                    "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8;",
-                }}
-              >
-                Digital
-              </span>
-              <span
-                className="TextAnimateUp_word__Yvn5A"
-                style={{
-                  display: "inline-block",
-                  whiteSpace: "pre",
-                  transform: "translate3d(0px, 0%, 0px)",
-                  animation:
-                    "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8;",
-                }}
-              >
-                Products.
-              </span>
+              {headingText?.map((word, index) => (
+                <span
+                  key={`word_${index}`}
+                  className="TextAnimateUp_word__Yvn5A"
+                  style={{
+                    display: "inline-block",
+                    whiteSpace: "pre",
+                    animation:
+                      "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+                    transform: "translate3d(0px, 0%, 0px)",
+                  }}
+                >
+                  <AnimatedCharacters text={word} />
+                </span>
+              ))}
             </span>
             <span className="AboutHero_about-hero__heading-opacity__BrOA2">
               <span>
-                <span
-                  className="TextAnimateUp_word__Yvn5A"
-                  style={{
-                    display: "inline-block",
-                    whiteSpace: "pre",
-                    transform: "translate3d(0, 80%, 0)",
-                  }}
-                >
-                  Human
-                </span>
-                <span
-                  className="TextAnimateUp_word__Yvn5A"
-                  style={{
-                    display: "inline-block",
-                    whiteSpace: "pre",
-                    transform: "translate3d(0, 80%, 0)",
-                  }}
-                >
-                  Experiences.
-                </span>
+                {aboutPageContent?.headingTextHidden
+                  ?.split(" ")
+                  .map((word, index) => {
+                    return (
+                      <span
+                        key={`word_hidden_${index}`}
+                        className="TextAnimateUp_word__Yvn5A"
+                        style={{
+                          display: "inline-block",
+                          whiteSpace: "pre",
+                          transform: "translate3d(0, 0%, 0)",
+                          animation:
+                            "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+                        }}
+                      >
+                        <AnimatedCharacters text={word} />
+                      </span>
+                    );
+                  })}
               </span>
             </span>
           </h1>
@@ -303,7 +330,7 @@ const SectionOne = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,8 +1,13 @@
+import { AboutPageContent } from "@/types";
 import React from "react";
 
 type Props = {};
 
-const SectionLast = (props: Props) => {
+const SectionLast = ({
+  aboutPageContent,
+}: {
+  aboutPageContent: AboutPageContent;
+}) => {
   return (
     <div>
       <div className="page_about-dos-donts__M210R">

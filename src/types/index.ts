@@ -22,3 +22,17 @@ export type HomePageContentType = {
     };
   };
 };
+
+export type AboutPageContent = {
+  _id: string;
+  headingText: string;
+  headingTextHidden: string;
+  headingImage: {
+    alt: string;
+    url: string;
+  };
+  descriptionTextBlock: string;
+  collaborations: {
+    collabsText: string;
+  };
+};

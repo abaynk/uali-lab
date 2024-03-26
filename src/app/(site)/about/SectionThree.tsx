@@ -1,8 +1,13 @@
+import { AboutPageContent } from "@/types";
 import React from "react";
 
 type Props = {};
 
-const SectionThree = (props: Props) => {
+const SectionThree = ({
+  aboutPageContent,
+}: {
+  aboutPageContent: AboutPageContent;
+}) => {
   return (
     <div className="page_about-capabilities___ABbo">
       <h2 className="page_about-capabilities__intro__a_C8E">

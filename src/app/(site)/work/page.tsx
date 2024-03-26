@@ -2,7 +2,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import IProject from "@/types";
-import { getAllProjects } from "../../../../sanity/lib/query";
+import {
+  getAllProjects,
+  getWorkPageContent,
+} from "../../../../sanity/lib/query";
 import Link from "next/link";
 import Parallax from "@/components/Parallax";
 import WorkCard from "@/components/WorkCard";
@@ -16,13 +19,20 @@ export default function Work() {
   const textMap = headingText?.split(" ");
 
   useEffect(() => {
-    setHeadingText("World-class digital products, idea to execution.");
     const fetchAllProjects = async () => {
       const projects = await getAllProjects();
       setPorjects(projects);
     };
+    const fetchWorkPageHeading = async () => {
+      const headingText = await getWorkPageContent();
+      setHeadingText(headingText.headingText);
+      if (!headingText) {
+        setHeadingText("World-class digital products, idea to execution.");
+      }
+    };
 
     fetchAllProjects();
+    fetchWorkPageHeading();
   }, []);
 
   return (

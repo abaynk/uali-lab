@@ -1,8 +1,29 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { getContactsPageContent } from "../../../../sanity/lib/query";
+import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 
 type Props = {};
 
 const Contact = (props: Props) => {
+  const [headingText, setHeadingText] = useState(
+    "We've got a great feeling about this"
+  );
+  const textMap = headingText?.split(" ");
+
+  useEffect(() => {
+    const fetchContactsPageHeading = async () => {
+      const headingText = await getContactsPageContent();
+      setHeadingText(headingText.headingText);
+      if (!headingText) {
+        setHeadingText("We've got a great feeling about this");
+      }
+    };
+
+    fetchContactsPageHeading();
+  }, []);
+
   return (
     <main className="page_contact-page__9h2cr">
       <style>
@@ -60,7 +81,11 @@ const Contact = (props: Props) => {
       <div className="page_contact-container__kOQYk">
         <div className="page_contact-content__UdnQw">
           <h1 className="page_contact-heading__YGAia">
-            We`ve got a great feeling about this
+            {!!headingText &&
+              textMap &&
+              textMap?.map((line, index) => {
+                return <AnimatedCharacters text={line} key={index} />;
+              })}
           </h1>
           <div style={{ opacity: 1, transform: "translateY(0px);" }}>
             <div>

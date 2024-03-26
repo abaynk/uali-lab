@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "./client";
-import IProject, { HomePageContentType } from "@/types";
+import IProject, { AboutPageContent, HomePageContentType } from "@/types";
 
 export async function getHomePageContent(): Promise<HomePageContentType> {
   return client.fetch(
@@ -19,6 +19,37 @@ export async function getHomePageContent(): Promise<HomePageContentType> {
         "showReelVideo":showReelVideo.asset->url,
         showReelVideoThumbnail{alt,"url":asset->url}
       }
+    }`
+  );
+}
+
+export async function getAboutPageContent(): Promise<AboutPageContent> {
+  return client.fetch(
+    groq`*[_type == "aboutPageContent"][0]{
+      _id,
+      headingText,
+      headingTextHidden,
+      headingImage {alt, "headingImage":asset->url},
+      descriptionTextBlock,
+      collaborations {collabsText}
+    }`
+  );
+}
+
+export async function getWorkPageContent(): Promise<any> {
+  return client.fetch(
+    groq`*[_type == "workPageContent"][0]{
+      _id,
+      headingText,
+    }`
+  );
+}
+
+export async function getContactsPageContent(): Promise<any> {
+  return client.fetch(
+    groq`*[_type == "contactsPageContent"][0]{
+      _id,
+      headingText,
     }`
   );
 }

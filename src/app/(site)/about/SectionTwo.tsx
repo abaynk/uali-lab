@@ -1,4 +1,10 @@
-const SectionTwo = () => {
+import { AboutPageContent } from "@/types";
+
+const SectionTwo = ({
+  aboutPageContent,
+}: {
+  aboutPageContent: AboutPageContent;
+}) => {
   return (
     <div className="">
       <div className="page_about-logos__Phajx">
