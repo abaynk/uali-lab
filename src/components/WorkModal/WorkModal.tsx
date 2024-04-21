@@ -188,13 +188,13 @@ export const WorkModal = ({
                       <div className="CaseStudySidebar_sidebar__body__umcIh">
                         {projectData?.contents}
                       </div>
-                      <ul className="CaseStudySidebar_custom-icon-list__c89wu">
-                        <li>Digital Strategy</li>
-                        <li>Interaction Design</li>
-                        <li>Mapping &amp; Location Features</li>
-                        <li>Event Searching &amp; Selection</li>
-                        <li>Build My Plan Functionality</li>
-                      </ul>
+                      {projectData?.listOfTags && (
+                        <ul className="CaseStudySidebar_custom-icon-list__c89wu">
+                          {projectData?.listOfTags.map((tag, index) => (
+                            <li key={index}>{tag}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                   <div className="ProjectContents_project-content__blocks__zlvle">

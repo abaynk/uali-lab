@@ -81,6 +81,7 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
       "assets": assets[].asset->url,
       category,
       contents,
+      "listOfTags": listOfTags[],
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
       description,
