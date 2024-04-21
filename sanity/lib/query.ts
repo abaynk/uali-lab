@@ -96,7 +96,7 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
 }
 export async function getHomePageProjects(): Promise<IProject[]> {
   return client.fetch(
-    groq`*[_type == "project" && isHomePageProject == true][0...3]{
+    groq`*[_type == "project" && isHomePageProject == true][0...5] | order(_createdAt asc){
       _id,
       "assets": assets[].asset->url,
       category,

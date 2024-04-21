@@ -74,17 +74,15 @@ export default function Home() {
   return (
     <main className="page_homepage__06uL1">
       <style>
-        {`
-:root {
-  --theme-primary: var(--default-primary);
-  --theme-primary-text: var(--default-primary-text);
-  --theme-secondary: var(--default-secondary);
-  --theme-text: var(--default-text);
-  --theme-background: ${bgColor};
-  --theme-logo: var(--default-secondary);
-  --theme-header-face: var(--default-primary);
-}
-`}
+        {`:root {
+            --theme-primary: var(--default-primary);
+            --theme-primary-text: var(--default-primary-text);
+            --theme-secondary: var(--default-secondary);
+            --theme-text: var(--default-text);
+            --theme-background: ${bgColor};
+            --theme-logo: var(--default-secondary);
+            --theme-header-face: var(--default-primary);
+          }`}
       </style>
       <SectionOneHeading headingText={homePageContent?.headingText} />
       <SecondSectionVideo
@@ -426,6 +424,10 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
       <WorkGridRow isPortrait>
         <WorkCard project={projects[1]} isPortrait />
         <WorkCard project={projects[2]} isPortrait />
+      </WorkGridRow>
+      <WorkGridRow isPortrait>
+        <WorkCard project={projects[3]} isPortrait />
+        <WorkCard project={projects[4]} isPortrait />
       </WorkGridRow>
     </WorkGrid>
   );
