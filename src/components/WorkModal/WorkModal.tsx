@@ -254,7 +254,7 @@ export const WorkModal = ({
                     )}
                   </div>
                 </div>
-                <footer className="ProjectContents_project-footer__6CKKh">
+                {/* <footer className="ProjectContents_project-footer__6CKKh">
                   <h2 className="ProjectContents_project-footer__heading__PW9rG">
                     Up Next
                   </h2>
@@ -347,7 +347,7 @@ export const WorkModal = ({
                       </div>
                     </Link>
                   </div>
-                </footer>
+                </footer> */}
               </div>
             </main>
           </motion.div>

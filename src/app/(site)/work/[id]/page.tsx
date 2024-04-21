@@ -131,7 +131,7 @@ const WorkPage = ({ params }: { params: { id: string } }) => {
             })}
           </div>
         </div>
-        <footer className="ProjectContents_project-footer__6CKKh">
+        {/* <footer className="ProjectContents_project-footer__6CKKh">
           <h2 className="ProjectContents_project-footer__heading__PW9rG">
             Up Next
           </h2>
@@ -224,7 +224,7 @@ const WorkPage = ({ params }: { params: { id: string } }) => {
               </div>
             </Link>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </main>
   );
