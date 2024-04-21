@@ -6,6 +6,7 @@ import {
   easeInOut,
   inView,
   motion,
+  useDragControls,
   useInView,
   useMotionValueEvent,
   useScroll,
@@ -20,6 +21,7 @@ import WorkCard from "@/components/WorkCard";
 import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
 import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 import AnimatedText from "@/components/AnimatedText/AnimatedText";
+import useSize from "@/hooks/useSize";
 
 export default function Home() {
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
@@ -583,6 +585,8 @@ const SecondSubsectionFourth = ({ bottomContent }: { bottomContent: any }) => {
 };
 
 const ThirdSubsectionFourth = () => {
+  const windowSize = useSize();
+
   const items = [
     {
       imageSrc:
@@ -666,6 +670,23 @@ const ThirdSubsectionFourth = () => {
     // Add more items as needed
   ];
 
+  const controls = useDragControls();
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const [leftVal, setLeftVal] = useState(
+    ref.current?.offsetWidth! - windowSize[0]
+  );
+
+  const [isDragging, setIsDragging] = useState(false);
+  function startDrag(event: any) {
+    controls.start(event, { snapToCursor: true });
+  }
+
+  useEffect(() => {
+    setLeftVal(ref.current?.offsetWidth! - windowSize[0]);
+  }, [ref, windowSize]);
+
   return (
     <div className="page_homepage__feed-wrapper__DU78l">
       <div className="page_homepage__feed-wrapper-inner__SFalT">
@@ -677,22 +698,51 @@ const ThirdSubsectionFourth = () => {
             What`s New
           </h2>
           <div
+            onPointerDown={(e) => {
+              startDrag(e);
+            }}
+            style={{ touchAction: "none", maxWidth: "100vw" }}
+          />
+          <motion.div
             className="FeedSlider_feed__inner__ht0nl"
             draggable={false}
             style={{ touchAction: "pan-y" }}
+            drag="x"
+            dragControls={controls}
+            dragConstraints={{
+              right: 0,
+              left: -leftVal,
+            }}
+            ref={ref}
+            onPointerDown={() => setIsDragging(true)}
+            onPointerUp={() => setIsDragging(false)}
           >
             {items.map((item, index) => (
-              <FeedItem key={index} {...item} />
+              <FeedItem key={index} {...item} isDragging={isDragging} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
   );
 };
 
-const FeedItem = ({ imageSrc, tag, date, title, content, link }: any) => (
-  <article className="FeedSlider_feed__shrink-drag__4j3XZ">
+const FeedItem = ({
+  imageSrc,
+  tag,
+  date,
+  title,
+  content,
+  link,
+  isDragging,
+}: any) => (
+  <article
+    className={
+      isDragging
+        ? "FeedSlider_feed__shrink-drag--dragging__hhJlK"
+        : "FeedSlider_feed__shrink-drag__4j3XZ"
+    }
+  >
     <div className="FeedSlider_feed__item__w7WSY">
       <div className="FeedSlider_feed__image__4qcgY">
         <picture className="Picture_picture__X3Eos Picture_picture--responsive__gDfjI FeedSlider_feed__picture__BGkOi">
