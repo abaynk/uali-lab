@@ -25,7 +25,7 @@ const defaultAnimations = {
 
 const ExpertiseDropDown = (props: Props) => {
   const controls = useAnimation();
-  const [isExpertiseOpen, setIsExpertiseOpen] = useState(true);
+  const [isExpertiseOpen, setIsExpertiseOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   return (
     <div className="link-wrap">
