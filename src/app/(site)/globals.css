@@ -1088,6 +1088,7 @@
   padding: 0.62em 0.675em;
   margin: 0 -0.675em;
   color: rgba(0, 0, 0, 0.6);
+  user-select: none;
 }
 
 .HeaderSubmenu_submenu__link__8aEu8:before {
@@ -1119,6 +1120,15 @@
   .HeaderSubmenu_submenu__link__8aEu8:hover:before {
     border-color: var(--hover-border) !important;
   }
+}
+
+.HeaderSubmenu_submenu__link__8aEu8:active {
+  background: var(--hover-background) !important;
+  color: var(--hover-color) !important;
+}
+
+.HeaderSubmenu_submenu__link__8aEu8:active:before {
+  border-color: var(--hover-border) !important;
 }
 
 .HeaderSubmenu_submenu__link__8aEu8:focus-visible {
