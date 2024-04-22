@@ -29,10 +29,33 @@ export type AboutPageContent = {
   headingTextHidden: string;
   headingImage: {
     alt: string;
-    url: string;
+    headingImage: string;
   };
   descriptionTextBlock: string;
   collaborations: {
     collabsText: string;
+    companiesLogos?: { companyLogo: string; companyName: string }[];
+  };
+  capabilites: {
+    capabilitiesText: string;
+    expertiseList: {
+      expertiseHeading: string;
+      expertiseDetails: string[];
+    }[];
+  };
+  reviewsList: {
+    reviewersName: string;
+    reviewText: string;
+  }[];
+  aboutUs: {
+    aboutUsHeading: string;
+    whatWeDo: {
+      whatWeDoHeading: string;
+      whatWeDoList: string[];
+    };
+    whatWeDont: {
+      whatWeDontHeading: string;
+      whatWeDontList: string[];
+    };
   };
 };

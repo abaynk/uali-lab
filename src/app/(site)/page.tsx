@@ -48,7 +48,6 @@ export default function Home() {
   });
   const [projects, setPorjects] = useState<IProject[]>([]);
   const purpleContainerRef = useRef<any>(null);
-  ("page_showcase__LVgh4");
 
   const [bgColor, setBgColor] = useState<any>("var(--default-tertiary)");
 

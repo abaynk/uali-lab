@@ -38,7 +38,7 @@ export default {
     defineField({
       name: "showCaseHeadingText",
       title: "Show Case Heading Text",
-      type: "string",
+      type: "text",
     }),
     defineField({
       name: "companiesLogos",
@@ -56,13 +56,13 @@ export default {
           name: "bottomContentHeadingText",
           title: "Heading text",
           description: "Bottom content heading text",
-          type: "string",
+          type: "text",
         },
         {
           name: "bottomContentDescriptionText",
           title: "Description Text",
           description: "Bottom content description text",
-          type: "string",
+          type: "text",
         },
         {
           name: "bottomContentStats",
