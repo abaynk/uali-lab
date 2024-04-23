@@ -1088,6 +1088,7 @@
   padding: 0.62em 0.675em;
   margin: 0 -0.675em;
   color: rgba(0, 0, 0, 0.6);
+  user-select: none;
 }
 
 .HeaderSubmenu_submenu__link__8aEu8:before {
@@ -1119,6 +1120,15 @@
   .HeaderSubmenu_submenu__link__8aEu8:hover:before {
     border-color: var(--hover-border) !important;
   }
+}
+
+.HeaderSubmenu_submenu__link__8aEu8:active {
+  background: var(--hover-background) !important;
+  color: var(--hover-color) !important;
+}
+
+.HeaderSubmenu_submenu__link__8aEu8:active:before {
+  border-color: var(--hover-border) !important;
 }
 
 .HeaderSubmenu_submenu__link__8aEu8:focus-visible {
@@ -2138,78 +2148,95 @@ body.overflow-hidden {
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-Bold.otf) format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-Bold.eot),
+    url(/assets/fonts/Gilroy/Gilroy-Bold.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-Bold.woff),
+    url(/assets/fonts/Gilroy/Gilroy-Bold.woff2);
   font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-BoldItalic.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-BoldItalic.eot),
+    url(/assets/fonts/Gilroy/Gilroy-BoldItalic.eot),
+    url(/assets/fonts/Gilroy/Gilroy-BoldItalic.eot),
+    url(/assets/fonts/Gilroy/Gilroy-BoldItalic.eot);
   font-display: swap;
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-Medium.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-Medium.eot),
+    url(/assets/fonts/Gilroy/Gilroy-Medium.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-Medium.woff),
+    url(/assets/fonts/Gilroy/Gilroy-Medium.woff2);
   font-display: swap;
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-MediumItalic.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-MediumItalic.eot),
+    url(/assets/fonts/Gilroy/Gilroy-MediumItalic.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-MediumItalic.woff),
+    url(/assets/fonts/Gilroy/Gilroy-MediumItalic.woff2);
   font-display: swap;
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-Regular.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-Regular.eot),
+    url(/assets/fonts/Gilroy/Gilroy-Regular.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-Regular.woff),
+    url(/assets/fonts/Gilroy/Gilroy-Regular.woff2);
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-Italic.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-RegularItalic.eot),
+    url(/assets/fonts/Gilroy/Gilroy-RegularItalic.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-RegularItalic.woff),
+    url(/assets/fonts/Gilroy/Gilroy-RegularItalic.woff2);
   font-display: swap;
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-Light.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-Light.eot),
+    url(/assets/fonts/Gilroy/Gilroy-Light.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-Light.woff),
+    url(/assets/fonts/Gilroy/Gilroy-Light.woff2);
   font-display: swap;
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: neueMontreal;
-  src: url(/assets/fonts/neue-montreal/NeueMontreal-LightItalic.otf)
-    format("opentype");
+  font-family: gilroy;
+  src: url(/assets/fonts/Gilroy/Gilroy-LightItalic.eot),
+    url(/assets/fonts/Gilroy/Gilroy-LightItalic.ttf),
+    url(/assets/fonts/Gilroy/Gilroy-LightItalic.woff),
+    url(/assets/fonts/Gilroy/Gilroy-LightItalic.woff2);
   font-display: swap;
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: __neueMontreal_Fallback_254d6c;
+  font-family: __gilroy_Fallback_254d6c;
   src: local("Arial");
   ascent-override: 102.46%;
   descent-override: 23.64%;
@@ -2218,11 +2245,11 @@ body.overflow-hidden {
 }
 
 .__className_254d6c {
-  font-family: neueMontreal, __neueMontreal_Fallback_254d6c;
+  font-family: gilroy, __gilroy_Fallback_254d6c;
 }
 
 .__variable_254d6c {
-  --font-neue-montreal: "neueMontreal", "__neueMontreal_Fallback_254d6c";
+  --font-gilroy: "gilroy", "__gilroy_Fallback_254d6c";
 }
 .page_homepage__hero__7HVdw {
   width: 100%;
@@ -2871,7 +2898,6 @@ body.overflow-hidden {
   user-select: none;
   padding-bottom: clamp(0.625rem, 0.6613756614vw, 0.83125rem);
   overflow: hidden;
-  overflow-x: scroll;
   margin-left: calc(-1 * var(--feed-overflow, 0));
   margin-right: calc(-1 * var(--feed-overflow, 0));
   color: rgba(0, 0, 0, 0.5);
@@ -4979,9 +5005,9 @@ html.lenis {
   box-sizing: content-box;
   margin: 0;
   color: #fff;
-  max-width: 80.0925925926vw;
+  max-width: 88vw;
   font-size: 14.5502645503vw;
-  line-height: 0.82;
+  line-height: 0.88;
   position: relative;
   z-index: 1;
   grid-area: 1/-1;
@@ -6086,14 +6112,14 @@ button > .ContactFormModal_contact-button__Sgql1 svg {
 .ContactFormModal_success__message__L0hMf {
   font-size: clamp(1.5rem, 1.5873015873vw, 1.995rem);
 }
-.sr-only { 
-position: absolute;
-width: 1px;
-height: 1px;
-padding: 0;
-margin: -1px;
-overflow: hidden;
-clip: rect(0, 0, 0, 0);
-white-space: nowrap;
-border-width: 0;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

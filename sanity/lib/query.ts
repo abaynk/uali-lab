@@ -31,7 +31,32 @@ export async function getAboutPageContent(): Promise<AboutPageContent> {
       headingTextHidden,
       headingImage {alt, "headingImage":asset->url},
       descriptionTextBlock,
-      collaborations {collabsText}
+      collaborations {collabsText, "companiesLogos":companiesLogos[]{
+        "companyLogo":companyLogo.asset->url,
+        companyName
+      }},
+      capabilites {
+        capabilitiesText,
+        "expertiseList": expertiseList[] {
+          expertiseHeading,
+          "expertiseDetails":expertiseDetails[]
+        }
+      },
+      "reviewsList":reviewsList[] {
+        reviewersName,
+        reviewText
+      },
+      aboutUs {
+        aboutUsHeading,
+        whatWeDo {
+          whatWeDoHeading,
+          "whatWeDoList":whatWeDoList[]
+        },
+        whatWeDont {
+          whatWeDontHeading,
+          "whatWeDontList":whatWeDontList[]
+        }
+      }
     }`
   );
 }
@@ -81,6 +106,7 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
       "assets": assets[].asset->url,
       category,
       contents,
+      "listOfTags": listOfTags[],
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
       description,
@@ -96,7 +122,7 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
 }
 export async function getHomePageProjects(): Promise<IProject[]> {
   return client.fetch(
-    groq`*[_type == "project" && isHomePageProject == true][0...3]{
+    groq`*[_type == "project" && isHomePageProject == true][0...5] | order(_createdAt asc){
       _id,
       "assets": assets[].asset->url,
       category,

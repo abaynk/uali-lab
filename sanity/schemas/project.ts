@@ -44,6 +44,17 @@ export default {
       type: "text",
       title: "Content",
     },
+    {
+      name: "listOfTags",
+      title: "List of tags",
+      type: "array",
+      description: "Add tags realted to this project",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+    },
     defineField({
       name: "embeddedVideoUrl",
       title: "Embedded video URL",

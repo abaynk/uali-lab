@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
 import SectionLast from "./SectionLast";
-import { motion, useScroll } from "framer-motion";
+import { inView, motion, useScroll } from "framer-motion";
 import AnimatedCharacters from "@/components/AnimatedText";
 import { getAboutPageContent } from "../../../../sanity/lib/query";
 import { AboutPageContent } from "@/types";
+import SectionCarousel from "./SectionCarousel";
 
 type Props = {};
 
@@ -18,33 +19,74 @@ const About = (props: Props) => {
     headingTextHidden: "",
     headingImage: {
       alt: "",
-      url: "",
+      headingImage: "",
     },
     descriptionTextBlock: "",
     collaborations: {
       collabsText: "",
+      companiesLogos: [],
+    },
+    capabilites: {
+      capabilitiesText: "",
+      expertiseList: [],
+    },
+    reviewsList: [],
+    aboutUs: {
+      aboutUsHeading: "",
+      whatWeDo: {
+        whatWeDoHeading: "",
+        whatWeDoList: [],
+      },
+      whatWeDont: {
+        whatWeDontHeading: "",
+        whatWeDontList: [],
+      },
     },
   });
+  const [bgColor, setBgColor] = useState<any>("#D8E7EE");
+  const [activeReview, setActiveReview] = useState(0);
+
+  const reduceActive = () => {
+    if (activeReview === 0) {
+      setActiveReview(aboutPageContent.reviewsList.length - 1);
+    } else setActiveReview((prev) => prev - 1);
+  };
+
+  const increaseActive = () => {
+    if (activeReview === aboutPageContent.reviewsList.length - 1) {
+      setActiveReview(0);
+    } else setActiveReview((prev) => prev + 1);
+  };
+
+  const blueContainerRef = useRef<any>(null);
 
   useEffect(() => {
     const fetchAboutPageContent = async () => {
       const aboutPageContent = await getAboutPageContent();
-      console.log({ aboutPageContent });
       setAboutPageContent(aboutPageContent);
     };
 
     fetchAboutPageContent();
+
+    const stop = inView(blueContainerRef.current, (info) => {
+      setBgColor("#3799EA");
+      return (leaveInfo) => {
+        setBgColor("#D8E7EE");
+      };
+    });
+
+    return () => stop();
   }, []);
 
   return (
     <main className="page_about__Y3n_Y">
       <style>
         {`:root{
-            --theme-primary: var(--default-primary);
+            --theme-primary: #82d7ff;
             --theme-primary-text: var(--default-primary-text);
             --theme-secondary: var(--default-secondary);
             --theme-text: var(--default-text);
-            --theme-background: var(--default-tertiary);
+            --theme-background: ${bgColor};
             --theme-logo: var(--default-secondary);
             --theme-header-face: var(--default-primary);
         }`}
@@ -52,6 +94,95 @@ const About = (props: Props) => {
       <SectionOne aboutPageContent={aboutPageContent} />
       <SectionTwo aboutPageContent={aboutPageContent} />
       <SectionThree aboutPageContent={aboutPageContent} />
+      <div className="page_about-midpage-banner__oplXk page_about-midpage-banner--visible__ZXFvV">
+        <div
+          className="TestimonialSlider_testimonials__caGyT page_about-testimonials__yw9DG"
+          ref={blueContainerRef}
+        >
+          <h2 className="hidden">Testimonials</h2>
+          <div className="TestimonialSlider_testimonials__slider__8ckYL">
+            {aboutPageContent?.reviewsList?.map((review, index) => {
+              return (
+                <figure
+                  key={index}
+                  className="TestimonialSlider_testimonial__Xrc78 TestimonialSlider_testimonial--active__UGwiF"
+                  style={
+                    activeReview === index
+                      ? {
+                          opacity: 1,
+                          zIndex: 1,
+                          transform: "translateX(0vw) translateZ(0px)",
+                        }
+                      : { opacity: 0, zIndex: 0, transform: "none" }
+                  }
+                >
+                  <blockquote className="TestimonialSlider_testimonial__quote__Xr_uU">
+                    {review.reviewText}
+                  </blockquote>
+                  <figcaption className="TestimonialSlider_testimonial__author__pnq5X">
+                    <span className="TestimonialSlider_testimonial__author-name__edwCT">
+                      {review.reviewersName}
+                    </span>
+                  </figcaption>
+                </figure>
+              );
+            })}
+            <div
+              className="TestimonialSlider_testimonials__controls-wrapper__5uSZ_"
+              style={{ opacity: 1, transform: "translateY(0px)" }}
+            >
+              <div
+                className="TestimonialSlider_testimonials__controls__qYNzx"
+                style={{
+                  transform:
+                    "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
+                }}
+              >
+                <button
+                  className="TestimonialSlider_testimonials__button__eeZXW TestimonialSlider_testimonials__button--prev__E2E3T"
+                  onClick={() => reduceActive()}
+                >
+                  <span className="hidden">Previous Testimonial</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 22 24"
+                    className=""
+                    style={{ "--width": 22, "--height": 24 } as any}
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M21.06 13.06a1.5 1.5 0 0 0 0-2.12l-9.545-9.547a1.5 1.5 0 1 0-2.122 2.122L17.88 12l-8.486 8.485a1.5 1.5 0 1 0 2.122 2.122l9.546-9.546ZM0 13.5h20v-3H0v3Z"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  className="TestimonialSlider_testimonials__button__eeZXW TestimonialSlider_testimonials__button--next__Pgkaa"
+                  onClick={() => increaseActive()}
+                >
+                  <span className="hidden">Next Testimonial</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 22 24"
+                    className=""
+                    style={{ "--width": 22, "--height": 24 } as any}
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M21.06 13.06a1.5 1.5 0 0 0 0-2.12l-9.545-9.547a1.5 1.5 0 1 0-2.122 2.122L17.88 12l-8.486 8.485a1.5 1.5 0 1 0 2.122 2.122l9.546-9.546ZM0 13.5h20v-3H0v3Z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <SectionLast aboutPageContent={aboutPageContent} />
     </main>
   );
@@ -290,26 +421,30 @@ const SectionOne = ({
         <div className="AboutHero_about-hero__container__dFXAB">
           <p className="AboutHero_about-hero__intro__OkcdB">
             <span className="format">
-              {"Human experiences".split(" ").map((word, index) => {
-                return (
-                  <span
-                    className="TextAnimateUp_word__Yvn5A"
-                    style={{
-                      display: "inline-block",
-                      whiteSpace: "pre",
-                      transform: "translate3d(0, 0%, 0)",
-                      animation:
-                        "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
-                    }}
-                    key={index}
-                  >
-                    {word}{" "}
-                  </span>
-                );
-              })}
+              {aboutPageContent.descriptionTextBlock
+                .split(" ")
+                .slice(0, 2)
+                .map((word, index) => {
+                  return (
+                    <span
+                      className="TextAnimateUp_word__Yvn5A"
+                      style={{
+                        display: "inline-block",
+                        whiteSpace: "pre",
+                        transform: "translate3d(0, 0%, 0)",
+                        animation:
+                          "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+                      }}
+                      key={index}
+                    >
+                      {word}{" "}
+                    </span>
+                  );
+                })}
             </span>
-            {"are the foundation of everything we do – client relationships, team collaboration and an unwavering focus on the end user. This philosophy is in our name, our core values and underpins our approach to every engagement."
+            {aboutPageContent.descriptionTextBlock
               .split(" ")
+              .slice(2)
               .map((word, index) => {
                 return (
                   <span
