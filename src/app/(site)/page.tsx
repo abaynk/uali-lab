@@ -76,13 +76,14 @@ export default function Home() {
     <main className="page_homepage__06uL1">
       <style>
         {`:root {
-            --theme-primary: var(--default-primary);
+            --theme-primary: var(--purple-primary);
             --theme-primary-text: var(--default-primary-text);
             --theme-secondary: var(--default-secondary);
             --theme-text: var(--default-text);
             --theme-background: ${bgColor};
             --theme-logo: var(--default-secondary);
             --theme-header-face: var(--default-primary);
+            --theme-navbar-button-active: var(--purple-primary)
           }`}
       </style>
       <SectionOneHeading headingText={homePageContent?.headingText} />
@@ -441,19 +442,58 @@ const FourthSectionWork = ({
 
 const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
   return (
-    <WorkGrid>
-      <WorkGridRow>
-        <WorkCard project={projects[0]} />
-      </WorkGridRow>
-      <WorkGridRow isPortrait>
-        <WorkCard project={projects[1]} isPortrait />
-        <WorkCard project={projects[2]} isPortrait />
-      </WorkGridRow>
-      <WorkGridRow isPortrait>
-        <WorkCard project={projects[3]} isPortrait />
-        <WorkCard project={projects[4]} isPortrait />
-      </WorkGridRow>
-    </WorkGrid>
+    <>
+      <WorkGrid>
+        <WorkGridRow>
+          <WorkCard project={projects[0]} />
+        </WorkGridRow>
+        <WorkGridRow isPortrait>
+          <WorkCard project={projects[1]} isPortrait />
+          <WorkCard project={projects[2]} isPortrait />
+        </WorkGridRow>
+        <WorkGridRow isPortrait>
+          <WorkCard project={projects[3]} isPortrait />
+          <WorkCard project={projects[4]} isPortrait />
+        </WorkGridRow>
+        <a
+          className="Button_button-wrapper__2Ps4h page_homepage-bottom__link__bpR9a"
+          target="_self"
+          href="/work"
+        >
+          <span
+            className="Button_button__lQZdm Button_button--icon__Me_aL Button_button--bg-secondary__6flN1"
+            style={{
+              transform:
+                "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
+            }}
+          >
+            Смотреть все проекты
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="13"
+              fill="none"
+              stroke-width="0.5"
+              viewBox="0 0 14 13"
+              className=""
+              style={
+                {
+                  "--width": 14,
+                  "--height": 13,
+                } as any
+              }
+            >
+              <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
+                vector-effect="non-scaling-stroke"
+              ></path>
+            </svg>
+          </span>
+        </a>
+      </WorkGrid>
+    </>
   );
 };
 

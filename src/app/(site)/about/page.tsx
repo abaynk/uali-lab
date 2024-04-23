@@ -89,6 +89,7 @@ const About = (props: Props) => {
             --theme-background: ${bgColor};
             --theme-logo: var(--default-secondary);
             --theme-header-face: var(--default-primary);
+            --theme-navbar-button-active: var(--theme-primary)
         }`}
       </style>
       <SectionOne aboutPageContent={aboutPageContent} />

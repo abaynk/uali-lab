@@ -37,7 +37,8 @@ const ExpertiseDropDown = (props: Props) => {
           setIsVisible((prev) => !prev);
         }}
       >
-        Expertise
+        {/* Expertise */}
+        Услуги
       </button>
       {isExpertiseOpen && (
         <motion.nav

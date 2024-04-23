@@ -1429,6 +1429,7 @@
   line-height: 1;
   cursor: pointer;
   z-index: 2;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {

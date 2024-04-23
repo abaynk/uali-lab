@@ -34,7 +34,8 @@ const Contact = (props: Props) => {
       --theme-background: #B8AFC6;
       --theme-logo: #ffffff;
       --theme-header-face: #FFD9B6;
-  }`}
+      --theme-navbar-button-active: var(--theme-primary)
+    }`}
       </style>
       <style>
         {`
@@ -95,7 +96,8 @@ const Contact = (props: Props) => {
                       "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px);",
                   }}
                 >
-                  Start a project
+                  {/* Start a project */}
+                  Начнем проект
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -185,7 +187,7 @@ const Contact = (props: Props) => {
               © 2024 <a href="/privacy">Privacy</a>
             </span>
           </div>
-          <div className="FooterSimpleContents_footer-acknowledgement__67wsz">
+          {/* <div className="FooterSimpleContents_footer-acknowledgement__67wsz">
             <div>
               <button className="Button_button-wrapper__2Ps4h">
                 <span
@@ -199,7 +201,7 @@ const Contact = (props: Props) => {
                 </span>
               </button>
             </div>
-          </div>
+          </div> */}
           <ul className="FooterSimpleContents_footer-socials__7wzOx">
             <li className="FooterSimpleContents_footer-socials__item__9hVW0">
               <a

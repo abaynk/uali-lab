@@ -6,7 +6,7 @@ import Image from "next/image";
 import ExpertiseDropDown from "./ExpertiseDropDown";
 
 type Props = {};
-
+// #b488f1
 export const Header = (props: Props) => {
   const pathname = usePathname().split("/")[1];
   const pathnames = ["", "about", "work", "expertise", "contact"];
@@ -58,7 +58,8 @@ export const Header = (props: Props) => {
                 }`}
                 href="/"
               >
-                Home
+                {/* Home */}
+                Главная
               </a>
             </li>
             <li
@@ -72,7 +73,7 @@ export const Header = (props: Props) => {
                 }`}
                 href="/about"
               >
-                About
+                {/* About */}О нас
               </a>
             </li>
             <li
@@ -86,7 +87,8 @@ export const Header = (props: Props) => {
                 }`}
                 href="/work"
               >
-                Work
+                {/* Work */}
+                Работы
               </a>
             </li>
             <li
@@ -107,7 +109,8 @@ export const Header = (props: Props) => {
                 }`}
                 href="/contact"
               >
-                Contact
+                {/* Contact */}
+                Контакты
               </a>
             </li>
           </ul>
@@ -119,31 +122,35 @@ export const Header = (props: Props) => {
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 1 }}
             >
-              Home
+              {/* Home */}
+              Главная
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 2 }}
             >
-              About
+              {/* About */}О нас
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 3 }}
             >
-              Work
+              {/* Work */}
+              Работы
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 4 }}
             >
-              Expertise
+              {/* Expertise */}
+              Услуги
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 5 }}
             >
-              Contact
+              {/* Contact */}
+              Контакты
             </span>
             <div
               className="Header_menu__hover-pill__NFAxL"

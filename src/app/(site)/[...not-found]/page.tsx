@@ -13,6 +13,7 @@ export default function Custom404() {
             --theme-background: var(--blue-tertiary);
             --theme-logo: var(--blue-secondary);
             --theme-header-face: var(--blue-primary);
+            --theme-navbar-button-active: var(--purple-primary)
         }`}
       </style>
       <h1 className="not-found_not-found__heading__yvzst">Whoops!</h1>

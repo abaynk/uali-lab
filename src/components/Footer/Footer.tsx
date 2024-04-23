@@ -124,7 +124,7 @@ export const Footer = (props: Props) => {
             </span>
           </a>
         </h2>
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           width="289"
           height="311"
@@ -138,7 +138,7 @@ export const Footer = (props: Props) => {
             d="M137.188 169.585c15.584 0 28.264-12.681 28.264-28.265V56.528C165.452 25.358 190.81 0 221.981 0c31.17 0 56.528 25.358 56.528 56.528h-28.264c0-15.584-12.681-28.264-28.264-28.264-15.584 0-28.264 12.68-28.264 28.264v84.792c0 31.171-25.358 56.529-56.529 56.529-31.17 0-56.528-25.358-56.528-56.529h28.264c0 15.584 12.681 28.265 28.264 28.265Zm122.764-.002h28.264c0 77.925-63.396 141.321-141.321 141.321V282.64c62.339 0 113.057-50.716 113.057-113.057ZM19.986 4.137 0 24.123l32.404 32.405L0 88.93l19.986 19.986 32.405-32.402 32.401 32.402 19.986-19.986-32.404-32.402 32.404-32.404L84.792 4.137 52.391 36.542 19.986 4.137Z"
             clip-rule="evenodd"
           ></path>
-        </svg>
+        </svg> */}
         <div className="Footer_footer__ballpit-wrapper__S6heb">
           <canvas
             className="BallPit_ballpit__Lo9o0"
@@ -192,7 +192,7 @@ export const Footer = (props: Props) => {
               © 2024 <a href="/privacy">Privacy</a>
             </span>
           </div>
-          <div className="FooterSimpleContents_footer-acknowledgement__67wsz">
+          {/* <div className="FooterSimpleContents_footer-acknowledgement__67wsz">
             <div>
               <button className="Button_button-wrapper__2Ps4h">
                 <span
@@ -206,7 +206,7 @@ export const Footer = (props: Props) => {
                 </span>
               </button>
             </div>
-          </div>
+          </div> */}
           <ul className="FooterSimpleContents_footer-socials__7wzOx">
             <li className="FooterSimpleContents_footer-socials__item__9hVW0">
               <a

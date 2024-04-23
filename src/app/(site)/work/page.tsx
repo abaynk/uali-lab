@@ -46,6 +46,7 @@ export default function Work() {
             --theme-background: var(--default-tertiary);
             --theme-logo: var(--default-secondary);
             --theme-header-face: var(--default-primary);
+            --theme-navbar-button-active: var(--theme-primary)
         }`}
       </style>
       <div className="layout_work-header__q0X91">
