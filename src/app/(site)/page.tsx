@@ -130,7 +130,9 @@ const SecondSectionVideo = ({
 }) => {
   const [isSoundEnabled, setIsSoundEnabled] = useState<boolean>(false);
   const [isVideoPaused, setIsVideoPaused] = useState<boolean>(false);
+  const [isVideo2Paused, setIsVideo2Paused] = useState<boolean>(false);
   const vidRef = useRef<HTMLVideoElement>(null);
+  const vidRef2 = useRef<HTMLVideoElement>(null);
 
   const handlePlayVideo = () => {
     if (vidRef.current?.paused) {
@@ -141,6 +143,17 @@ const SecondSectionVideo = ({
       vidRef.current?.pause();
     }
   };
+
+  const handlePlayMobileVideo = () => {
+    if (vidRef2.current?.paused) {
+      setIsVideo2Paused(false);
+      vidRef2.current?.play();
+    } else {
+      setIsVideo2Paused(true);
+      vidRef2.current?.pause();
+    }
+  };
+
   const ref = useRef(null);
   const ref2 = useRef(null);
 
@@ -240,14 +253,24 @@ const SecondSectionVideo = ({
               preload="none"
               autoPlay={true}
               ref={vidRef}
-              loop
+              loop={true}
               playsInline
+              disablePictureInPicture
+              muted={!isSoundEnabled}
+            ></video>
+            <video
+              className="HomepageShowreel_showreel__video__E_mew HomepageShowreel_showreel__video--mobile__M1igg"
+              src={videoURL}
+              preload="none"
+              autoPlay={true}
+              ref={vidRef2}
+              loop={true}
               disablePictureInPicture
               muted={!isSoundEnabled}
             ></video>
             <button
               className="Button_button-wrapper__2Ps4h HomepageShowreel_showreel__fullscreen-button__flQO2"
-              onClick={() => handlePlayVideo()}
+              onClick={handlePlayMobileVideo}
             >
               <span
                 className="Button_button__lQZdm Button_button--bg-secondary__6flN1 HomepageShowreel_showreel__fullscreen-button-inner__mipt8"
@@ -481,7 +504,7 @@ const SecondSubsectionFourth = ({ bottomContent }: { bottomContent: any }) => {
                 "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
             }}
           >
-            About Us
+            О нас
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"

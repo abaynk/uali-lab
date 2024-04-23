@@ -7,9 +7,7 @@ import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 type Props = {};
 
 const Contact = (props: Props) => {
-  const [headingText, setHeadingText] = useState(
-    "We've got a great feeling about this"
-  );
+  const [headingText, setHeadingText] = useState("");
   const textMap = headingText?.split(" ");
 
   useEffect(() => {
