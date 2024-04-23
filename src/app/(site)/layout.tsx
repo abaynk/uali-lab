@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { useRouter } from "next/router";
 // import Template from "./template";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="lenis lenis-smooth">
-      <body
-        className={`${inter.className} __className_254d6c __variable_254d6c`}
-      >
+      <body className={`__className_254d6c __variable_254d6c`}>
         <SmoothScrolling>
           <div className="FooterRevealPageWrap_frame-wrap__PJi9O">
             <Header />
