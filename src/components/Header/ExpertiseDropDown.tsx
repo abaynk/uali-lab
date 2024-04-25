@@ -57,7 +57,7 @@ const ExpertiseDropDown = (props: Props) => {
             style={{ opacity: 1 }}
           >
             <h2 className="HeaderSubmenu_submenu__heading__CpYC6">
-              What We Do
+              Что мы делаем
             </h2>
             <ul className="HeaderSubmenu_submenu__list__be8NW">
               <li
@@ -86,7 +86,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Strategy &amp; UX
+                  ЗД Графика
                 </a>
               </li>
               <li
@@ -113,7 +113,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Design
+                  Анимация
                 </a>
               </li>
               <li
@@ -140,7 +140,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Websites
+                  Графический дизайн
                 </a>
               </li>
               <li
@@ -169,7 +169,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Mobile Apps
+                  Иллюстрация
                 </a>
               </li>
               <li
@@ -198,7 +198,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Web Apps
+                  Съемка
                 </a>
               </li>
             </ul>
@@ -207,9 +207,7 @@ const ExpertiseDropDown = (props: Props) => {
             className="HeaderSubmenu_submenu__group__BIGgm"
             style={{ opacity: 1 }}
           >
-            <h2 className="HeaderSubmenu_submenu__heading__CpYC6">
-              Industries
-            </h2>
+            <h2 className="HeaderSubmenu_submenu__heading__CpYC6">Сферы</h2>
             <ul className="HeaderSubmenu_submenu__list__be8NW">
               <li
                 style={{
@@ -237,7 +235,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Commercial
+                  Коммерция
                 </a>
               </li>
               <li
@@ -266,7 +264,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Not for Profit
+                  Арт / Соц.
                 </a>
               </li>
               <li
@@ -297,7 +295,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  eCommerce
+                  Реклама
                 </a>
               </li>
               <li
@@ -326,7 +324,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Education
+                  Образование
                 </a>
               </li>
               <li
@@ -353,7 +351,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Startups
+                  Стартапы
                 </a>
               </li>
             </ul>

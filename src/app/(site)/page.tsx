@@ -653,81 +653,82 @@ const ThirdSubsectionFourth = () => {
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/600x790/f48bc1ea20/humaan.jpg",
-      tag: { text: "Brand New", color: "#7c4ace" },
+      tag: { text: "3D Модели", color: "#7c4ace" },
       date: "22.12.23",
-      title: "Headless Humaan",
+      title: "Мавзолей Ходжа-Ахмета Яссауи",
       content:
-        "A fresh new look for humaan.com – our sixth iteration. Please, take a look around.",
+        "Открываем доступ к исходникам нашего проекта для Visit Turkestan. Перед вами - 3Д модели мавзолея, артефакты и многое другое.",
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/600x790/4c3962aae5/xmas.jpg",
-      tag: { text: "Festive", color: "#1d8c4a" },
+      tag: { text: "Работы", color: "#1d8c4a" },
       date: "18.12.23",
-      title: "Season's Greenthings",
+      title: "Обои для смартфона",
       content:
-        "2023, the year we embraced the morph suit... We hope you have a safe festive season!",
-      link: { url: "/xmas", text: "Humaan Christmas" },
+        "Встречайте оригинальные иллюстрации с городами Казахстана от ualilab для ваших мобильных устройств.",
+      // link: { url: "/xmas", text: "Humaan Christmas" },
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/600x790/167932ea15/cocos.jpg",
-      tag: { text: "Site Launch", color: "#038B99" },
+      tag: { text: "Подкаст", color: "#038B99" },
       date: "28.11.23",
-      title: "Cocos Keeling Islands",
-      content: "A beautiful new website for Australia's last unspoilt paradise",
-      link: { url: "https://cocoskeelingislands.com.au/", text: "Go explore" },
+      title: "Teren Podcast",
+      content:
+        "Подкаст с ведущими аниматорами Казахстана, разбор индустрии, советы начинающим и многое другое.",
+      // link: { url: "https://cocoskeelingislands.com.au/", text: "Go explore" },
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/600x790/b2eda5d803/frame-1728.jpg",
-      tag: { text: "Recognition", color: "#353537" },
+      tag: { text: "Полезное", color: "#353537" },
       date: "23.11.23",
-      title: "Access Awards",
+      title: "Фрилансерам, на заметку",
       content:
-        "Talk n Walk wins Not-for-profit App of the Year by the Centre for Accessibility Australia",
+        "Полезные шаблоны, инструменты и гайды для фрилансеров. Делимся своим опытом и процессами.",
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/601x780/7ecf7ab961/alder-feed.jpg",
-      tag: { text: "Site Launch", color: "#000000" },
+      tag: { text: "Исходники", color: "#000000" },
       date: "31.10.23",
-      title: "Alder Tapware",
+      title: "Казахские Орнаменты",
       content:
-        "Inspiration, innovation, design. An all-new website for Alder tapware.",
-      link: { url: "https://aldertapware.com.au", text: "Check it out" },
+        "Делимся своими разработками казахских национальных орнаментов. Высококачественные футажи, готовые к применению.",
+      // link: { url: "https://aldertapware.com.au", text: "Check it out" },
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/1200x1580/23137800a3/humaan-annotations.png",
-      tag: { text: "Figma", color: "#a25aff" },
+      tag: { text: "Статья", color: "#a25aff" },
       date: "28.10.23",
-      title: "Humaan Annotations",
+      title: "За кем следить в Казахстане?",
       content:
-        "A handy little tool from the labs that extends Figma's built-in commenting functionality",
-      link: {
-        url: "https://www.figma.com/community/widget/1253154577300925316",
-        text: "Try it out",
-      },
+        "Дизайнеры, Аниматоры, 3Д художники, Иллюстраторы, и многие другие - за кем нужно следить в Казахстане",
+      // link: {
+      //   url: "https://www.figma.com/community/widget/1253154577300925316",
+      //   text: "Try it out",
+      // },
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/600x790/d28f4d34ae/loam2.jpg",
-      tag: { text: "Site Launch", color: "#46651A" },
+      tag: { text: "3Д модели", color: "#46651A" },
       date: "26.10.23",
-      title: "Loam Bio",
+      title: "Чарынский Каньон",
       content:
-        "Putting agriculture at the forefront of addressing climate change",
-      link: { url: "https://loambio.com", text: "Visit Loam" },
+        "Получите доступ к исходникам из нашего проекта для Visit Charyn - 3Д модели ландшафта, флоры и фауны нашей чарующей природы.",
+      // link: { url: "https://loambio.com", text: "Visit Loam" },
     },
     {
       imageSrc:
         "https://a-us.storyblok.com/f/1017006/600x790/6a408c2c00/loudshirtday.jpg",
-      tag: { text: "Get Loud", color: "#EE8D5A" },
+      tag: { text: "Разработки", color: "#EE8D5A" },
       date: "20.10.23",
-      title: "Loud Shirt Day",
+      title: "Казахские шрифты",
       content:
-        "Proudly ‘wearing it loud’ today for Loud Shirt Day - supporting children with hearing loss.",
+        "Мы знаем, как мало качественных шрифтов на казахском. Открываем доступ к нашей подборке, чтобы немного облегчить жизнь всем",
     },
     // Add more items as needed
   ];
@@ -757,7 +758,7 @@ const ThirdSubsectionFourth = () => {
             className="FeedSlider_feed__heading__Fcfyk"
             style={{ opacity: 1, transform: "translateY(0px)" }}
           >
-            What`s New
+            Сообществу - от ualilab
           </h2>
           <div
             onPointerDown={(e) => {
