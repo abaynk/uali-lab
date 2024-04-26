@@ -52,7 +52,7 @@ export const Footer = (props: Props) => {
               ></path>
             </svg>
             <span className="Footer_footer__word-ticker-wrapper__UUW_n">
-              что-нибудь{" "}
+              что-нибудь
               <span
                 className="WordTicker_word-ticker__2HQ3j"
                 style={{ opacity: 1 }}
@@ -62,63 +62,63 @@ export const Footer = (props: Props) => {
                     activeIndex === 0 ? styles["active"] : ""
                   }`}
                 >
-                  {", не знаю что "}
+                  {`, не знаю что `}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 1 ? styles["active"] : ""
                   }`}
                 >
-                  {" вау "}
+                  {"\u00A0вау "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 2 ? styles["active"] : ""
                   }`}
                 >
-                  {" красивое "}
+                  {"\u00A0красивое "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 3 ? styles["active"] : ""
                   }`}
                 >
-                  {" крутое "}
+                  {"\u00A0крутое "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 4 ? styles["active"] : ""
                   }`}
                 >
-                  {" оригинальное "}
+                  {"\u00A0оригинальное "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 5 ? styles["active"] : ""
                   }`}
                 >
-                  {" интересное "}
+                  {"\u00A0интересное "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 6 ? styles["active"] : ""
                   }`}
                 >
-                  {" понятное "}
+                  {"\u00A0понятное "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 7 ? styles["active"] : ""
                   }`}
                 >
-                  {" как у Disney "}
+                  {"\u00A0как у Disney "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 8 ? styles["active"] : ""
                   }`}
                 >
-                  {" быстрое "}
+                  {"\u00A0быстрое "}
                 </span>
               </span>
             </span>
@@ -207,7 +207,7 @@ export const Footer = (props: Props) => {
               <a
                 className="Button_button-wrapper__2Ps4h"
                 target="_blank"
-                href="https://instagram.com/wearehumaan"
+                href="https://www.instagram.com/uali.lab?igsh=azluYnBsMG84OXBw"
               >
                 <span
                   className="Button_button__lQZdm Button_button--bg-transparent__4_NCr"

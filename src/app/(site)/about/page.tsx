@@ -205,46 +205,36 @@ const SectionOne = ({
       <div>
         <div className="AboutHero_about-hero__hero-wrapper__OFHLs">
           <h1 className="AboutHero_about-hero__heading__ws2_B AboutHero_about-hero__heading--mobile__OAJCm">
-            <span
-              className="TextAnimateUp_word__Yvn5A"
-              style={{
-                display: "inline-block",
-                whiteSpace: "pre",
-                transform: "translate3d(0, 80%, 0)",
-              }}
-            >
-              Digital
-            </span>
-            <span
-              className="TextAnimateUp_word__Yvn5A"
-              style={{
-                display: "inline-block",
-                whiteSpace: "pre",
-                transform: "translate3d(0, 80%, 0)",
-              }}
-            >
-              Products.
-            </span>
-            <span
-              className="TextAnimateUp_word__Yvn5A"
-              style={{
-                display: "inline-block",
-                whiteSpace: "pre",
-                transform: "translate3d(0, 80%, 0)",
-              }}
-            >
-              Human
-            </span>
-            <span
-              className="TextAnimateUp_word__Yvn5A"
-              style={{
-                display: "inline-block",
-                whiteSpace: "pre",
-                transform: "translate3d(0, 80%, 0)",
-              }}
-            >
-              Experiences.
-            </span>
+            {headingText?.map((word, index) => (
+              <span
+                key={`word_${index}`}
+                className="TextAnimateUp_word__Yvn5A"
+                style={{
+                  display: "inline-block",
+                  whiteSpace: "pre",
+                  transform: "translate3d(0, 80%, 0)",
+                }}
+              >
+                {word}
+              </span>
+            ))}
+            {aboutPageContent?.headingTextHidden
+              ?.split(" ")
+              .map((word, index) => {
+                return (
+                  <span
+                    key={`word_hidden_${index}`}
+                    className="TextAnimateUp_word__Yvn5A"
+                    style={{
+                      display: "inline-block",
+                      whiteSpace: "pre",
+                      transform: "translate3d(0, 80%, 0)",
+                    }}
+                  >
+                    <AnimatedCharacters text={word} />
+                  </span>
+                );
+              })}
           </h1>
           <h1 className="AboutHero_about-hero__heading__ws2_B AboutHero_about-hero__heading--desktop__Ti0ck">
             <span>
@@ -288,7 +278,7 @@ const SectionOne = ({
               </span>
             </span>
           </h1>
-          <div className="AboutHero_about-hero__image-wrapper__QU1KZ">
+          {/* <div className="AboutHero_about-hero__image-wrapper__QU1KZ">
             <picture className="Picture_picture__X3Eos Picture_picture--responsive__gDfjI AboutHero_about-hero__image__CPP9_">
               <source
                 srcSet="https://a-us.storyblok.com/f/1017006/3360x3386/d6ac5adeb6/humaanabout.jpg/m/450x454/filters:quality(80) 1x"
@@ -417,7 +407,7 @@ const SectionOne = ({
                 draggable="false"
               />
             </picture>
-          </div>
+          </div> */}
         </div>
         <div className="AboutHero_about-hero__container__dFXAB">
           <p className="AboutHero_about-hero__intro__OkcdB">

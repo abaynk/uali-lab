@@ -202,7 +202,7 @@ const Contact = (props: Props) => {
               <a
                 className="Button_button-wrapper__2Ps4h"
                 target="_blank"
-                href="https://instagram.com/wearehumaan"
+                href="https://www.instagram.com/uali.lab?igsh=azluYnBsMG84OXBw"
               >
                 <span
                   className="Button_button__lQZdm Button_button--bg-transparent__4_NCr"

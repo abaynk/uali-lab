@@ -442,58 +442,56 @@ const FourthSectionWork = ({
 
 const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
   return (
-    <>
-      <WorkGrid>
-        <WorkGridRow>
-          <WorkCard project={projects[0]} />
-        </WorkGridRow>
-        <WorkGridRow isPortrait>
-          <WorkCard project={projects[1]} isPortrait />
-          <WorkCard project={projects[2]} isPortrait />
-        </WorkGridRow>
-        <WorkGridRow isPortrait>
-          <WorkCard project={projects[3]} isPortrait />
-          <WorkCard project={projects[4]} isPortrait />
-        </WorkGridRow>
-        <a
-          className="Button_button-wrapper__2Ps4h page_homepage-bottom__link__bpR9a"
-          target="_self"
-          href="/work"
+    <WorkGrid>
+      <WorkGridRow>
+        <WorkCard project={projects[0]} />
+      </WorkGridRow>
+      <WorkGridRow isPortrait>
+        <WorkCard project={projects[1]} isPortrait />
+        <WorkCard project={projects[2]} isPortrait />
+      </WorkGridRow>
+      <WorkGridRow isPortrait>
+        <WorkCard project={projects[3]} isPortrait />
+        <WorkCard project={projects[4]} isPortrait />
+      </WorkGridRow>
+      <a
+        className="Button_button-wrapper__2Ps4h page_homepage-bottom__link__bpR9a"
+        target="_self"
+        href="/work"
+      >
+        <span
+          className="Button_button__lQZdm Button_button--icon__Me_aL Button_button--bg-secondary__6flN1"
+          style={{
+            transform:
+              "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
+          }}
         >
-          <span
-            className="Button_button__lQZdm Button_button--icon__Me_aL Button_button--bg-secondary__6flN1"
-            style={{
-              transform:
-                "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
-            }}
+          Смотреть все проекты
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="13"
+            fill="none"
+            stroke-width="0.5"
+            viewBox="0 0 14 13"
+            className=""
+            style={
+              {
+                "--width": 14,
+                "--height": 13,
+              } as any
+            }
           >
-            Смотреть все проекты
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="13"
-              fill="none"
-              stroke-width="0.5"
-              viewBox="0 0 14 13"
-              className=""
-              style={
-                {
-                  "--width": 14,
-                  "--height": 13,
-                } as any
-              }
-            >
-              <path
-                fill="currentColor"
-                stroke="currentColor"
-                d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-                vector-effect="non-scaling-stroke"
-              ></path>
-            </svg>
-          </span>
-        </a>
-      </WorkGrid>
-    </>
+            <path
+              fill="currentColor"
+              stroke="currentColor"
+              d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
+              vector-effect="non-scaling-stroke"
+            ></path>
+          </svg>
+        </span>
+      </a>
+    </WorkGrid>
   );
 };
 
@@ -651,8 +649,7 @@ const ThirdSubsectionFourth = () => {
 
   const items = [
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/600x790/f48bc1ea20/humaan.jpg",
+      imageSrc: "/assets/cards/turkestan.jpg",
       tag: { text: "3D Модели", color: "#7c4ace" },
       date: "22.12.23",
       title: "Мавзолей Ходжа-Ахмета Яссауи",
@@ -660,8 +657,7 @@ const ThirdSubsectionFourth = () => {
         "Открываем доступ к исходникам нашего проекта для Visit Turkestan. Перед вами - 3Д модели мавзолея, артефакты и многое другое.",
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/600x790/4c3962aae5/xmas.jpg",
+      imageSrc: "/assets/cards/kokshetau-01.png",
       tag: { text: "Работы", color: "#1d8c4a" },
       date: "18.12.23",
       title: "Обои для смартфона",
@@ -670,8 +666,7 @@ const ThirdSubsectionFourth = () => {
       // link: { url: "/xmas", text: "Humaan Christmas" },
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/600x790/167932ea15/cocos.jpg",
+      imageSrc: "/assets/cards/podcast.jpg",
       tag: { text: "Подкаст", color: "#038B99" },
       date: "28.11.23",
       title: "Teren Podcast",
@@ -680,8 +675,7 @@ const ThirdSubsectionFourth = () => {
       // link: { url: "https://cocoskeelingislands.com.au/", text: "Go explore" },
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/600x790/b2eda5d803/frame-1728.jpg",
+      imageSrc: "/assets/cards/forFreelancers.jpg",
       tag: { text: "Полезное", color: "#353537" },
       date: "23.11.23",
       title: "Фрилансерам, на заметку",
@@ -689,8 +683,7 @@ const ThirdSubsectionFourth = () => {
         "Полезные шаблоны, инструменты и гайды для фрилансеров. Делимся своим опытом и процессами.",
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/601x780/7ecf7ab961/alder-feed.jpg",
+      imageSrc: "/assets/cards/ornaments.jpg",
       tag: { text: "Исходники", color: "#000000" },
       date: "31.10.23",
       title: "Казахские Орнаменты",
@@ -699,8 +692,7 @@ const ThirdSubsectionFourth = () => {
       // link: { url: "https://aldertapware.com.au", text: "Check it out" },
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/1200x1580/23137800a3/humaan-annotations.png",
+      imageSrc: "/assets/cards/zaKemSledit.jpg",
       tag: { text: "Статья", color: "#a25aff" },
       date: "28.10.23",
       title: "За кем следить в Казахстане?",
@@ -712,8 +704,7 @@ const ThirdSubsectionFourth = () => {
       // },
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/600x790/d28f4d34ae/loam2.jpg",
+      imageSrc: "/assets/cards/Charyn.jpg",
       tag: { text: "3Д модели", color: "#46651A" },
       date: "26.10.23",
       title: "Чарынский Каньон",
@@ -722,8 +713,7 @@ const ThirdSubsectionFourth = () => {
       // link: { url: "https://loambio.com", text: "Visit Loam" },
     },
     {
-      imageSrc:
-        "https://a-us.storyblok.com/f/1017006/600x790/6a408c2c00/loudshirtday.jpg",
+      imageSrc: "/assets/cards/kazFonts.jpg",
       tag: { text: "Разработки", color: "#EE8D5A" },
       date: "20.10.23",
       title: "Казахские шрифты",

@@ -2531,7 +2531,7 @@ body.overflow-hidden {
 
 .HomepageLogos_homepage-logos__76775 {
   display: grid;
-  grid-auto-rows: 0;
+  grid-auto-rows: auto;
   align-content: center;
   align-items: center;
   justify-items: center;
@@ -2596,12 +2596,12 @@ body.overflow-hidden {
 }
 
 .Picture_picture__X3Eos img {
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .Picture_picture--responsive__gDfjI img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 @media (min-width: 992px) {
@@ -2960,6 +2960,7 @@ body.overflow-hidden {
   overflow: hidden;
   display: grid;
   width: 100%;
+  height: 390px;
 }
 
 .FeedSlider_feed__picture__BGkOi {
@@ -2970,7 +2971,7 @@ body.overflow-hidden {
 
 .FeedSlider_feed__tag__F9f_h {
   grid-area: 1/-1;
-  align-self: flex-end;
+  align-self: flex-start;
   z-index: 0;
   justify-self: flex-start;
   color: #fff;
@@ -5076,7 +5077,7 @@ html.lenis {
 
 @media (min-width: 768px) {
   .AboutHero_about-hero__JIXuc .AboutHero_about-hero__intro__OkcdB {
-    margin-top: 52.9100529101vw;
+    margin-top: 20.8333333333vw;
     margin-bottom: 52.9100529101vw;
   }
 }
@@ -5090,7 +5091,7 @@ html.lenis {
 .AboutHero_about-hero__hero-wrapper__OFHLs {
   display: grid;
   position: relative;
-  background-image: linear-gradient(180deg, #97c2bb, #97c2bb 80%, transparent);
+  background-image: linear-gradient(180deg, #97c2bb, #d8e7ee 90%);
 }
 
 .AboutHero_about-hero__image-wrapper__QU1KZ {
