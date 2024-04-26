@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="lenis lenis-smooth">
       <head>
-        <link rel="shortcut icon" href="/assets/images/white_logo.png" />
+        <link rel="shortcut icon" href="/assets/images/ualifavicon.svg" />
       </head>
       <body className={`__className_254d6c __variable_254d6c`}>
         <SmoothScrolling>
