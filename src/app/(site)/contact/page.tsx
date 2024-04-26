@@ -88,15 +88,18 @@ const Contact = (props: Props) => {
           </h1>
           <div style={{ opacity: 1, transform: "translateY(0px);" }}>
             <div>
-              <button className="Button_button-wrapper__2Ps4h">
+              <a
+                className="Button_button-wrapper__2Ps4h page_homepage-bottom__link__bpR9a"
+                target="_blank"
+                href="https://t.me/temiruali"
+              >
                 <span
-                  className="Button_button__lQZdm Button_button--icon__Me_aL Button_button--bg-secondary__6flN1 ContactFormModal_contact-button__Sgql1"
+                  className="Button_button__lQZdm Button_button--icon__Me_aL Button_button--bg-secondary__6flN1"
                   style={{
                     transform:
-                      "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px);",
+                      "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
                   }}
                 >
-                  {/* Start a project */}
                   Начнем проект
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +109,12 @@ const Contact = (props: Props) => {
                     stroke-width="0.5"
                     viewBox="0 0 14 13"
                     className=""
-                    style={{ "--width": 14, "--height": 13 } as any}
+                    style={
+                      {
+                        "--width": 14,
+                        "--height": 13,
+                      } as any
+                    }
                   >
                     <path
                       fill="currentColor"
@@ -116,7 +124,7 @@ const Contact = (props: Props) => {
                     ></path>
                   </svg>
                 </span>
-              </button>
+              </a>
             </div>
           </div>
           <div className="page_contact-bg-mobile__cCEP8">
