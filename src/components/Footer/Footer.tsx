@@ -52,7 +52,7 @@ export const Footer = (props: Props) => {
               ></path>
             </svg>
             <span className="Footer_footer__word-ticker-wrapper__UUW_n">
-              что-нибудь
+              что-нибудь{" "}
               <span
                 className="WordTicker_word-ticker__2HQ3j"
                 style={{ opacity: 1 }}
@@ -62,63 +62,63 @@ export const Footer = (props: Props) => {
                     activeIndex === 0 ? styles["active"] : ""
                   }`}
                 >
-                  {`, не знаю что `}
+                  {`не знаю что `}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 1 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0вау "}
+                  {"вау "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 2 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0красивое "}
+                  {"красивое "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 3 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0крутое "}
+                  {"крутое "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 4 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0оригинальное "}
+                  {"оригинальное "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 5 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0интересное "}
+                  {"интересное "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 6 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0понятное "}
+                  {"понятное "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 7 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0как у Disney "}
+                  {"как у Disney "}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 8 ? styles["active"] : ""
                   }`}
                 >
-                  {"\u00A0быстрое "}
+                  {"быстрое "}
                 </span>
               </span>
             </span>
