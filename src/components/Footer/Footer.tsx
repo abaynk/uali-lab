@@ -173,7 +173,7 @@ export const Footer = (props: Props) => {
               <a
                 className="Button_button-wrapper__2Ps4h"
                 target="_blank"
-                href="https://x.com/wearehumaan"
+                href="https://vimeo.com/ualilab"
               >
                 <span
                   className="Button_button__lQZdm Button_button--bg-transparent__4_NCr"
@@ -182,9 +182,7 @@ export const Footer = (props: Props) => {
                       "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px);",
                   }}
                 >
-                  <span>
-                    <s>Twitter</s> X
-                  </span>
+                  <span>Vimeo</span>
                 </span>
               </a>
               <svg
@@ -239,7 +237,7 @@ export const Footer = (props: Props) => {
               <a
                 className="Button_button-wrapper__2Ps4h"
                 target="_blank"
-                href="https://www.linkedin.com/company/humaan/posts/"
+                href="https://www.behance.net/ualilab"
               >
                 <span
                   className="Button_button__lQZdm Button_button--bg-transparent__4_NCr"
@@ -248,7 +246,7 @@ export const Footer = (props: Props) => {
                       "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px);",
                   }}
                 >
-                  <span>LinkedIn</span>
+                  <span>Behance</span>
                 </span>
               </a>
             </li>
