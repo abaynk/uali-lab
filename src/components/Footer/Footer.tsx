@@ -13,7 +13,7 @@ export const Footer = (props: Props) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 9);
-    }, 3000);
+    }, 2100);
 
     return () => clearInterval(intervalId);
   }, []);

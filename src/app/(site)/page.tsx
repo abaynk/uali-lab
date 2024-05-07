@@ -575,7 +575,7 @@ const SecondSubsectionFourth = ({ bottomContent }: { bottomContent: any }) => {
           transform: "translateY(0px)",
         }}
       >
-        <picture className="Picture_picture__X3Eos Picture_picture--responsive__gDfjI page_homepage-bottom__image__I2GXx">
+        <picture className="Picture_picture__X3Eos Picture_picture--responsive__gDfjI page_homepage-bottom__image__I2GXx image-stats">
           {/* <source
             srcSet="https://a-us.storyblok.com/f/1017006/1200x1400/dc71890964/humaanpeople.jpg/m/450x548/filters:quality(80)"
             media="(min-width: 0px) and (max-width: 479px)"
