@@ -23,15 +23,29 @@ import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import useSize from "@/hooks/useSize";
 import { useTranslation } from "../i18n/client";
+import { fallbackLng } from "../i18n/settings";
 
-export default function Home({ params: { lng } }: { params: { lng: string } }) {
+export default function Home({
+  params: { lng },
+}: {
+  params: { lng: "ru" | "en" };
+}) {
   const { t } = useTranslation(lng, "translations");
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
     _id: "",
-    headingText: "",
+    headingText: {
+      ru: "",
+      en: "",
+    },
     bottomContent: {
-      bottomContentDescriptionText: "",
-      bottomContentHeadingText: "",
+      bottomContentDescriptionText: {
+        ru: "",
+        en: "",
+      },
+      bottomContentHeadingText: {
+        ru: "",
+        en: "",
+      },
       bottomContentImage: {
         alt: "",
         url: "",
@@ -39,7 +53,10 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       bottomContentStats: [],
     },
     companiesLogos: [],
-    showCaseHeadingText: "",
+    showCaseHeadingText: {
+      ru: "",
+      en: "",
+    },
     showReel: {
       showReelVideo: "",
       showReelVideoThumbnail: {
@@ -88,19 +105,28 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
             --theme-navbar-button-active: var(--purple-primary)
           }`}
       </style>
-      <SectionOneHeading headingText={homePageContent?.headingText} />
+      <SectionOneHeading
+        headingText={
+          homePageContent?.headingText[`${lng}`] ??
+          homePageContent?.headingText[`${fallbackLng}`]
+        }
+      />
       <SecondSectionVideo
         videoURL={homePageContent?.showReel?.showReelVideo}
         thumbnailURL={homePageContent?.showReel?.showReelVideoThumbnail}
       />
       <ThirdSectionShowCase
-        showCaseHeadingText={homePageContent?.showCaseHeadingText}
+        showCaseHeadingText={
+          homePageContent?.showCaseHeadingText[`${lng}`] ??
+          homePageContent?.showCaseHeadingText[`${fallbackLng}`]
+        }
         companiesLogos={homePageContent?.companiesLogos}
         purpleContainerRef={purpleContainerRef}
       />
       <FourthSectionWork
         projects={projects}
         bottomContent={homePageContent?.bottomContent}
+        lng={lng}
         t={t}
       />
     </main>
@@ -431,15 +457,17 @@ const FourthSectionWork = ({
   projects,
   bottomContent,
   t,
+  lng,
 }: {
   projects: IProject[];
   bottomContent: any;
   t: any;
+  lng: "en" | "ru";
 }) => {
   return (
     <div className="page_homepage__section__S9KCY">
       <FirstSubsectionFourth projects={projects} t={t} />
-      <SecondSubsectionFourth bottomContent={bottomContent} t={t} />
+      <SecondSubsectionFourth bottomContent={bottomContent} t={t} lng={lng} />
       <ThirdSubsectionFourth />
     </div>
   );
@@ -510,16 +538,21 @@ const FirstSubsectionFourth = ({
 const SecondSubsectionFourth = ({
   bottomContent,
   t,
+  lng,
 }: {
   bottomContent: any;
   t: any;
+  lng: "ru" | "en";
 }) => {
   return (
     <div className="page_homepage-bottom__dQvm3">
       <span className="page_homepage-bottom__heading___55Sm">
-        {bottomContent.bottomContentHeadingText
-          .split(" ")
-          .map((word: string, index: number) => {
+        {(
+          bottomContent.bottomContentHeadingText[`${lng}`] ??
+          bottomContent.bottomContentHeadingText[`${fallbackLng}`]
+        )
+          ?.split(" ")
+          ?.map((word: string, index: number) => {
             return (
               <span
                 key={index}
@@ -545,7 +578,8 @@ const SecondSubsectionFourth = ({
         }}
       >
         <div className="WYSIWYG_wysiwyg__ct3Fm page_homepage-bottom__wysiwyg__MyVmD">
-          {bottomContent.bottomContentDescriptionText}
+          {bottomContent.bottomContentDescriptionText[`${lng}`] ??
+            bottomContent.bottomContentDescriptionText[`${fallbackLng}`]}
         </div>
         <a
           className="Button_button-wrapper__2Ps4h page_homepage-bottom__link__bpR9a"
@@ -632,9 +666,12 @@ const SecondSubsectionFourth = ({
                   <span>{stat?.bottomContentStatsHeading}</span>
                 </span>
                 <span className="HomepageStats_homepage-stats__label__vKtOz">
-                  {stat?.bottomContentStatsDescription
-                    .split(" ")
-                    .map((word: string, index: number) => {
+                  {(
+                    stat?.bottomContentStatsDescription[`${lng}`] ??
+                    stat?.bottomContentStatsDescription[`${fallbackLng}`]
+                  )
+                    ?.split(" ")
+                    ?.map((word: string, index: number) => {
                       return (
                         <span
                           className="TextAnimateUp_word__Yvn5A"

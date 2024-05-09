@@ -3,8 +3,14 @@ export type { default } from "./ProjectType";
 export type HomePageContentType = {
   _id: string;
   bottomContent: {
-    bottomContentDescriptionText: string;
-    bottomContentHeadingText: string;
+    bottomContentDescriptionText: {
+      ru: string;
+      en: string;
+    };
+    bottomContentHeadingText: {
+      ru: string;
+      en: string;
+    };
     bottomContentImage: {
       alt: string;
       url: string;
@@ -12,8 +18,14 @@ export type HomePageContentType = {
     bottomContentStats: any[];
   };
   companiesLogos: string[];
-  headingText: string;
-  showCaseHeadingText: string;
+  headingText: {
+    ru: string;
+    en: string;
+  };
+  showCaseHeadingText: {
+    ru: string;
+    en: string;
+  };
   showReel: {
     showReelVideo: string;
     showReelVideoThumbnail: {
