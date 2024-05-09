@@ -3,10 +3,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.scss";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "@/app/(site)/i18n/client";
 
-type Props = {};
+type Props = {
+  lng: string;
+};
 
-export const Footer = (props: Props) => {
+export const Footer = ({ lng }: Props) => {
+  const { t } = useTranslation(lng, "translations");
+
   const routerPathName = usePathname();
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -18,14 +23,11 @@ export const Footer = (props: Props) => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    // <footer className={styles.root}>
-    //   <div className={styles.wrapper}>
-    //     <H2 activeIndex={activeIndex} />
-    //   </div>
-    // </footer>
     <footer
       className="Footer_footer__GQa1y"
-      style={{ display: routerPathName === "/contact" ? "none" : "block" }}
+      style={{
+        display: routerPathName === `/${lng}/contact` ? "none" : "block",
+      }}
     >
       <div
         className="Footer_footer__sticky-inner__m5LLE"
@@ -33,7 +35,7 @@ export const Footer = (props: Props) => {
       >
         <h2 className="Footer_footer__heading__8h65q">
           <a className="Footer_footer__heading-link__v415t" href="/contact">
-            <span>Мне нужно </span>
+            <span>{t("footer.carousel.iNeed")}</span>
             <br />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +54,7 @@ export const Footer = (props: Props) => {
               ></path>
             </svg>
             <span className="Footer_footer__word-ticker-wrapper__UUW_n">
-              что-нибудь{" "}
+              {t("footer.carousel.something")}
               <span
                 className="WordTicker_word-ticker__2HQ3j"
                 style={{ opacity: 1 }}
@@ -62,83 +64,68 @@ export const Footer = (props: Props) => {
                     activeIndex === 0 ? styles["active"] : ""
                   }`}
                 >
-                  {`не знаю что `}
+                  {t("footer.carousel.dontKnowWhat")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 1 ? styles["active"] : ""
                   }`}
                 >
-                  {"вау "}
+                  {t("footer.carousel.wow")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 2 ? styles["active"] : ""
                   }`}
                 >
-                  {"красивое "}
+                  {t("footer.carousel.beautiful")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 3 ? styles["active"] : ""
                   }`}
                 >
-                  {"крутое "}
+                  {t("footer.carousel.cool")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 4 ? styles["active"] : ""
                   }`}
                 >
-                  {"оригинальное "}
+                  {t("footer.carousel.original")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 5 ? styles["active"] : ""
                   }`}
                 >
-                  {"интересное "}
+                  {t("footer.carousel.interesting")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 6 ? styles["active"] : ""
                   }`}
                 >
-                  {"понятное "}
+                  {t("footer.carousel.clear")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 7 ? styles["active"] : ""
                   }`}
                 >
-                  {"как у Disney "}
+                  {t("footer.carousel.likeDisney")}
                 </span>
                 <span
                   className={`${styles["slider-item"]} ${
                     activeIndex === 8 ? styles["active"] : ""
                   }`}
                 >
-                  {"быстрое "}
+                  {t("footer.carousel.fast")}
                 </span>
               </span>
             </span>
           </a>
         </h2>
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="289"
-          height="311"
-          fill="none"
-          viewBox="0 0 289 311"
-          className="Footer_face__88tuY"
-        >
-          <path
-            fill="currentColor"
-            fillRule="evenodd"
-            d="M137.188 169.585c15.584 0 28.264-12.681 28.264-28.265V56.528C165.452 25.358 190.81 0 221.981 0c31.17 0 56.528 25.358 56.528 56.528h-28.264c0-15.584-12.681-28.264-28.264-28.264-15.584 0-28.264 12.68-28.264 28.264v84.792c0 31.171-25.358 56.529-56.529 56.529-31.17 0-56.528-25.358-56.528-56.529h28.264c0 15.584 12.681 28.265 28.264 28.265Zm122.764-.002h28.264c0 77.925-63.396 141.321-141.321 141.321V282.64c62.339 0 113.057-50.716 113.057-113.057ZM19.986 4.137 0 24.123l32.404 32.405L0 88.93l19.986 19.986 32.405-32.402 32.401 32.402 19.986-19.986-32.404-32.402 32.404-32.404L84.792 4.137 52.391 36.542 19.986 4.137Z"
-            clip-rule="evenodd"
-          ></path>
-        </svg> */}
         <div className="Footer_footer__ballpit-wrapper__S6heb">
           <canvas
             className="BallPit_ballpit__Lo9o0"
@@ -154,13 +141,13 @@ export const Footer = (props: Props) => {
         </div>
         <div className="FooterSimpleContents_footer-columns__lcGTG footer-columns">
           <div className="FooterSimpleContents_footer-columns__column__28cg0">
-            <h3>Связаться с нами</h3>
+            <h3>{t("footer.contactUs")}</h3>
             <a href="tel:+77024020720">+7 702 40 20 7 20</a>
             <a href="mailto:hello@ualilab.com">hello@ualilab.com</a>
           </div>
           <div className="FooterSimpleContents_footer-columns__column__28cg0 FooterSimpleContents_footer-columns__column--address__Rjvwg">
-            <h3>Алматы, Казахстан</h3>
-            <address>Абая 52В, 050000</address>
+            <h3>{t("footer.address.city")}</h3>
+            <address>{t("footer.address.street")}</address>
           </div>
         </div>
         <div className="FooterSimpleContents_footer-bottom__NmXB_ footer-bottom">
@@ -256,98 +243,3 @@ export const Footer = (props: Props) => {
     </footer>
   );
 };
-
-// const H2 = ({ activeIndex }: { activeIndex: number }) => {
-//   return (
-//     <h2 className={styles["sliderWrapper"]}>
-//       <a className={styles["sliderWrapper-link"]} href="/contact">
-//         <span>Let’s make </span>
-//         <br />
-//         <svg
-//           xmlns="http://www.w3.org/2000/svg"
-//           width="14"
-//           height="13"
-//           fill="none"
-//           stroke-width="0.5"
-//           viewBox="0 0 14 13"
-//           className={styles["sliderWrapper-arrow"]}
-//         >
-//           <path
-//             fill="currentColor"
-//             stroke="currentColor"
-//             d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-//             vector-effect="non-scaling-stroke"
-//           ></path>
-//         </svg>
-//         <span className={styles["sliderWrapper-words"]}>
-//           something{" "}
-//           <span className={styles["sliderWrapper-wordsList"]}>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 0 ? styles["active"] : ""
-//               }`}
-//             >
-//               epic{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 1 ? styles["active"] : ""
-//               }`}
-//             >
-//               fun{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 2 ? styles["active"] : ""
-//               }`}
-//             >
-//               delightful{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 3 ? styles["active"] : ""
-//               }`}
-//             >
-//               beautiful{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 4 ? styles["active"] : ""
-//               }`}
-//             >
-//               original{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 5 ? styles["active"] : ""
-//               }`}
-//             >
-//               extraordinary{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 6 ? styles["active"] : ""
-//               }`}
-//             >
-//               engaging{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 7 ? styles["active"] : ""
-//               }`}
-//             >
-//               click{" "}
-//             </span>
-//             <span
-//               className={`${styles["slider-item"]} ${
-//                 activeIndex === 8 ? styles["active"] : ""
-//               }`}
-//             >
-//               wonderful{" "}
-//             </span>
-//           </span>
-//         </span>
-//       </a>
-//     </h2>
-//   );
-// };

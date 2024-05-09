@@ -3,18 +3,24 @@
 import IProject from "@/types/ProjectType";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { getOneProject } from "../../../../../sanity/lib/query";
+import { getOneProject } from "../../../../../../sanity/lib/query";
 import Vimeo from "@u-wave/react-vimeo";
+import { useTranslation } from "@/app/(site)/i18n/client";
 
-const WorkPage = ({ params }: { params: { id: string } }) => {
+const WorkPage = ({
+  params: { id, lng },
+}: {
+  params: { id: string; lng: string };
+}) => {
+  const { t } = useTranslation(lng, "translations");
   const [projectData, setProjectData] = useState<IProject>();
   useEffect(() => {
     const fetchProjectData = async (id: string) => {
-      const data = await getOneProject(params.id);
+      const data = await getOneProject(id);
       data && setProjectData(data);
     };
-    params.id && fetchProjectData(params.id);
-  }, [params.id]);
+    id && fetchProjectData(id);
+  }, [id]);
   return (
     <main className="SmoothModal_modal-content__DCcjC">
       <div className="ProjectContents_project-content__y3B8f project-content">
@@ -38,7 +44,7 @@ const WorkPage = ({ params }: { params: { id: string } }) => {
                           "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
                       }}
                     >
-                      Visit Website
+                      {t("buttons.visitWebsite")}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"

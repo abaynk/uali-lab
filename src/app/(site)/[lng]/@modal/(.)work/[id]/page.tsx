@@ -3,24 +3,28 @@
 import { WorkModal } from "@/components/WorkModal";
 import IProject from "@/types/ProjectType";
 import React, { useEffect, useState } from "react";
-import { getOneProject } from "../../../../../../sanity/lib/query";
+import { getOneProject } from "../../../../../../../sanity/lib/query";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 type Props = {};
 
-const ProjectPage = ({ params }: { params: { id: string } }) => {
+const ProjectPage = ({
+  params: { id, lng },
+}: {
+  params: { id: string; lng: string };
+}) => {
   const [projectData, setProjectData] = useState<IProject>();
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
   useEffect(() => {
     setModalOpen(true);
     const fetchProjectData = async (id: string) => {
-      const data = await getOneProject(params.id);
+      const data = await getOneProject(id);
       data && setProjectData(data);
     };
-    params.id && fetchProjectData(params.id);
-  }, [params.id]);
+    id && fetchProjectData(id);
+  }, [id]);
 
   return (
     <AnimatePresence
@@ -32,6 +36,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
         <WorkModal
           projectData={projectData}
           handleClose={() => setModalOpen(false)}
+          lng={lng}
         />
       )}
     </AnimatePresence>

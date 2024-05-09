@@ -5,7 +5,7 @@ import IProject from "@/types";
 import {
   getAllProjects,
   getWorkPageContent,
-} from "../../../../sanity/lib/query";
+} from "../../../../../sanity/lib/query";
 import Link from "next/link";
 import Parallax from "@/components/Parallax";
 import WorkCard from "@/components/WorkCard";

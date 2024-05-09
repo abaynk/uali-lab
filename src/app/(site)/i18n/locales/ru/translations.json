@@ -1,0 +1,53 @@
+{
+  "navbar": {
+    "home": "Главаня",
+    "about": "О нас",
+    "work": "Работы",
+    "expertise": "Услуги",
+    "contact": "Контакты",
+    "expertiseDropdown": {
+      "whatWeDo": "Что мы делаем",
+      "3dGraphics": "ЗД Графика",
+      "animation": "Анимация",
+      "graphicDesign": "Графический дизайн",
+      "illustrations": "Иллюстрация",
+      "shooting": "Съемка",
+      "fields": "Сферы",
+      "commercial": "Коммерция",
+      "artSoc": "Арт / Соц.",
+      "adds": "Реклама",
+      "education": "Образование",
+      "startups": "Стартапы"
+    }
+  },
+  "buttons": {
+    "seeAllProjects": "Смотреть все проекты",
+    "aboutUs": "О нас",
+    "visitWebsite": "Посетить сайт",
+    "letsStartProject": "Начнем проект"
+  },
+  "footer": {
+    "carousel": {
+      "iNeed": "Мне нужно ",
+      "something": "что-нибудь ",
+      "dontKnowWhat": "не знаю что ",
+      "wow": "вау ",
+      "beautiful": "красивое ",
+      "cool": "крутое ",
+      "original": "оригинальное ",
+      "interesting": "интересное ",
+      "clear": "понятное ",
+      "likeDisney": "как у Disney ",
+      "fast": "быстрое "
+    },
+    "contactUs": "Связаться с нами",
+    "address": {
+      "city": "Алматы, Казахстан",
+      "street": "Абая 52В, 050000"
+    }
+  },
+  "localization": {
+    "ru": "Рус",
+    "en": "Eng"
+  }
+}

@@ -1,4 +1,4 @@
-import "../(site)/globals.css";
+import "../(site)/[lng]/globals.css";
 export default function StudioLayout({
   children,
 }: {

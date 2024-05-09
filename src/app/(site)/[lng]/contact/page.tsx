@@ -1,12 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getContactsPageContent } from "../../../../sanity/lib/query";
+import { getContactsPageContent } from "../../../../../sanity/lib/query";
 import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
+import { useTranslation } from "../../i18n/client";
 
-type Props = {};
+type Props = {
+  params: { lng: string };
+};
 
-const Contact = (props: Props) => {
+const Contact = ({ params: { lng } }: Props) => {
+  const { t } = useTranslation(lng, "translations");
   const [headingText, setHeadingText] = useState("");
   const textMap = headingText?.split(" ");
 
@@ -100,7 +104,7 @@ const Contact = (props: Props) => {
                       "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
                   }}
                 >
-                  Начнем проект
+                  {t("buttons.letsStartProject")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

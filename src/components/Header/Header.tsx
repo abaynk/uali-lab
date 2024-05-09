@@ -4,13 +4,19 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import ExpertiseDropDown from "./ExpertiseDropDown";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "../../app/(site)/i18n/client";
 
-type Props = {};
+type Props = {
+  lng: string;
+};
 // #b488f1
-export const Header = (props: Props) => {
-  const pathname = usePathname().split("/")[1];
+export const Header = ({ lng }: Props) => {
+  const { t } = useTranslation(lng, "translations");
+  const pathname = usePathname().split(`/${lng}`)[1].split("/")[1];
   const pathnames = ["", "about", "work", "expertise", "contact"];
   const [hoverIndex, setHoverIndex] = useState(-1);
+  console.log(pathnames.indexOf(pathname));
   return (
     <header className="Header_header__r9N9Y">
       <a className="Header_skip-link__VZ9J_" href="#page-content">
@@ -45,6 +51,7 @@ export const Header = (props: Props) => {
             height={30}
           />
         </a>
+
         <nav className="Header_menu__Yr6mh">
           <ul className="Header_menu__list__h_Anx">
             <li
@@ -54,12 +61,11 @@ export const Header = (props: Props) => {
             >
               <a
                 className={`Header_menu__link__UGkEv ${
-                  pathname === "" && "Header_menu__link--active__QKyk9"
+                  !pathname && "Header_menu__link--active__QKyk9"
                 }`}
-                href="/"
+                href={`/${lng}`}
               >
-                {/* Home */}
-                Главная
+                {t("navbar.home")}
               </a>
             </li>
             <li
@@ -71,9 +77,9 @@ export const Header = (props: Props) => {
                 className={`Header_menu__link__UGkEv ${
                   pathname === "about" && "Header_menu__link--active__QKyk9"
                 }`}
-                href="/about"
+                href={`/${lng}/about`}
               >
-                {/* About */}О нас
+                {t("navbar.about")}
               </a>
             </li>
             <li
@@ -85,10 +91,9 @@ export const Header = (props: Props) => {
                 className={`Header_menu__link__UGkEv ${
                   pathname === "work" && "Header_menu__link--active__QKyk9"
                 }`}
-                href="/work"
+                href={`/${lng}/work`}
               >
-                {/* Work */}
-                Работы
+                {t("navbar.work")}
               </a>
             </li>
             <li
@@ -96,7 +101,7 @@ export const Header = (props: Props) => {
               onMouseEnter={() => setHoverIndex(4)}
               onMouseLeave={() => setHoverIndex(-1)}
             >
-              <ExpertiseDropDown />
+              <ExpertiseDropDown lng={lng} t={t} />
             </li>
             <li
               className="Header_menu__item__cb_Hw"
@@ -107,10 +112,9 @@ export const Header = (props: Props) => {
                 className={`Header_menu__link__UGkEv ${
                   pathname === "contact" && "Header_menu__link--active__QKyk9"
                 }`}
-                href="/contact"
+                href={`/${lng}/contact`}
               >
-                {/* Contact */}
-                Контакты
+                {t("navbar.contact")}
               </a>
             </li>
           </ul>
@@ -122,35 +126,31 @@ export const Header = (props: Props) => {
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 1 }}
             >
-              {/* Home */}
-              Главная
+              {t("navbar.home")}
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 2 }}
             >
-              {/* About */}О нас
+              {t("navbar.about")}
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 3 }}
             >
-              {/* Work */}
-              Работы
+              {t("navbar.work")}
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 4 }}
             >
-              {/* Expertise */}
-              Услуги
+              {t("navbar.expertise")}
             </span>
             <span
               className="Header_menu__link__UGkEv Header_menu__link--twin__3W8NS"
               style={{ gridColumn: 5 }}
             >
-              {/* Contact */}
-              Контакты
+              {t("navbar.contact")}
             </span>
             <div
               className="Header_menu__hover-pill__NFAxL"
@@ -168,9 +168,15 @@ export const Header = (props: Props) => {
             <div
               className="Header_menu__active-pill__YdBUl"
               style={{
-                display: pathnames.indexOf(pathname) === -1 ? "none" : "block",
+                display:
+                  !pathname || pathnames.indexOf(pathname) !== -1
+                    ? "block"
+                    : "none",
                 position: "relative",
-                gridColumn: pathnames.indexOf(pathname) + 1,
+                gridColumn:
+                  pathnames.indexOf(pathname) !== -1
+                    ? pathnames.indexOf(pathname) + 1
+                    : 1,
                 borderRadius: "100px",
                 transform: "none",
                 transformOrigin: "50% 50% 0px",
@@ -180,6 +186,7 @@ export const Header = (props: Props) => {
             ></div>
           </div>
         </nav>
+        <LanguageSwitcher lng={lng} />
       </div>
     </header>
   );

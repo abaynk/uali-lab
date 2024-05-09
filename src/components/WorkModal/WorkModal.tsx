@@ -8,6 +8,7 @@ import { motion, useScroll } from "framer-motion";
 import IProject from "@/types/ProjectType";
 import Vimeo from "@u-wave/react-vimeo";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { useTranslation } from "@/app/(site)/i18n/client";
 
 const dropIn = {
   hidden: {
@@ -51,10 +52,13 @@ const opacityIn = {
 export const WorkModal = ({
   projectData,
   handleClose,
+  lng,
 }: {
   projectData: IProject | undefined;
   handleClose: () => void;
+  lng: string;
 }) => {
+  const { t } = useTranslation(lng, "translations");
   const myElementRef = useRef<any>(null);
   const scrollableRef = useRef<any>(null);
 
@@ -159,7 +163,7 @@ export const WorkModal = ({
                                   "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
                               }}
                             >
-                              Visit Website
+                              {t("buttons.visitWebsite")}
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="14"

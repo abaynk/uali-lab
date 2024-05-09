@@ -6,7 +6,7 @@ import SectionThree from "./SectionThree";
 import SectionLast from "./SectionLast";
 import { inView, motion, useScroll } from "framer-motion";
 import AnimatedCharacters from "@/components/AnimatedText";
-import { getAboutPageContent } from "../../../../sanity/lib/query";
+import { getAboutPageContent } from "../../../../../sanity/lib/query";
 import { AboutPageContent } from "@/types";
 import SectionCarousel from "./SectionCarousel";
 

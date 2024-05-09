@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useTranslation } from "@/app/(site)/i18n/client";
 
-type Props = {};
+type Props = {
+  lng: string;
+  t: any;
+};
 
 const defaultAnimations = {
   hidden: {
@@ -23,7 +27,7 @@ const defaultAnimations = {
   },
 };
 
-const ExpertiseDropDown = (props: Props) => {
+const ExpertiseDropDown = ({ lng, t }: Props) => {
   const controls = useAnimation();
   const [isExpertiseOpen, setIsExpertiseOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -37,8 +41,7 @@ const ExpertiseDropDown = (props: Props) => {
           setIsVisible((prev) => !prev);
         }}
       >
-        {/* Expertise */}
-        Услуги
+        {t("navbar.expertise")}
       </button>
       {isExpertiseOpen && (
         <motion.nav
@@ -57,7 +60,7 @@ const ExpertiseDropDown = (props: Props) => {
             style={{ opacity: 1 }}
           >
             <h2 className="HeaderSubmenu_submenu__heading__CpYC6">
-              Что мы делаем
+              {t("navbar.expertiseDropdown.whatWeDo")}
             </h2>
             <ul className="HeaderSubmenu_submenu__list__be8NW">
               <li
@@ -86,7 +89,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  ЗД Графика
+                  {t("navbar.expertiseDropdown.3dGraphics")}
                 </a>
               </li>
               <li
@@ -113,7 +116,8 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Анимация
+
+                  {t("navbar.expertiseDropdown.animation")}
                 </a>
               </li>
               <li
@@ -140,7 +144,8 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Графический дизайн
+
+                  {t("navbar.expertiseDropdown.graphicDesign")}
                 </a>
               </li>
               <li
@@ -169,7 +174,8 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Иллюстрация
+
+                  {t("navbar.expertiseDropdown.illustrations")}
                 </a>
               </li>
               <li
@@ -198,7 +204,8 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Съемка
+
+                  {t("navbar.expertiseDropdown.shooting")}
                 </a>
               </li>
             </ul>
@@ -207,7 +214,9 @@ const ExpertiseDropDown = (props: Props) => {
             className="HeaderSubmenu_submenu__group__BIGgm"
             style={{ opacity: 1 }}
           >
-            <h2 className="HeaderSubmenu_submenu__heading__CpYC6">Сферы</h2>
+            <h2 className="HeaderSubmenu_submenu__heading__CpYC6">
+              {t("navbar.expertiseDropdown.fields")}
+            </h2>
             <ul className="HeaderSubmenu_submenu__list__be8NW">
               <li
                 style={{
@@ -235,7 +244,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Коммерция
+                  {t("navbar.expertiseDropdown.commercial")}
                 </a>
               </li>
               <li
@@ -264,7 +273,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Арт / Соц.
+                  {t("navbar.expertiseDropdown.artSoc")}
                 </a>
               </li>
               <li
@@ -295,7 +304,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Реклама
+                  {t("navbar.expertiseDropdown.adds")}
                 </a>
               </li>
               <li
@@ -324,7 +333,7 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Образование
+                  {t("navbar.expertiseDropdown.education")}
                 </a>
               </li>
               <li
@@ -351,7 +360,8 @@ const ExpertiseDropDown = (props: Props) => {
                       fill="currentColor"
                     ></path>
                   </svg>
-                  Стартапы
+
+                  {t("navbar.expertiseDropdown.startups")}
                 </a>
               </li>
             </ul>

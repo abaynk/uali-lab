@@ -15,15 +15,17 @@ import { useEffect, useRef, useState } from "react";
 import {
   getHomePageContent,
   getHomePageProjects,
-} from "../../../sanity/lib/query";
+} from "../../../../sanity/lib/query";
 import IProject, { HomePageContentType } from "@/types";
 import WorkCard from "@/components/WorkCard";
 import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
 import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import useSize from "@/hooks/useSize";
+import { useTranslation } from "../i18n/client";
 
-export default function Home() {
+export default function Home({ params: { lng } }: { params: { lng: string } }) {
+  const { t } = useTranslation(lng, "translations");
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
     _id: "",
     headingText: "",
@@ -99,6 +101,7 @@ export default function Home() {
       <FourthSectionWork
         projects={projects}
         bottomContent={homePageContent?.bottomContent}
+        t={t}
       />
     </main>
   );
@@ -427,20 +430,28 @@ const ThirdSectionShowCase = ({
 const FourthSectionWork = ({
   projects,
   bottomContent,
+  t,
 }: {
   projects: IProject[];
   bottomContent: any;
+  t: any;
 }) => {
   return (
     <div className="page_homepage__section__S9KCY">
-      <FirstSubsectionFourth projects={projects} />
-      <SecondSubsectionFourth bottomContent={bottomContent} />
+      <FirstSubsectionFourth projects={projects} t={t} />
+      <SecondSubsectionFourth bottomContent={bottomContent} t={t} />
       <ThirdSubsectionFourth />
     </div>
   );
 };
 
-const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
+const FirstSubsectionFourth = ({
+  projects,
+  t,
+}: {
+  projects: IProject[];
+  t: any;
+}) => {
   return (
     <WorkGrid>
       <WorkGridRow>
@@ -466,7 +477,7 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
               "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
           }}
         >
-          Смотреть все проекты
+          {t("buttons.seeAllProjects")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
@@ -496,7 +507,13 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
 };
 
 //
-const SecondSubsectionFourth = ({ bottomContent }: { bottomContent: any }) => {
+const SecondSubsectionFourth = ({
+  bottomContent,
+  t,
+}: {
+  bottomContent: any;
+  t: any;
+}) => {
   return (
     <div className="page_homepage-bottom__dQvm3">
       <span className="page_homepage-bottom__heading___55Sm">
@@ -542,7 +559,7 @@ const SecondSubsectionFourth = ({ bottomContent }: { bottomContent: any }) => {
                 "translateX(0%) translateY(0%) rotate(0deg) translateZ(0px)",
             }}
           >
-            О нас
+            {t("buttons.aboutUs")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"

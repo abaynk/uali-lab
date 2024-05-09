@@ -1,0 +1,49 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "expertise": "Expertise",
+    "contact": "Contact",
+    "expertiseDropdown": {
+      "whatWeDo": "What we do",
+      "3dGraphics": "ЗD Graphics",
+      "animation": "Animation",
+      "graphicDesign": "Graphics Design",
+      "illustrations": "Illustrations",
+      "shooting": "Shooting",
+      "fields": "Fields",
+      "commercial": "Commercial",
+      "artSoc": "Art & Social",
+      "adds": "Adds",
+      "education": "Education",
+      "startups": "Startups"
+    }
+  },
+  "buttons": {
+    "seeAllProjects": "See all projects",
+    "aboutUs": "About us",
+    "visitWebsite": "Visit website",
+    "letsStartProject": "Начнем проект"
+  },
+  "footer": {
+    "carousel": {
+      "iNeed": "I need ",
+      "something": "something ",
+      "dontKnowWhat": "I don't know what ",
+      "wow": "wow ",
+      "beautiful": "beautiful ",
+      "original": "original ",
+      "cool": "amazing ",
+      "interesting": "interesting ",
+      "clear": "clear ",
+      "likeDisney": "Disney-like ",
+      "fast": "quick "
+    },
+    "contactUs": "Contact us",
+    "address": {
+      "city": "Almaty, Kazakhstan",
+      "street": "Abay str. 52B, 050000"
+    }
+  }
+}
