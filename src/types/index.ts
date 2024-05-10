@@ -37,37 +37,63 @@ export type HomePageContentType = {
 
 export type AboutPageContent = {
   _id: string;
-  headingText: string;
-  headingTextHidden: string;
+  headingText: {
+    ru: string;
+    en: string;
+  };
+  headingTextHidden: {
+    ru: string;
+    en: string;
+  };
   headingImage: {
     alt: string;
     headingImage: string;
   };
-  descriptionTextBlock: string;
+  descriptionTextBlock: {
+    ru: string;
+    en: string;
+  };
   collaborations: {
-    collabsText: string;
+    collabsTextRu: string;
+    collabsTextEn: string;
     companiesLogos?: { companyLogo: string; companyName: string }[];
   };
   capabilites: {
-    capabilitiesText: string;
-    expertiseList: {
+    capabilitiesTextRu: string;
+    capabilitiesTextEn: string;
+    expertiseListRu: {
+      expertiseHeading: string;
+      expertiseDetails: string[];
+    }[];
+    expertiseListEn: {
       expertiseHeading: string;
       expertiseDetails: string[];
     }[];
   };
   reviewsList: {
-    reviewersName: string;
-    reviewText: string;
+    reviewersName: {
+      ru: string;
+      en: string;
+    };
+    reviewText: {
+      ru: string;
+      en: string;
+    };
   }[];
   aboutUs: {
-    aboutUsHeading: string;
+    aboutUsHeadingRu: string;
+    aboutUsHeadingEn: string;
     whatWeDo: {
-      whatWeDoHeading: string;
-      whatWeDoList: string[];
+      whatWeDoHeadingRu: string;
+      whatWeDoHeadingEn: string;
+      whatWeDoListRu: string[];
+      whatWeDoListEn: string[];
     };
     whatWeDont: {
-      whatWeDontHeading: string;
-      whatWeDontList: string[];
+      whatWeDontHeadingRu: string;
+      whatWeDontHeadingEn: string;
+      whatWeDontListRu: string[];
+      whatWeDontListEn: string[];
     };
   };
 };

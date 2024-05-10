@@ -3,14 +3,18 @@ import { AboutPageContent } from "@/types";
 
 const SectionTwo = ({
   aboutPageContent,
+  lng,
 }: {
   aboutPageContent: AboutPageContent;
+  lng: "ru" | "en";
 }) => {
   return (
     <div className="">
       <div className="page_about-logos__Phajx">
         <h2 className="page_about-logos__intro__h1kg7">
-          {aboutPageContent.collaborations.collabsText}
+          {aboutPageContent.collaborations[
+            `collabsText${lng === "en" ? "En" : "Ru"}`
+          ] ?? aboutPageContent.collaborations[`collabsTextRu`]}
         </h2>
         <ul className="LogoGrid_logo-grid__LxhC6">
           {aboutPageContent?.collaborations?.companiesLogos?.map(

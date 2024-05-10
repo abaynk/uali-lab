@@ -31,13 +31,22 @@ export async function getAboutPageContent(): Promise<AboutPageContent> {
       headingTextHidden,
       headingImage {alt, "headingImage":asset->url},
       descriptionTextBlock,
-      collaborations {collabsText, "companiesLogos":companiesLogos[]{
-        "companyLogo":companyLogo.asset->url,
-        companyName
-      }},
+      collaborations {
+        collabsTextRu, 
+        collabsTextEn, 
+        "companiesLogos":companiesLogos[] {
+          "companyLogo":companyLogo.asset->url,
+          companyName
+        }
+      },
       capabilites {
-        capabilitiesText,
-        "expertiseList": expertiseList[] {
+        capabilitiesTextRu,
+        capabilitiesTextEn,
+        "expertiseListRu": expertiseListRu[] {
+          expertiseHeading,
+          "expertiseDetails":expertiseDetails[]
+        },
+        "expertiseListEn": expertiseListEn[] {
           expertiseHeading,
           "expertiseDetails":expertiseDetails[]
         }
@@ -47,14 +56,19 @@ export async function getAboutPageContent(): Promise<AboutPageContent> {
         reviewText
       },
       aboutUs {
-        aboutUsHeading,
+        aboutUsHeadingRu,
+        aboutUsHeadingEn,
         whatWeDo {
-          whatWeDoHeading,
-          "whatWeDoList":whatWeDoList[]
+          whatWeDoHeadingRu,
+          whatWeDoHeadingEn,
+          "whatWeDoListRu":whatWeDoListRu[],
+          "whatWeDoListEn":whatWeDoListEn[]
         },
         whatWeDont {
-          whatWeDontHeading,
-          "whatWeDontList":whatWeDontList[]
+          whatWeDontHeadingRu,
+          whatWeDontHeadingEn,
+          "whatWeDontListRu":whatWeDontListRu[],
+          "whatWeDontListEn":whatWeDontListEn[]
         }
       }
     }`

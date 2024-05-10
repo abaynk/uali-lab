@@ -9,37 +9,57 @@ import AnimatedCharacters from "@/components/AnimatedText";
 import { getAboutPageContent } from "../../../../../sanity/lib/query";
 import { AboutPageContent } from "@/types";
 import SectionCarousel from "./SectionCarousel";
+import { fallbackLng } from "../../i18n/settings";
 
-type Props = {};
+type Props = {
+  params: { lng: "ru" | "en" };
+};
 
-const About = (props: Props) => {
+const About = ({ params: { lng } }: Props) => {
   const [aboutPageContent, setAboutPageContent] = useState<AboutPageContent>({
     _id: "",
-    headingText: "",
-    headingTextHidden: "",
+    headingText: {
+      ru: "",
+      en: "",
+    },
+    headingTextHidden: {
+      ru: "",
+      en: "",
+    },
     headingImage: {
       alt: "",
       headingImage: "",
     },
-    descriptionTextBlock: "",
+    descriptionTextBlock: {
+      ru: "",
+      en: "",
+    },
     collaborations: {
-      collabsText: "",
+      collabsTextRu: "",
+      collabsTextEn: "",
       companiesLogos: [],
     },
     capabilites: {
-      capabilitiesText: "",
-      expertiseList: [],
+      capabilitiesTextRu: "",
+      capabilitiesTextEn: "",
+      expertiseListRu: [],
+      expertiseListEn: [],
     },
     reviewsList: [],
     aboutUs: {
-      aboutUsHeading: "",
+      aboutUsHeadingRu: "",
+      aboutUsHeadingEn: "",
       whatWeDo: {
-        whatWeDoHeading: "",
-        whatWeDoList: [],
+        whatWeDoHeadingRu: "",
+        whatWeDoHeadingEn: "",
+        whatWeDoListRu: [],
+        whatWeDoListEn: [],
       },
       whatWeDont: {
-        whatWeDontHeading: "",
-        whatWeDontList: [],
+        whatWeDontHeadingRu: "",
+        whatWeDontHeadingEn: "",
+        whatWeDontListRu: [],
+        whatWeDontListEn: [],
       },
     },
   });
@@ -92,9 +112,9 @@ const About = (props: Props) => {
             --theme-navbar-button-active: var(--theme-primary)
         }`}
       </style>
-      <SectionOne aboutPageContent={aboutPageContent} />
-      <SectionTwo aboutPageContent={aboutPageContent} />
-      <SectionThree aboutPageContent={aboutPageContent} />
+      <SectionOne aboutPageContent={aboutPageContent} lng={lng} />
+      <SectionTwo aboutPageContent={aboutPageContent} lng={lng} />
+      <SectionThree aboutPageContent={aboutPageContent} lng={lng} />
       <div className="page_about-midpage-banner__oplXk page_about-midpage-banner--visible__ZXFvV">
         <div
           className="TestimonialSlider_testimonials__caGyT page_about-testimonials__yw9DG"
@@ -118,11 +138,12 @@ const About = (props: Props) => {
                   }
                 >
                   <blockquote className="TestimonialSlider_testimonial__quote__Xr_uU">
-                    {review.reviewText}
+                    {review.reviewText[lng] ?? review.reviewText[fallbackLng]}
                   </blockquote>
                   <figcaption className="TestimonialSlider_testimonial__author__pnq5X">
                     <span className="TestimonialSlider_testimonial__author-name__edwCT">
-                      {review.reviewersName}
+                      {review.reviewersName[lng] ??
+                        review.reviewersName[fallbackLng]}
                     </span>
                   </figcaption>
                 </figure>
@@ -184,17 +205,27 @@ const About = (props: Props) => {
           </div>
         </div>
       </div>
-      <SectionLast aboutPageContent={aboutPageContent} />
+      <SectionLast aboutPageContent={aboutPageContent} lng={lng} />
     </main>
   );
 };
 
 const SectionOne = ({
   aboutPageContent,
+  lng,
 }: {
   aboutPageContent: AboutPageContent;
+  lng: "ru" | "en";
 }) => {
-  const headingText = aboutPageContent?.headingText?.split(" ");
+  const headingText = (
+    aboutPageContent?.headingText[lng] ??
+    aboutPageContent?.headingText[fallbackLng]
+  )?.split(" ");
+
+  const headingTextHidden = (
+    aboutPageContent?.headingTextHidden[lng] ??
+    aboutPageContent?.headingTextHidden[fallbackLng]
+  )?.split(" ");
 
   const { scrollY } = useScroll();
   return (
@@ -218,23 +249,21 @@ const SectionOne = ({
                 {word}
               </span>
             ))}
-            {aboutPageContent?.headingTextHidden
-              ?.split(" ")
-              .map((word, index) => {
-                return (
-                  <span
-                    key={`word_hidden_${index}`}
-                    className="TextAnimateUp_word__Yvn5A"
-                    style={{
-                      display: "inline-block",
-                      whiteSpace: "pre",
-                      transform: "translate3d(0, 80%, 0)",
-                    }}
-                  >
-                    <AnimatedCharacters text={word} />
-                  </span>
-                );
-              })}
+            {headingTextHidden?.map((word, index) => {
+              return (
+                <span
+                  key={`word_hidden_${index}`}
+                  className="TextAnimateUp_word__Yvn5A"
+                  style={{
+                    display: "inline-block",
+                    whiteSpace: "pre",
+                    transform: "translate3d(0, 80%, 0)",
+                  }}
+                >
+                  <AnimatedCharacters text={word} />
+                </span>
+              );
+            })}
           </h1>
           <h1 className="AboutHero_about-hero__heading__ws2_B AboutHero_about-hero__heading--desktop__Ti0ck">
             <span>
@@ -256,25 +285,23 @@ const SectionOne = ({
             </span>
             <span className="AboutHero_about-hero__heading-opacity__BrOA2">
               <span>
-                {aboutPageContent?.headingTextHidden
-                  ?.split(" ")
-                  .map((word, index) => {
-                    return (
-                      <span
-                        key={`word_hidden_${index}`}
-                        className="TextAnimateUp_word__Yvn5A"
-                        style={{
-                          display: "inline-block",
-                          whiteSpace: "pre",
-                          transform: "translate3d(0, 0%, 0)",
-                          animation:
-                            "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
-                        }}
-                      >
-                        <AnimatedCharacters text={word} />
-                      </span>
-                    );
-                  })}
+                {headingTextHidden?.map((word, index) => {
+                  return (
+                    <span
+                      key={`word_hidden_${index}`}
+                      className="TextAnimateUp_word__Yvn5A"
+                      style={{
+                        display: "inline-block",
+                        whiteSpace: "pre",
+                        transform: "translate3d(0, 0%, 0)",
+                        animation:
+                          "0.8s cubic-bezier(0, 0.55, 0.45, 1) 0s 1 normal forwards running TextAnimateUp_mask-down__TzvI8",
+                      }}
+                    >
+                      <AnimatedCharacters text={word} />
+                    </span>
+                  );
+                })}
               </span>
             </span>
           </h1>
@@ -412,10 +439,13 @@ const SectionOne = ({
         <div className="AboutHero_about-hero__container__dFXAB">
           <p className="AboutHero_about-hero__intro__OkcdB">
             <span className="format">
-              {aboutPageContent.descriptionTextBlock
-                .split(" ")
-                .slice(0, 2)
-                .map((word, index) => {
+              {(
+                aboutPageContent?.descriptionTextBlock[lng] ??
+                aboutPageContent?.descriptionTextBlock[fallbackLng]
+              )
+                ?.split(" ")
+                ?.slice(0, 2)
+                ?.map((word, index) => {
                   return (
                     <span
                       className="TextAnimateUp_word__Yvn5A"
@@ -433,10 +463,13 @@ const SectionOne = ({
                   );
                 })}
             </span>
-            {aboutPageContent.descriptionTextBlock
-              .split(" ")
-              .slice(2)
-              .map((word, index) => {
+            {(
+              aboutPageContent?.descriptionTextBlock[lng] ??
+              aboutPageContent?.descriptionTextBlock[fallbackLng]
+            )
+              ?.split(" ")
+              ?.slice(2)
+              ?.map((word, index) => {
                 return (
                   <span
                     className="TextAnimateUp_word__Yvn5A"
