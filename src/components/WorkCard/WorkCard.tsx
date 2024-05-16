@@ -9,9 +9,10 @@ import { AnimatePresence, motion, useInView } from "framer-motion";
 interface Props {
   isPortrait?: boolean;
   project: IProject;
+  lng?: "ru" | "en";
 }
 
-const WorkCard = ({ isPortrait = false, project }: Props) => {
+const WorkCard = ({ isPortrait = false, project, lng = "ru" }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
@@ -37,7 +38,7 @@ const WorkCard = ({ isPortrait = false, project }: Props) => {
             ? "WorkCard_work-card--portrait__WHYgm"
             : "WorkCard_work-card--landscape__cw0_a"
         }`}
-        href={`/work/${project?.slug}`}
+        href={`/${lng}/work/${project?.slug}`}
         scroll={false}
         prefetch={true}
       >

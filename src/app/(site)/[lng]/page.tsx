@@ -466,7 +466,7 @@ const FourthSectionWork = ({
 }) => {
   return (
     <div className="page_homepage__section__S9KCY">
-      <FirstSubsectionFourth projects={projects} t={t} />
+      <FirstSubsectionFourth projects={projects} t={t} lng={lng} />
       <SecondSubsectionFourth bottomContent={bottomContent} t={t} lng={lng} />
       <ThirdSubsectionFourth />
     </div>
@@ -476,22 +476,24 @@ const FourthSectionWork = ({
 const FirstSubsectionFourth = ({
   projects,
   t,
+  lng,
 }: {
   projects: IProject[];
   t: any;
+  lng: "en" | "ru";
 }) => {
   return (
     <WorkGrid>
       <WorkGridRow>
-        <WorkCard project={projects[0]} />
+        <WorkCard project={projects[0]} lng={lng} />
       </WorkGridRow>
       <WorkGridRow isPortrait>
-        <WorkCard project={projects[1]} isPortrait />
-        <WorkCard project={projects[2]} isPortrait />
+        <WorkCard project={projects[1]} isPortrait lng={lng} />
+        <WorkCard project={projects[2]} isPortrait lng={lng} />
       </WorkGridRow>
       <WorkGridRow isPortrait>
-        <WorkCard project={projects[3]} isPortrait />
-        <WorkCard project={projects[4]} isPortrait />
+        <WorkCard project={projects[3]} isPortrait lng={lng} />
+        <WorkCard project={projects[4]} isPortrait lng={lng} />
       </WorkGridRow>
       <a
         className="Button_button-wrapper__2Ps4h page_homepage-bottom__link__bpR9a"

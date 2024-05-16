@@ -13,7 +13,11 @@ import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
 import AnimatedCharacters from "@/components/AnimatedText";
 import AnimatedText2 from "@/components/AnimatedText2";
 
-export default function Work() {
+export default function Work({
+  params: { lng },
+}: {
+  params: { lng: "ru" | "en" };
+}) {
   const [projects, setPorjects] = useState<IProject[]>([]);
   const [headingText, setHeadingText] = useState("");
   const textMap = headingText?.split(" ");
@@ -66,11 +70,17 @@ export default function Work() {
         /> */}
       </div>
 
-      <FirstSubsectionFourth projects={projects} />
+      <FirstSubsectionFourth projects={projects} lng={lng} />
     </main>
   );
 }
-const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
+const FirstSubsectionFourth = ({
+  projects,
+  lng,
+}: {
+  projects: IProject[];
+  lng: "ru" | "en";
+}) => {
   return (
     <WorkGrid>
       {projects.map((project: IProject, index: number) => {
@@ -78,12 +88,12 @@ const FirstSubsectionFourth = ({ projects }: { projects: IProject[] }) => {
           <>
             {index % 3 === 0 ? (
               <WorkGridRow key={index}>
-                <WorkCard project={project} />
+                <WorkCard project={project} lng={lng} />
               </WorkGridRow>
             ) : index % 3 === 1 ? (
               <WorkGridRow isPortrait key={index}>
-                <WorkCard project={project} isPortrait />
-                <WorkCard project={projects[index + 1]} isPortrait />
+                <WorkCard project={project} isPortrait lng={lng} />
+                <WorkCard project={projects[index + 1]} isPortrait lng={lng} />
               </WorkGridRow>
             ) : null}
           </>
