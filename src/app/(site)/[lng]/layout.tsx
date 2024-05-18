@@ -24,10 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
   params: {
-    lng: string;
+    lng: "ru" | "en";
   };
 }>) {
-  console.log({ lng });
   return (
     <html lang={lng} dir={dir(lng)} className="lenis lenis-smooth">
       <head>
