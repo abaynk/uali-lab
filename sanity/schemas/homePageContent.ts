@@ -5,14 +5,17 @@ import { defineField } from "sanity";
 export default {
   name: "homePageContent",
   type: "document",
+  preview: {
+    select: {
+      title: "headingText.ru",
+    },
+    prepare: ({ title }: any) => {
+      return {
+        title,
+      };
+    },
+  },
   fields: [
-    defineField({
-      name: "docTitle",
-      type: "string",
-      title: "Document Title",
-      initialValue: "Home Page Content",
-      hidden: true,
-    }),
     defineField({
       name: "headingText",
       title: "Heading text",

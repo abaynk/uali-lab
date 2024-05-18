@@ -1,16 +1,31 @@
 export default interface IProject {
-  contents: string;
+  contents: {
+    ru: string;
+    en: string;
+  };
   coverImage: string;
   coverImagePortrait: string;
-  description: string;
+  description: {
+    ru: string;
+    en: string;
+  };
   nextProjectSlug: string;
   url: string;
-  title: string;
+  title: {
+    ru: string;
+    en: string;
+  };
   _id: string;
   assets: string[];
-  category: string;
+  category: {
+    ru: string;
+    en: string;
+  };
   isHomePageProject: boolean;
   slug: string;
   embeddedVideoUrl?: string;
-  listOfTags: string[];
+  listOfTags: {
+    ru: string[];
+    en: string[];
+  };
 }

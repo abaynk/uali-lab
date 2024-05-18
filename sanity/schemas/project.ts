@@ -5,12 +5,36 @@ export default {
   name: "project",
   type: "document",
   title: "Project",
-  fields: [
-    {
-      name: "title",
-      type: "string",
-      title: "Title",
+  preview: {
+    select: {
+      title: "title.ru",
+      image: "coverImage.asset",
     },
+    prepare: ({ image, title }: any) => {
+      return {
+        title,
+        media: image,
+      };
+    },
+  },
+  fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "object",
+      fields: [
+        {
+          name: "ru",
+          title: "Title in Rus",
+          type: "string",
+        },
+        {
+          name: "en",
+          title: "Title in Eng",
+          type: "string",
+        },
+      ],
+    }),
     defineField({
       title: "Slug",
       name: "slug",
@@ -24,37 +48,78 @@ export default {
       },
       validation: (rule) => rule.required(),
     }),
-    {
+    defineField({
       name: "coverImage",
       type: "image",
       title: "Cover image (Landscape)",
-    },
+    }),
     {
       name: "coverImagePortrait",
       type: "image",
       title: "Cover image (Portrait)",
     },
-    {
+    defineField({
       name: "description",
-      type: "text",
       title: "Description",
-    },
-    {
-      name: "contents",
-      type: "text",
-      title: "Content",
-    },
-    {
-      name: "listOfTags",
-      title: "List of tags",
-      type: "array",
-      description: "Add tags realted to this project",
-      of: [
+      type: "object",
+      fields: [
         {
-          type: "string",
+          name: "ru",
+          title: "Description in Rus",
+          type: "text",
+        },
+        {
+          name: "en",
+          title: "Description in Eng",
+          type: "text",
         },
       ],
-    },
+    }),
+    defineField({
+      name: "contents",
+      title: "Content",
+      type: "object",
+      fields: [
+        {
+          name: "ru",
+          title: "Content in Rus",
+          type: "text",
+        },
+        {
+          name: "en",
+          title: "Content in Eng",
+          type: "text",
+        },
+      ],
+    }),
+    defineField({
+      name: "listOfTags",
+      title: "List of tags",
+      type: "object",
+      fields: [
+        {
+          name: "ru",
+          title: "List of tags in Rus",
+          type: "array",
+          of: [
+            {
+              type: "string",
+            },
+          ],
+        },
+        {
+          name: "en",
+          title: "List of tags in Eng",
+          type: "array",
+          of: [
+            {
+              type: "string",
+            },
+          ],
+        },
+      ],
+    }),
+
     defineField({
       name: "embeddedVideoUrl",
       title: "Embedded video URL",
@@ -73,11 +138,19 @@ export default {
       type: "url",
       title: "Project link",
     },
-    {
+    defineField({
       name: "category",
-      type: "string",
       title: "Category",
-    },
+      type: "object",
+      fields: [
+        {
+          name: "ru",
+          title: "Category in Rus",
+          type: "string",
+        },
+        { name: "en", title: "Category in Eng", type: "string" },
+      ],
+    }),
     {
       name: "nextProject",
       type: "slug",

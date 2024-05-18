@@ -4,14 +4,19 @@ import { defineField } from "sanity";
 export default {
   name: "aboutPageContent",
   type: "document",
+  preview: {
+    select: {
+      title: "headingText.ru",
+      image: "headingImage.asset",
+    },
+    prepare: ({ image, title }: any) => {
+      return {
+        title,
+        media: image,
+      };
+    },
+  },
   fields: [
-    defineField({
-      name: "docTitle",
-      type: "string",
-      title: "Document Title",
-      initialValue: "Home Page Content",
-      hidden: true,
-    }),
     defineField({
       name: "headingText",
       title: "Heading text",
