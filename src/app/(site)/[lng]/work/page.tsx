@@ -39,7 +39,7 @@ export default function Work({
 
     fetchAllProjects();
     fetchWorkPageHeading();
-  }, []);
+  }, [lng]);
 
   return (
     <main className="layout_work-page__yja2T">

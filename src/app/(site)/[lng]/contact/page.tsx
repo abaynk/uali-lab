@@ -26,7 +26,7 @@ const Contact = ({ params: { lng } }: Props) => {
     };
 
     fetchContactsPageHeading();
-  }, []);
+  }, [lng]);
 
   return (
     <main className="page_contact-page__9h2cr">
