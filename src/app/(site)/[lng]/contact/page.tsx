@@ -6,7 +6,7 @@ import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 import { useTranslation } from "../../i18n/client";
 
 type Props = {
-  params: { lng: string };
+  params: { lng: "ru" | "en" };
 };
 
 const Contact = ({ params: { lng } }: Props) => {
@@ -17,7 +17,9 @@ const Contact = ({ params: { lng } }: Props) => {
   useEffect(() => {
     const fetchContactsPageHeading = async () => {
       const headingText = await getContactsPageContent();
-      setHeadingText(headingText.headingText);
+      setHeadingText(
+        headingText.headingText?.[lng] ?? headingText.headingText?.ru
+      );
       if (!headingText) {
         setHeadingText("We've got a great feeling about this");
       }

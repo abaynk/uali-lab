@@ -67,7 +67,7 @@ const WorkCard = ({ isPortrait = false, project, lng = "ru" }: Props) => {
         <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
           <div className="WorkCard_work-card__content-inner__8Mqvf">
             <h3 className="WorkCard_work-card__title__vsvFl">
-              {project?.title}
+              {project?.title?.[lng] ?? project?.title?.ru}
             </h3>
           </div>
         </div>

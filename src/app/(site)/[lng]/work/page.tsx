@@ -29,7 +29,9 @@ export default function Work({
     };
     const fetchWorkPageHeading = async () => {
       const headingText = await getWorkPageContent();
-      setHeadingText(headingText.headingText);
+      setHeadingText(
+        headingText.headingText?.[lng] ?? headingText.headingText?.ru
+      );
       if (!headingText) {
         setHeadingText("World-class digital products, idea to execution.");
       }

@@ -12,7 +12,7 @@ type Props = {};
 const ProjectPage = ({
   params: { id, lng },
 }: {
-  params: { id: string; lng: string };
+  params: { id: string; lng: "ru" | "en" };
 }) => {
   const [projectData, setProjectData] = useState<IProject>();
   const [modalOpen, setModalOpen] = useState(false);

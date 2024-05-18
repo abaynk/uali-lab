@@ -10,7 +10,7 @@ import { useTranslation } from "@/app/(site)/i18n/client";
 const WorkPage = ({
   params: { id, lng },
 }: {
-  params: { id: string; lng: string };
+  params: { id: string; lng: "ru" | "en" };
 }) => {
   const { t } = useTranslation(lng, "translations");
   const [projectData, setProjectData] = useState<IProject>();
@@ -29,7 +29,7 @@ const WorkPage = ({
             <div className="CaseStudySidebar_sidebar__inner__we00X">
               <div className="CaseStudySidebar_sidebar__header__LkH2l">
                 <h1 className="CaseStudySidebar_sidebar__title__P_GUC">
-                  {projectData?.title}
+                  {projectData?.title?.[lng] ?? projectData?.title?.ru}
                 </h1>
                 {projectData?.url && (
                   <a
@@ -66,18 +66,24 @@ const WorkPage = ({
                   </a>
                 )}
                 <p className="CaseStudySidebar_sidebar__industry__z8Mof">
-                  {projectData?.category}
+                  {projectData?.category?.[lng] ?? projectData?.category?.ru}
                 </p>
               </div>
               <div className="CaseStudySidebar_sidebar__intro__XCkoW">
-                <p>{projectData?.description}</p>
+                <p>
+                  {projectData?.description?.[lng] ??
+                    projectData?.description?.ru}
+                </p>
               </div>
               <div className="CaseStudySidebar_sidebar__body__umcIh">
-                {projectData?.contents}
+                {projectData?.contents?.[lng] ?? projectData?.contents?.ru}
               </div>
               {projectData?.listOfTags && (
                 <ul className="CaseStudySidebar_custom-icon-list__c89wu">
-                  {projectData?.listOfTags.map((tag, index) => (
+                  {(
+                    projectData?.listOfTags?.[lng] ??
+                    projectData?.listOfTags?.ru
+                  ).map((tag, index) => (
                     <li key={index}>{tag}</li>
                   ))}
                 </ul>

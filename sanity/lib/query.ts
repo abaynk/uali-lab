@@ -75,20 +75,30 @@ export async function getAboutPageContent(): Promise<AboutPageContent> {
   );
 }
 
-export async function getWorkPageContent(): Promise<any> {
+export async function getWorkPageContent(): Promise<{
+  headingText: { ru: string; en: string };
+}> {
   return client.fetch(
     groq`*[_type == "workPageContent"][0]{
       _id,
-      headingText,
+      headingText {
+        ru,
+        en
+      },
     }`
   );
 }
 
-export async function getContactsPageContent(): Promise<any> {
+export async function getContactsPageContent(): Promise<{
+  headingText: { ru: string; en: string };
+}> {
   return client.fetch(
     groq`*[_type == "contactsPageContent"][0]{
       _id,
-      headingText,
+      headingText {
+        ru,
+        en
+      },
     }`
   );
 }
@@ -98,15 +108,27 @@ export async function getAllProjects(): Promise<IProject[]> {
     groq`*[_type == "project"]{
       _id,
       "assets": assets[].asset->url,
-      category,
-      contents,
+      category {
+        ru,
+        en
+      },
+      contents {
+        ru,
+        en
+      },
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
-      description,
+      description {
+        ru,
+        en
+      },
       isHomePageProject,
       "nextProjectSlug":nextProject.current,
       "slug":slug.current,
-      title,
+      title {
+        ru,
+        en
+      },
       url,
       _createdAt,
       _updatedAt
@@ -118,16 +140,31 @@ export async function getOneProject(projectSlug: string): Promise<IProject> {
     groq`*[_type == "project" && slug.current == $projectSlug][0]{
       _id,
       "assets": assets[].asset->url,
-      category,
-      contents,
-      "listOfTags": listOfTags[],
+      category {
+        ru,
+        en
+      },
+      contents {
+        ru,
+        en
+      },
+      listOfTags {
+        ru[],
+        en[]
+      },
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
-      description,
+      description {
+        ru,
+        en
+      },
       isHomePageProject,
       "nextProjectSlug":nextProject.current,
       "slug":slug.current,
-      title,
+      title {
+        ru,
+        en
+      },
       url,
       embeddedVideoUrl
     }`,
@@ -140,24 +177,24 @@ export async function getHomePageProjects(): Promise<IProject[]> {
       _id,
       "assets": assets[].asset->url,
       category,
-      contents,
+      contents {
+        ru,
+        en
+      },
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
-      description,
+      description {
+        ru,
+        en
+      },
       isHomePageProject,
       "nextProjectSlug":nextProject.current,
       "slug":slug.current,
-      title,
+      title {
+        ru,
+        en
+      },
       url,
     }`
   );
 }
-
-// export async function getHomePageVideo(): Promise<HomePageVideoType> {
-//   return client.fetch(
-//     groq`*[_type == "homePageVideo"][0]{
-//       _id,
-//       "video":video.asset->url
-//     }`
-//   );
-// }
