@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.scss";
 import { usePathname } from "next/navigation";
-import { useTranslation } from "@/app/(site)/i18n/client";
+import {
+  useGetCurrentLanguage,
+  useTranslation,
+} from "@/app/(site)/i18n/client";
 
-type Props = {
-  lng: string;
-};
+export const Footer = () => {
+  const lng = useGetCurrentLanguage();
 
-export const Footer = ({ lng }: Props) => {
   const { t } = useTranslation(lng, "translations");
 
   const routerPathName = usePathname();
@@ -26,7 +27,7 @@ export const Footer = ({ lng }: Props) => {
     <footer
       className="Footer_footer__GQa1y"
       style={{
-        display: routerPathName === `/${lng}/contact` ? "none" : "block",
+        display: routerPathName === `/contact` ? "none" : "block",
       }}
     >
       <div
@@ -42,7 +43,7 @@ export const Footer = ({ lng }: Props) => {
               width="14"
               height="13"
               fill="none"
-              stroke-width="0.5"
+              strokeWidth="0.5"
               viewBox="0 0 14 13"
               className="Footer_arrow__kw0yI"
             >
@@ -50,7 +51,7 @@ export const Footer = ({ lng }: Props) => {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-                vector-effect="non-scaling-stroke"
+                vectorEffect="non-scaling-stroke"
               ></path>
             </svg>
             <span className="Footer_footer__word-ticker-wrapper__UUW_n">
@@ -184,7 +185,7 @@ export const Footer = ({ lng }: Props) => {
                   fill="currentColor"
                   fillRule="evenodd"
                   d="M7.121.87H5.874v4.123L2.96 2.078l-.882.882 2.92 2.919H.864v1.247h4.133l-2.919 2.919.882.882 2.913-2.913v4.122h1.247V8.004l2.923 2.923.882-.882-2.919-2.919h4.125V5.88H8.009l2.919-2.919-.882-.882-2.925 2.925V.869Z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </li>
@@ -216,7 +217,7 @@ export const Footer = ({ lng }: Props) => {
                   fill="currentColor"
                   fillRule="evenodd"
                   d="M7.121.87H5.874v4.123L2.96 2.078l-.882.882 2.92 2.919H.864v1.247h4.133l-2.919 2.919.882.882 2.913-2.913v4.122h1.247V8.004l2.923 2.923.882-.882-2.919-2.919h4.125V5.88H8.009l2.919-2.919-.882-.882-2.925 2.925V.869Z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </li>

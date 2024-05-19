@@ -15,22 +15,21 @@ import { useEffect, useRef, useState } from "react";
 import {
   getHomePageContent,
   getHomePageProjects,
-} from "../../../../sanity/lib/query";
+} from "../../../sanity/lib/query";
 import IProject, { HomePageContentType } from "@/types";
 import WorkCard from "@/components/WorkCard";
 import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
 import AnimatedCharacters from "@/components/AnimatedText/AnimatedText";
 import AnimatedText from "@/components/AnimatedText/AnimatedText";
 import useSize from "@/hooks/useSize";
-import { useTranslation } from "../i18n/client";
-import { fallbackLng } from "../i18n/settings";
+import { useGetCurrentLanguage, useTranslation } from "./i18n/client";
+import { fallbackLng } from "./i18n/settings";
 
-export default function Home({
-  params: { lng },
-}: {
-  params: { lng: "ru" | "en" };
-}) {
+export default function Home() {
+  const lng = useGetCurrentLanguage() as "ru" | "en";
+
   const { t } = useTranslation(lng, "translations");
+
   const [homePageContent, setHomePageContent] = useState<HomePageContentType>({
     _id: "",
     headingText: {
@@ -322,7 +321,7 @@ const SecondSectionVideo = ({
                     fill="currentColor"
                     fillRule="evenodd"
                     d="m17.334 13-6.5 4.875v-9.75l6.5 4.875ZM2.167 13C2.167 7.02 7.02 2.166 13 2.166S23.834 7.02 23.834 13c0 5.98-4.854 10.833-10.834 10.833C7.02 23.833 2.167 18.98 2.167 13Z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
                 <span>See Showreel</span>
@@ -513,7 +512,7 @@ const FirstSubsectionFourth = ({
             width="14"
             height="13"
             fill="none"
-            stroke-width="0.5"
+            strokeWidth="0.5"
             viewBox="0 0 14 13"
             className=""
             style={
@@ -527,7 +526,7 @@ const FirstSubsectionFourth = ({
               fill="currentColor"
               stroke="currentColor"
               d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             ></path>
           </svg>
         </span>
@@ -601,7 +600,7 @@ const SecondSubsectionFourth = ({
               width="14"
               height="13"
               fill="none"
-              stroke-width="0.5"
+              strokeWidth="0.5"
               viewBox="0 0 14 13"
               className=""
               style={
@@ -615,7 +614,7 @@ const SecondSubsectionFourth = ({
                 fill="currentColor"
                 stroke="currentColor"
                 d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-                vector-effect="non-scaling-stroke"
+                vectorEffect="non-scaling-stroke"
               ></path>
             </svg>
           </span>

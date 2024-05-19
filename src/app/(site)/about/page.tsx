@@ -6,16 +6,15 @@ import SectionThree from "./SectionThree";
 import SectionLast from "./SectionLast";
 import { inView, motion, useScroll } from "framer-motion";
 import AnimatedCharacters from "@/components/AnimatedText";
-import { getAboutPageContent } from "../../../../../sanity/lib/query";
+import { getAboutPageContent } from "../../../../sanity/lib/query";
 import { AboutPageContent } from "@/types";
 import SectionCarousel from "./SectionCarousel";
-import { fallbackLng } from "../../i18n/settings";
+import { fallbackLng } from "../i18n/settings";
+import { useGetCurrentLanguage } from "../i18n/client";
 
-type Props = {
-  params: { lng: "ru" | "en" };
-};
+const About = () => {
+  const lng = useGetCurrentLanguage() as "ru" | "en";
 
-const About = ({ params: { lng } }: Props) => {
   const [aboutPageContent, setAboutPageContent] = useState<AboutPageContent>({
     _id: "",
     headingText: {

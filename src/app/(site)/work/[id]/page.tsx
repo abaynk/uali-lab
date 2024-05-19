@@ -3,15 +3,16 @@
 import IProject from "@/types/ProjectType";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { getOneProject } from "../../../../../../sanity/lib/query";
+import { getOneProject } from "../../../../../sanity/lib/query";
 import Vimeo from "@u-wave/react-vimeo";
-import { useTranslation } from "@/app/(site)/i18n/client";
+import {
+  useGetCurrentLanguage,
+  useTranslation,
+} from "@/app/(site)/i18n/client";
 
-const WorkPage = ({
-  params: { id, lng },
-}: {
-  params: { id: string; lng: "ru" | "en" };
-}) => {
+const WorkPage = ({ params: { id } }: { params: { id: string } }) => {
+  const lng = useGetCurrentLanguage() as "ru" | "en";
+
   const { t } = useTranslation(lng, "translations");
   const [projectData, setProjectData] = useState<IProject>();
   useEffect(() => {
@@ -50,7 +51,7 @@ const WorkPage = ({
                         width="14"
                         height="13"
                         fill="none"
-                        stroke-width="0.5"
+                        strokeWidth="0.5"
                         viewBox="0 0 14 13"
                         className=""
                         style={{ "--width": 14, "--height": 13 } as any}
@@ -59,7 +60,7 @@ const WorkPage = ({
                           fill="currentColor"
                           stroke="currentColor"
                           d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-                          vector-effect="non-scaling-stroke"
+                          vectorEffect="non-scaling-stroke"
                         ></path>
                       </svg>
                     </span>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useTranslation } from "@/app/(site)/i18n/client";
+import { motion } from "framer-motion";
 import { languages } from "@/app/(site)/i18n/settings";
-import { usePathname, useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   lng: string;
@@ -30,11 +29,9 @@ const defaultAnimations = {
 };
 
 const LanguagesDropDown = ({ lng, t }: Props) => {
-  const controls = useAnimation();
+  const { i18n } = useTranslation();
   const [isExpertiseOpen, setIsExpertiseOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const router = useRouter();
-  const routerPathName = usePathname();
 
   return (
     <div className="link-wrap">
@@ -72,7 +69,7 @@ const LanguagesDropDown = ({ lng, t }: Props) => {
                   onClick={() => {
                     setIsExpertiseOpen(true);
                     setIsVisible((prev) => !prev);
-                    router.push(routerPathName.replace(`${lng}`, `${lang}`));
+                    i18n.changeLanguage(lang);
                   }}
                 >
                   {t(`localization.${lang}`)}

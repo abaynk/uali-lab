@@ -135,9 +135,9 @@ export const WorkModal = ({
                   stroke="currentColor"
                   stroke-linecap="square"
                   stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeWidth="2"
                   d="M2.332 15.667 15.665 2.333m0 13.334L2.332 2.333"
-                  vector-effect="non-scaling-stroke"
+                  vectorEffect="non-scaling-stroke"
                 ></path>
               </svg>
             </button>
@@ -169,7 +169,7 @@ export const WorkModal = ({
                                 width="14"
                                 height="13"
                                 fill="none"
-                                stroke-width="0.5"
+                                strokeWidth="0.5"
                                 viewBox="0 0 14 13"
                                 className=""
                                 style={{ "--width": 14, "--height": 13 } as any}
@@ -178,7 +178,7 @@ export const WorkModal = ({
                                   fill="currentColor"
                                   stroke="currentColor"
                                   d="M1 5.816H.75v1.326h10.014l-4.008 3.907-.173.168.162.179.563.62.174.191.186-.18 5.506-5.37.184-.178-.184-.18L7.668.932l-.186-.18-.174.191-.563.62-.162.178.173.169 4.008 3.907H1Z"
-                                  vector-effect="non-scaling-stroke"
+                                  vectorEffect="non-scaling-stroke"
                                 ></path>
                               </svg>
                             </span>

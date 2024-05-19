@@ -3,17 +3,14 @@
 import { WorkModal } from "@/components/WorkModal";
 import IProject from "@/types/ProjectType";
 import React, { useEffect, useState } from "react";
-import { getOneProject } from "../../../../../../../sanity/lib/query";
+import { getOneProject } from "../../../../../../sanity/lib/query";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useGetCurrentLanguage } from "@/app/(site)/i18n/client";
 
-type Props = {};
+const ProjectPage = ({ params: { id } }: { params: { id: string } }) => {
+  const lng = useGetCurrentLanguage() as "ru" | "en";
 
-const ProjectPage = ({
-  params: { id, lng },
-}: {
-  params: { id: string; lng: "ru" | "en" };
-}) => {
   const [projectData, setProjectData] = useState<IProject>();
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();

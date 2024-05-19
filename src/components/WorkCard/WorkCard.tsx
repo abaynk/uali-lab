@@ -38,7 +38,7 @@ const WorkCard = ({ isPortrait = false, project, lng = "ru" }: Props) => {
             ? "WorkCard_work-card--portrait__WHYgm"
             : "WorkCard_work-card--landscape__cw0_a"
         }`}
-        href={`/${lng}/work/${project?.slug}`}
+        href={`/work/${project?.slug}`}
         scroll={false}
         prefetch={true}
       >

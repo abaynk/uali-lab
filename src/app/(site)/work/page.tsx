@@ -1,23 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useEffect, useState } from "react";
 import IProject from "@/types";
 import {
   getAllProjects,
   getWorkPageContent,
-} from "../../../../../sanity/lib/query";
-import Link from "next/link";
-import Parallax from "@/components/Parallax";
+} from "../../../../sanity/lib/query";
 import WorkCard from "@/components/WorkCard";
 import { WorkGrid, WorkGridRow } from "@/components/WorkGrid";
 import AnimatedCharacters from "@/components/AnimatedText";
-import AnimatedText2 from "@/components/AnimatedText2";
+import { useGetCurrentLanguage } from "../i18n/client";
 
-export default function Work({
-  params: { lng },
-}: {
-  params: { lng: "ru" | "en" };
-}) {
+export default function Work() {
+  const lng = useGetCurrentLanguage() as "ru" | "en";
+
   const [projects, setPorjects] = useState<IProject[]>([]);
   const [headingText, setHeadingText] = useState("");
   const textMap = headingText?.split(" ");
