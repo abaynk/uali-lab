@@ -1,4 +1,6 @@
 {
+  "forSociety": "For society - from ",
+  "upNext": "Up next",
   "navbar": {
     "home": "Home",
     "about": "About",
@@ -11,7 +13,7 @@
       "animation": "Animation",
       "graphicDesign": "Graphics Design",
       "illustrations": "Illustrations",
-      "shooting": "Shooting",
+      "shooting": "Filmmaking",
       "fields": "Fields",
       "commercial": "Commercial",
       "artSoc": "Art & Social",

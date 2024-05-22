@@ -3,7 +3,10 @@
 import IProject from "@/types/ProjectType";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { getOneProject } from "../../../../../sanity/lib/query";
+import {
+  getNextProjectInfo,
+  getOneProject,
+} from "../../../../../sanity/lib/query";
 import Vimeo from "@u-wave/react-vimeo";
 import {
   useGetCurrentLanguage,
@@ -15,6 +18,21 @@ const WorkPage = ({ params: { id } }: { params: { id: string } }) => {
 
   const { t } = useTranslation(lng, "translations");
   const [projectData, setProjectData] = useState<IProject>();
+  const [nexProjectData, setNextProjectData] = useState<IProject | undefined>();
+
+  useEffect(() => {
+    const fetchNextProject = async () => {
+      if (projectData?.nextProjectSlug) {
+        const nextProject = await getNextProjectInfo(
+          projectData?.nextProjectSlug
+        );
+        console.log({ nextProject });
+        setNextProjectData(nextProject);
+      }
+    };
+    !!projectData && fetchNextProject();
+  }, [projectData]);
+
   useEffect(() => {
     const fetchProjectData = async (id: string) => {
       const data = await getOneProject(id);
@@ -146,100 +164,58 @@ const WorkPage = ({ params: { id } }: { params: { id: string } }) => {
             })}
           </div>
         </div>
-        {/* <footer className="ProjectContents_project-footer__6CKKh">
-          <h2 className="ProjectContents_project-footer__heading__PW9rG">
-            Up Next
-          </h2>
-          <div
-            className="WorkCard_work-card-wrapper__7mGrZ ProjectContents_project-footer__card__7Ei_t"
-            style={
-              {
-                "--aspect-x": 1452,
-                "--aspect-y": 890,
-                opacity: 1,
-                transform: "translateY(0px);",
-              } as any
-            }
-          >
-            <Link
-              className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a ProjectContents_project-footer__card__7Ei_t"
-              href={`/work/${projectData?.nextProjectSlug}`}
+        {nexProjectData && (
+          <footer className="ProjectContents_project-footer__6CKKh">
+            <h2 className="ProjectContents_project-footer__heading__PW9rG">
+              {t("upNext")}
+            </h2>
+            <div
+              className="WorkCard_work-card-wrapper__7mGrZ ProjectContents_project-footer__card__7Ei_t"
+              style={
+                {
+                  "--aspect-x": 1452,
+                  "--aspect-y": 890,
+                  opacity: 1,
+                  transform: "translateY(0px);",
+                } as any
+              }
             >
-              <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
-                <div
-                  className="WorkCard_work-card__thumbnail-outer__kJvp9"
-                  style={{
-                    transform: "translateY(-50.5809%) translateZ(0px);",
-                  }}
-                >
-                  <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/450x330/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/900x660/filters:quality(80) 2x"
-                      media="(min-width: 0px) and (max-width: 479px)"
-                    />
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/932x685/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/1864x1370/filters:quality(80) 2x"
-                      media="(min-width: 480px) and (max-width: 991px)"
-                    />
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/1452x1068/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/2904x2136/filters:quality(80) 2x"
-                      media="(min-width: 992px) and (max-width: 1512px)"
-                    />
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/1905x1402/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/3810x2804/filters:quality(80) 2x"
-                      media="(min-width: 1513px)"
-                    />
-                    <img
-                      src="https://a-us.storyblok.com/f/1017006/3810x2805/86f5c4a955/outer-1.jpg/m/450x330/filters:quality(80)"
-                      loading="lazy"
-                      width="450"
-                      height="330"
-                      alt=""
-                      className=""
-                      draggable="false"
-                    />
-                  </picture>
+              <Link
+                className="WorkCard_work-card__Z7y63 WorkCard_work-card--landscape__cw0_a ProjectContents_project-footer__card__7Ei_t"
+                href={`/work/${nexProjectData?.slug}`}
+              >
+                <div className="WorkCard_work-card__thumbnail-wrapper__DZTs2">
+                  <div
+                    className="WorkCard_work-card__thumbnail-outer__kJvp9"
+                    style={{
+                      transform: "translateY(-50.5809%) translateZ(0px);",
+                    }}
+                  >
+                    <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
+                      <img
+                        src={nexProjectData?.coverImage}
+                        loading="lazy"
+                        width="450"
+                        height="330"
+                        alt=""
+                        className=""
+                        draggable="false"
+                      />
+                    </picture>
+                  </div>
                 </div>
-                <div className="WorkCard_work-card__thumbnail-inner__YScRN">
-                  <picture className="Picture_picture__X3Eos WorkCard_work-card__picture__CqjRI">
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/312x178/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/624x356/filters:quality(80) 2x"
-                      media="(min-width: 0px) and (max-width: 479px)"
-                    />
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/647x370/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/1294x740/filters:quality(80) 2x"
-                      media="(min-width: 480px) and (max-width: 991px)"
-                    />
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/1008x576/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/2016x1152/filters:quality(80) 2x"
-                      media="(min-width: 992px) and (max-width: 1512px)"
-                    />
-                    <source
-                      srcSet="https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/1322x755/filters:quality(80) 1x, https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/2644x1510/filters:quality(80) 2x"
-                      media="(min-width: 1513px)"
-                    />
-                    <img
-                      src="https://a-us.storyblok.com/f/1017006/2644x1510/aa9e64c09c/inner-1.jpg/m/312x178/filters:quality(80)"
-                      loading="lazy"
-                      width="312"
-                      height="178"
-                      alt=""
-                      className=""
-                      draggable="false"
-                    />
-                  </picture>
+                <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
+                  <div className="WorkCard_work-card__content-inner__8Mqvf">
+                    <h3 className="WorkCard_work-card__title__vsvFl">
+                      {nexProjectData?.title?.[lng] ??
+                        nexProjectData?.title?.ru}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-              <div className="WorkCard_work-card__content__Br9N4 WorkCard_work-card__content--white__ISlcm">
-                <div className="WorkCard_work-card__content-inner__8Mqvf">
-                  <h3 className="WorkCard_work-card__title__vsvFl">
-                    Fremantle Arts Centre
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </footer> */}
+              </Link>
+            </div>
+          </footer>
+        )}
       </div>
     </main>
   );

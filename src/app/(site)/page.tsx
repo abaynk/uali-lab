@@ -467,7 +467,7 @@ const FourthSectionWork = ({
     <div className="page_homepage__section__S9KCY">
       <FirstSubsectionFourth projects={projects} t={t} lng={lng} />
       <SecondSubsectionFourth bottomContent={bottomContent} t={t} lng={lng} />
-      <ThirdSubsectionFourth />
+      <ThirdSubsectionFourth t={t} />
     </div>
   );
 };
@@ -699,7 +699,7 @@ const SecondSubsectionFourth = ({
   );
 };
 
-const ThirdSubsectionFourth = () => {
+const ThirdSubsectionFourth = ({ t }: { t: any }) => {
   const windowSize = useSize();
 
   const items = [
@@ -803,7 +803,7 @@ const ThirdSubsectionFourth = () => {
             className="FeedSlider_feed__heading__Fcfyk"
             style={{ opacity: 1, transform: "translateY(0px)" }}
           >
-            Сообществу - от ualilab
+            {t("forSociety")}ualilab
           </h2>
           <div
             onPointerDown={(e) => {

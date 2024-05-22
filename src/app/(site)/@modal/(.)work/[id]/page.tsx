@@ -5,7 +5,7 @@ import IProject from "@/types/ProjectType";
 import React, { useEffect, useState } from "react";
 import { getOneProject } from "../../../../../../sanity/lib/query";
 import { AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useGetCurrentLanguage } from "@/app/(site)/i18n/client";
 
 const ProjectPage = ({ params: { id } }: { params: { id: string } }) => {
@@ -14,6 +14,7 @@ const ProjectPage = ({ params: { id } }: { params: { id: string } }) => {
   const [projectData, setProjectData] = useState<IProject>();
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
+  const asPath = usePathname();
   useEffect(() => {
     setModalOpen(true);
     const fetchProjectData = async (id: string) => {
@@ -27,12 +28,18 @@ const ProjectPage = ({ params: { id } }: { params: { id: string } }) => {
     <AnimatePresence
       initial={false}
       mode={"wait"}
-      onExitComplete={() => router.back()}
+      onExitComplete={() => {
+        router.back();
+        router.forward();
+      }}
     >
       {modalOpen && (
         <WorkModal
           projectData={projectData}
-          handleClose={() => setModalOpen(false)}
+          handleClose={() => {
+            setModalOpen(false);
+            router.replace(asPath.replace(`/${projectData?.slug}`, ""));
+          }}
           lng={lng}
         />
       )}

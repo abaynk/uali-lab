@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
-import { dir } from "i18next";
 import { languages } from "./i18n/settings";
+import dynamic from "next/dynamic";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Ualilab",
@@ -26,7 +26,12 @@ export default async function RootLayout({
   };
 }>) {
   return (
-    <html lang={lng} dir="ltr" className="lenis lenis-smooth">
+    <html
+      lang={lng}
+      dir="ltr"
+      className="lenis lenis-smooth"
+      suppressHydrationWarning={true}
+    >
       <head>
         <link rel="shortcut icon" href="/assets/images/ualifavicon.svg" />
       </head>

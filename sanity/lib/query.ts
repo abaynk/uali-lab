@@ -107,31 +107,14 @@ export async function getAllProjects(): Promise<IProject[]> {
   return client.fetch(
     groq`*[_type == "project"]{
       _id,
-      "assets": assets[].asset->url,
-      category {
-        ru,
-        en
-      },
-      contents {
-        ru,
-        en
-      },
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
-      description {
-        ru,
-        en
-      },
-      isHomePageProject,
-      "nextProjectSlug":nextProject.current,
       "slug":slug.current,
       title {
         ru,
         en
       },
-      url,
-      _createdAt,
-      _updatedAt
+      _createdAt
     }| order(_createdAt asc)`
   );
 }
@@ -175,26 +158,31 @@ export async function getHomePageProjects(): Promise<IProject[]> {
   return client.fetch(
     groq`*[_type == "project" && isHomePageProject == true][0...5] | order(_createdAt asc){
       _id,
-      "assets": assets[].asset->url,
-      category,
-      contents {
-        ru,
-        en
-      },
       "coverImage":coverImage.asset->url,
       "coverImagePortrait":coverImagePortrait.asset->url,
-      description {
-        ru,
-        en
-      },
-      isHomePageProject,
-      "nextProjectSlug":nextProject.current,
       "slug":slug.current,
       title {
         ru,
         en
       },
-      url,
     }`
+  );
+}
+
+export async function getNextProjectInfo(
+  projectSlug: string
+): Promise<IProject> {
+  return client.fetch(
+    groq`*[_type == "project" && slug.current == $projectSlug][0]{
+      _id,
+      "coverImage":coverImage.asset->url,
+      "coverImagePortrait":coverImagePortrait.asset->url,
+      "slug":slug.current,
+      title {
+        ru,
+        en
+      },
+    }`,
+    { projectSlug }
   );
 }

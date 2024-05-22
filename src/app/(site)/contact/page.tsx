@@ -160,13 +160,13 @@ const Contact = () => {
       >
         <div className="FooterSimpleContents_footer-columns__lcGTG footer-columns">
           <div className="FooterSimpleContents_footer-columns__column__28cg0">
-            <h3>Связаться с нами</h3>
+            <h3>{t("footer.contactUs")}</h3>
             <a href="tel:+77024020720">+7 702 40 20 7 20</a>
             <a href="mailto:hello@ualilab.com">hello@ualilab.com</a>
           </div>
           <div className="FooterSimpleContents_footer-columns__column__28cg0 FooterSimpleContents_footer-columns__column--address__Rjvwg">
-            <h3>Алматы, Казахстан</h3>
-            <address>Абая 52В, 050000</address>
+            <h3>{t("footer.address.city")}</h3>
+            <address>{t("footer.address.street")}</address>
           </div>
         </div>
         <div className="FooterSimpleContents_footer-bottom__NmXB_ footer-bottom">
