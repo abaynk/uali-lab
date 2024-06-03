@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
+    "@sanity/orderable-document-list": "^1.2.1",
     "@sanity/vision": "^3.30.0",
     "@studio-freight/hamo": "^0.6.28",
     "@studio-freight/react-lenis": "^0.0.45",

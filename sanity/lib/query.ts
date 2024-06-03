@@ -114,8 +114,9 @@ export async function getAllProjects(): Promise<IProject[]> {
         ru,
         en
       },
-      _createdAt
-    }| order(_createdAt asc)`
+      _createdAt,
+      orderRank
+    }| order(orderRank)`
   );
 }
 export async function getOneProject(projectSlug: string): Promise<IProject> {

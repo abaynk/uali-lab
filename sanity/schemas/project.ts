@@ -1,10 +1,14 @@
 import { defineField } from "sanity";
-
+import {
+  orderRankOrdering,
+  orderRankField,
+} from "@sanity/orderable-document-list";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   name: "project",
   type: "document",
   title: "Project",
+  orderings: [orderRankOrdering],
   preview: {
     select: {
       title: "title.ru",
@@ -18,6 +22,7 @@ export default {
     },
   },
   fields: [
+    orderRankField({ type: "category" }),
     defineField({
       name: "title",
       title: "Title",
