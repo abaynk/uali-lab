@@ -280,7 +280,9 @@
   border-radius: 6.25rem;
   text-decoration: none;
   white-space: pre;
-  transition: color 0.15s, background 0.15s;
+  transition:
+    color 0.15s,
+    background 0.15s;
   cursor: pointer;
   position: relative;
 }
@@ -365,7 +367,9 @@
   white-space: nowrap;
   box-sizing: content-box;
   cursor: pointer;
-  transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background 0.15s ease-in-out;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   position: -webkit-sticky;
@@ -614,7 +618,8 @@
   text-decoration-color: transparent;
   transition: -webkit-text-decoration 0.2s ease-in-out;
   transition: text-decoration 0.2s ease-in-out;
-  transition: text-decoration 0.2s ease-in-out,
+  transition:
+    text-decoration 0.2s ease-in-out,
     -webkit-text-decoration 0.2s ease-in-out;
 }
 
@@ -923,7 +928,9 @@
 .Footer_footer__heading__8h65q .Footer_arrow__kw0yI {
   width: auto;
   color: var(--theme-primary);
-  transition: color 0.4s, transform 0.15s;
+  transition:
+    color 0.4s,
+    transform 0.15s;
   height: 0.65em;
   transform: translateY(10%);
   stroke-width: 1;
@@ -1117,7 +1124,10 @@
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 10px;
-  transition: background 0.15s, color 0.15s, padding 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    padding 0.15s;
   text-decoration: none;
   color: var(--theme-secondary);
   font-weight: 500;
@@ -1588,7 +1598,9 @@
   justify-self: stretch;
   background-color: var(--theme-secondary);
   border-radius: 100vh;
-  transition: background-color 0.15s ease, opacity 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.15s ease;
   z-index: 1;
   min-width: 3em;
 }
@@ -2644,7 +2656,7 @@ body.overflow-hidden {
   grid-area: stats;
   display: grid;
   margin-top: clamp(3.125rem, 3.3068783069vw, 4.15625rem);
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .HomepageLogos_homepage-logos__76775 {
@@ -3146,9 +3158,15 @@ body.overflow-hidden {
   transition: color 0.15s ease-in-out;
   text-decoration: underline;
   transition: 0.15s ease-in-out;
-  transition-property: color, background, -webkit-text-decoration-color;
+  transition-property:
+    color,
+    background,
+    -webkit-text-decoration-color;
   transition-property: color, text-decoration-color, background;
-  transition-property: color, text-decoration-color, background,
+  transition-property:
+    color,
+    text-decoration-color,
+    background,
     -webkit-text-decoration-color;
   margin: 0 -0.8em;
 }
@@ -6260,4 +6278,9 @@ button > .ContactFormModal_contact-button__Sgql1 svg {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.image-stats img {
+  aspect-ratio: 6/7;
+  object-fit: cover;
 }
