@@ -33,7 +33,7 @@ export default async function RootLayout({
       suppressHydrationWarning={true}
     >
       <head>
-        <link rel="shortcut icon" href="/assets/images/ualifavicon.svg" />
+        <link rel="shortcut icon" href="/assets/images/new_logo.svg" />
       </head>
       <body className={`__className_254d6c __variable_254d6c`}>
         <SmoothScrolling>

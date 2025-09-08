@@ -2573,7 +2573,7 @@ body.overflow-hidden {
 @media (min-width: 992px) {
   .page_homepage-bottom__heading___55Sm {
     font-size: calc(2 / 3 * clamp(8.125rem, 8.5978835979vw, 10.80625rem));
-    line-height: 0.75;
+    line-height: 0.85;
   }
 }
 

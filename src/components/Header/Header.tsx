@@ -29,12 +29,12 @@ export const Header = () => {
           <Image
             src={
               pathname === "contact" || pathname === "about"
-                ? "/assets/images/white_logo.png"
-                : "/assets/images/black_logo.png"
+                ? "/assets/images/new_logo_white.svg"
+                : "/assets/images/new_logo.svg"
             }
             alt="Uali-lab"
-            width={60}
-            height={30}
+            width={99.6}
+            height={25.65}
           />
         </a>
 

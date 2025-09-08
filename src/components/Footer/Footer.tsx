@@ -154,7 +154,7 @@ export const Footer = () => {
         <div className="FooterSimpleContents_footer-bottom__NmXB_ footer-bottom">
           <div className="FooterSimpleContents_footer-legal__o__61">
             <span>ualilab</span>
-            <span>© 2024</span>
+            <span>© 2025</span>
           </div>
           <ul className="FooterSimpleContents_footer-socials__7wzOx">
             <li className="FooterSimpleContents_footer-socials__item__9hVW0">
